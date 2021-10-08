@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"            
+             xmlns:viewmodels="clr-namespace:RealmTry.ViewModels" 
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
+             x:DataType="viewmodels:MainPageViewModel"
+             x:Class="RealmTry.Views.MainPage"
+             
+             >
+    <ContentPage.Content Title="World Map">
+        <AbsoluteLayout>
+            <maps:Map AbsoluteLayout.LayoutBounds="0,0,410,760" 
+                      x:Name="map" IsShowingUser="True"
+                      MapClicked="map_MapClicked"
+                      >
+                <x:Arguments >
+                    <maps:MapSpan>
+                        <x:Arguments>
+                            <maps:Position>
+                                <x:Arguments>
+                                    <x:Double>50.061612</x:Double>
+                                    <x:Double>19.937651</x:Double>
+                                </x:Arguments>
+                            </maps:Position>
+                            <x:Double>0.01</x:Double>
+                            <x:Double>0.01</x:Double>
+                        </x:Arguments>
+                    </maps:MapSpan>
+                </x:Arguments>
+            </maps:Map>
+            <ImageButton x:Name="FinalizeEventButton"
+                         Source="smth_butt.png"
+                         BackgroundColor="Transparent"
+                         AbsoluteLayout.LayoutFlags="PositionProportional"  
+                         AbsoluteLayout.LayoutBounds=".50,.95,80,80" 
+                         Clicked="ImageButton_Clicked">
+            </ImageButton>
+            <ImageButton x:Name="RefreshButton"
+                         Source="icon_feed.png"
+                         BackgroundColor="Transparent"
+                         AbsoluteLayout.LayoutFlags="PositionProportional"  
+                         AbsoluteLayout.LayoutBounds=".80,.0,80,80" 
+                         Clicked="RefreshButton_Clicked">
+            </ImageButton>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

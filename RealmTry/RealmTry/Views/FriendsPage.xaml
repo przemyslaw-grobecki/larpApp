@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodels="clr-namespace:RealmTry.ViewModels" 
+             x:DataType="viewmodels:FriendsViewModel"
+             x:Class="RealmTry.Views.FriendsPage">
+
+    <TabbedPage.BindingContext>
+        <viewmodels:FriendsViewModel/>
+    </TabbedPage.BindingContext>
+
+    <ContentPage Title="Friend List">
+        <AbsoluteLayout>
+            <ListView IsPullToRefreshEnabled="True"
+                      ItemsSource="{Binding Friends}"
+                      RefreshCommand="{Binding RefreshFriendsCommand}"
+                      IsRefreshing="{Binding IsRefreshing}"
+                      >
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="viewmodels:ItemFriendViewModel">
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding UserId}"
+                                       TextColor="Black"/>
+                                <Label Text="{Binding CharacterName}"
+                                       TextColor="Black"/>
+                                <Label Text="{Binding CharacterSurname}"
+                                       TextColor="Black"/>
+                                <Label Text="{Binding CharacterProffesion}"
+                                       TextColor="Black"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </AbsoluteLayout>
+    </ContentPage>
+
+    <ContentPage Title="Waiting for acceptation">
+        <AbsoluteLayout>
+            <StackLayout Orientation="Horizontal" BackgroundColor="AliceBlue">
+                <Label Text="Id" TextColor="Black"/>
+                <Label Text="Name/Surname" TextColor="Black"/>
+                <Label Text="Proffesion" TextColor="Black"/>
+                <Label Text="Portrait" TextColor="Black"/>
+                <Label Text="Decline/Accept" TextColor="Black"/>
+            </StackLayout>
+            <ListView IsPullToRefreshEnabled="True"
+                      ItemsSource="{Binding Pendings}"
+                      RefreshCommand="{Binding RefreshPendingsCommand}"
+                      IsRefreshing="{Binding IsRefreshing}"
+                      x:Name="Pendings"
+                      HasUnevenRows="True"
+                      AbsoluteLayout.LayoutBounds="0, 20">
+            <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid x:Name="Item">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="60"/>
+                                    <ColumnDefinition Width="60"/>
+                                    <ColumnDefinition Width="60"/>
+                                    <ColumnDefinition Width="80*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="102"/>
+                                </Grid.RowDefinitions>
+                                <Label x:DataType="viewmodels:ItemFriendPendingViewModel"
+                                       Grid.Column="0" 
+                                       Text="{Binding Id}"
+                                       TextColor="Black"/>
+                                <StackLayout Grid.Column="1"
+                                             Orientation="Vertical"
+                                             x:DataType="viewmodels:ItemFriendPendingViewModel">
+                                    <Label Text="{Binding CharacterName}"
+                                            TextColor="Black"/>
+                                    <Label Text="{Binding CharacterSurname}"
+                                           TextColor="Gray"/>
+                                </StackLayout>
+                                <Label x:DataType="viewmodels:ItemFriendPendingViewModel"
+                                       Text="{Binding CharacterProffesion}"
+                                       TextColor="Red"
+                                       Grid.Column="2"
+                                       Rotation="50"/>
+                                <StackLayout Grid.Column="3"
+                                             Orientation="Vertical"
+                                             HorizontalOptions="End">
+                                    <Button x:DataType="viewmodels:FriendsViewModel"
+                                            Text="Decline" 
+                                            TextColor="White"
+                                            BindingContext="{Binding Source={x:Reference Pendings}, Path=BindingContext}"
+                                            Command="{Binding DeclineRequestButtonCommand}"
+                                            CommandParameter="{Binding Source={x:Reference Item}, Path=BindingContext}"
+                                            BackgroundColor="Red"/>
+                                    <Button x:DataType="viewmodels:FriendsViewModel"
+                                            BindingContext="{Binding Source={x:Reference Pendings}, Path=BindingContext}"
+                                            Text="Accept" 
+                                            TextColor="White"                                        
+                                            Command="{Binding AcceptRequestButtonCommand}"
+                                            CommandParameter="{Binding Source={x:Reference Item}, Path=BindingContext}"
+                                            BackgroundColor="Blue"/>
+                                </StackLayout>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </AbsoluteLayout>
+    </ContentPage>
+
+    <ContentPage Title="Add friend requests">
+        <AbsoluteLayout>
+            <ListView IsPullToRefreshEnabled="True"
+                      ItemsSource="{Binding Requests}"
+                      RefreshCommand="{Binding RefreshRequestsCommand}"
+                      IsRefreshing="{Binding IsRefreshing}"
+                      >
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="viewmodels:ItemFriendRequestViewModel">
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Id}"
+                                       TextColor="Black"/>
+                                <Label Text="{Binding Status}"
+                                       TextColor="Black"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ImageButton Source="smth_butt.png"
+                         BackgroundColor="Transparent"
+                         AbsoluteLayout.LayoutFlags="PositionProportional"  
+                         AbsoluteLayout.LayoutBounds=".50,.95,80,80" 
+                         Command="{Binding AddFriendsButtonClicked}">
+            </ImageButton>
+        </AbsoluteLayout>
+    </ContentPage>
+</TabbedPage>

@@ -1,0 +1,54 @@
+{
+  "version": 2,
+  "dgSpecHash": "c1d4y6JarMAEGP4UI2hLrLuKZKS+euP8HtRcORBEus6pFnlzCpB3hC5i7OBOsvjOGjeMQoNW+ks7zvnwxHpYEQ==",
+  "success": true,
+  "projectFilePath": "D:\\Thesis\\LarpApp\\playground\\RealmTry\\RealmTry\\RealmTry.iOS\\RealmTry.iOS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\pgtar\\.nuget\\packages\\fody\\6.5.2\\fody.6.5.2.nupkg.sha512",
+    "C:\\Users\\pgtar\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\pgtar\\.nuget\\packages\\mongodb.bson\\2.11.3\\mongodb.bson.2.11.3.nupkg.sha512",
+    "C:\\Users\\pgtar\\.nuget\\packages\\realm\\10.3.0\\realm.10.3.0.nupkg.sha512",
+    "C:\\Users\\pgtar\\.nuget\\packages\\realm.fody\\10.3.0\\realm.fody.10.3.0.nupkg.sha512",
+    "C:\\Users\\pgtar\\.nuget\\packages\\remotion.linq\\2.2.0\\remotion.linq.2.2.0.nupkg.sha512",
+    "C:\\Users\\pgtar\\.nuget\\packages\\system.buffers\\4.4.0\\system.buffers.4.4.0.nupkg.sha512",
+    "C:\\Users\\pgtar\\.nuget\\packages\\system.codedom\\4.5.0\\system.codedom.4.5.0.nupkg.sha512",
+    "C:\\Users\\pgtar\\.nuget\\packages\\system.dynamic.runtime\\4.3.0\\system.dynamic.runtime.4.3.0.nupkg.sha512",
+    "C:\\Users\\pgtar\\.nuget\\packages\\system.management\\4.5.0\\system.management.4.5.0.nupkg.sha512",
+    "C:\\Users\\pgtar\\.nuget\\packages\\system.numerics.vectors\\4.5.0\\system.numerics.vectors.4.5.0.nupkg.sha512",
+    "C:\\Users\\pgtar\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\4.5.3\\system.runtime.compilerservices.unsafe.4.5.3.nupkg.sha512",
+    "C:\\Users\\pgtar\\.nuget\\packages\\xamarin.communitytoolkit\\1.2.0\\xamarin.communitytoolkit.1.2.0.nupkg.sha512",
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.essentials\\1.6.1\\xamarin.essentials.1.6.1.nupkg.sha512",
+    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\xamarin.forms\\5.0.0.2012\\xamarin.forms.5.0.0.2012.nupkg.sha512",
+    "C:\\Users\\pgtar\\.nuget\\packages\\xamarin.forms.maps\\5.0.0.2083\\xamarin.forms.maps.5.0.0.2083.nupkg.sha512",
+    "C:\\Users\\pgtar\\.nuget\\packages\\zxing.net.mobile\\2.4.1\\zxing.net.mobile.2.4.1.nupkg.sha512",
+    "C:\\Users\\pgtar\\.nuget\\packages\\zxing.net.mobile.forms\\2.4.1\\zxing.net.mobile.forms.2.4.1.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package downgrade: Xamarin.Essentials from 1.7.0 to 1.6.1. Reference the package directly from the project to select a different version. \r\n RealmTry.iOS -> RealmTry -> Xamarin.Essentials (>= 1.7.0) \r\n RealmTry.iOS -> Xamarin.Essentials (>= 1.6.1)",
+      "libraryId": "Xamarin.Essentials",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    },
+    {
+      "code": "NU1605",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Detected package downgrade: Xamarin.Forms from 5.0.0.2083 to 5.0.0.2012. Reference the package directly from the project to select a different version. \r\n RealmTry.iOS -> RealmTry -> Xamarin.Forms (>= 5.0.0.2083) \r\n RealmTry.iOS -> Xamarin.Forms (>= 5.0.0.2012)",
+      "libraryId": "Xamarin.Forms",
+      "targetGraphs": [
+        "Xamarin.iOS,Version=v1.0",
+        "Xamarin.iOS,Version=v1.0/win",
+        "Xamarin.iOS,Version=v1.0/win-x64",
+        "Xamarin.iOS,Version=v1.0/win-x86"
+      ]
+    }
+  ]
+}

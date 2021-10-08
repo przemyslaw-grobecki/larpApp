@@ -1,0 +1,17 @@
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry\bin\Release\netstandard2.0\RealmTry.deps.json
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry\bin\Release\netstandard2.0\RealmTry.dll
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry\bin\Release\netstandard2.0\ref\RealmTry.dll
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry\bin\Release\netstandard2.0\RealmTry.pdb
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry\obj\Release\netstandard2.0\RealmTry.csproj.AssemblyReference.cache
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry\obj\Release\netstandard2.0\App.xaml.g.cs
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry\obj\Release\netstandard2.0\AppShell.xaml.g.cs
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry\obj\Release\netstandard2.0\Views\AboutPage.xaml.g.cs
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry\obj\Release\netstandard2.0\Views\LoginPage.xaml.g.cs
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry\obj\Release\netstandard2.0\RealmTry.AssemblyInfoInputs.cache
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry\obj\Release\netstandard2.0\RealmTry.AssemblyInfo.cs
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry\obj\Release\netstandard2.0\RealmTry.csproj.CoreCompileInputs.cache
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry\obj\Release\netstandard2.0\RealmTry.csproj.Fody.CopyLocal.cache
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry\obj\Release\netstandard2.0\XamlC.stamp
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry\obj\Release\netstandard2.0\RealmTry.dll
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry\obj\Release\netstandard2.0\ref\RealmTry.dll
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry\obj\Release\netstandard2.0\RealmTry.pdb
