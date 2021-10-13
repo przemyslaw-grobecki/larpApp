@@ -732,11 +732,6 @@ D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\lp
 D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\lp\105\jl\files.cache
 D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\lp\108\jl\files.cache
 D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\android\assets\Xamarin.CommunityToolkit.dll
-D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\androidx\jl\666b0cf2-00c6-41c4-aee8-8e94574f3542.jar
-D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\androidx\proguard\2cb5e7c4-d93b-4294-ba3a-028d4d909dee.txt
-D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\androidx\proguard\43849f4c-472a-48a3-a79f-ac356eac6cc4.txt
-D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\androidx\proguard\50969415-641e-4f2a-b10f-c6633c71c655.txt
-D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\androidx\proguard\705e1d3f-4c20-4cd5-af0f-0438c523e36d.cfg
 D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\android\src\crc642e1c7a98bdb5c44a\AutoFitTextureView.java
 D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\android\src\crc642e1c7a98bdb5c44a\CameraCaptureListener.java
 D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\android\src\crc642e1c7a98bdb5c44a\CameraCaptureStateListener.java
@@ -757,3 +752,9 @@ D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\an
 D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\android\src\crc64515ee83f00766c60\VisualFeedbackEffectRouter_FastRendererOnLayoutChangeListener.java
 D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\android\src\crc645b8ccbad6ecd7dce\SideMenuViewRenderer.java
 D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\res\drawable\background_chat.jpg
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\androidx\jl\f0d0e4ee-9551-409e-b91f-dc6dbf11b226.jar
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\androidx\proguard\270e48b8-e857-440e-8878-5d3895e0a822.txt
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\androidx\proguard\7e2032a6-c011-490b-8162-429f4d9e904e.cfg
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\androidx\proguard\95f50148-1c1b-48d8-a3a6-e99f31d3cb64.txt
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\androidx\proguard\ce39e6c3-9eb6-413b-af99-405a9c547967.txt
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\res\drawable\fajka_accept.png

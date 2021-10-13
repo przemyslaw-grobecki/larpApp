@@ -5,6 +5,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Realms;
 using Realms.Sync;
+using System.Threading.Tasks;
 
 namespace RealmTry
 {
@@ -28,15 +29,31 @@ namespace RealmTry
                 Console.WriteLine(e.ToString());
                 throw;
             }
+
+            Task t = Task.Run(() => {
+                while (true)
+                {
+                    Task.Delay(5000).Wait();
+                    Console.WriteLine("Task ended delay...");
+                }
+            });
         }
 
         protected override void OnSleep()
         {
+
         }
 
         protected async override void OnResume()
         {
             await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
+            Task t = Task.Run(() => {
+                while (true)
+                {
+                    Task.Delay(5000).Wait();
+                    Console.WriteLine("Task ended delay...");
+                }
+            });
         }
     }
 }

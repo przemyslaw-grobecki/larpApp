@@ -9,6 +9,7 @@ namespace RealmTry.ViewModels
         public string ParticipantId { get; set; }
         public string ParticipantCharacterName { get; set; }
         public string ParticipantCharacterSurname { get; set; }
-        public string ParticipantPortrait { get; set; }
+        public string ParticipantPortraitUrl { get; set; }
+        public bool IsParticipantReady { get; set; }
     }
 }

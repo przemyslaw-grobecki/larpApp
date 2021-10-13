@@ -21,5 +21,10 @@ namespace RealmTry.Views
         {
             InitializeComponent();
         }
+
+        private void messagesList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+
+        }
     }
 }
