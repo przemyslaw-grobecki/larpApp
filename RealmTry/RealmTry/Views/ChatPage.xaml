@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodels="clr-namespace:RealmTry.ViewModels" 
+             x:DataType="viewmodels:ChatViewModel"
+             x:Class="RealmTry.Views.ChatPage">
+
+    <ContentPage.BindingContext>
+        <viewmodels:ChatViewModel/>
+    </ContentPage.BindingContext>
+
+    <AbsoluteLayout VerticalOptions="FillAndExpand">
+        <ListView   ItemsSource="{Binding Chats}"  
+                    RefreshCommand="{Binding RefreshChatsCommand}"
+                    IsRefreshing="{Binding IsRefreshing}"
+                    x:Name="Chats"
+                    CachingStrategy="RecycleElement"
+                    HasUnevenRows="True"
+                    RowHeight="100"
+                    IsPullToRefreshEnabled="True"
+                    >
+            <ListView.ItemTemplate>
+                <DataTemplate >
+                    <ViewCell>
+                        <Grid x:Name="Item">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70*"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="100"/>
+                            </Grid.ColumnDefinitions>
+                            <Label  Grid.Column="0"
+                                    Text="{Binding GetParticipants}"
+                                    x:DataType="viewmodels:ItemChatViewModel"
+                                    TextColor="Black"
+                                    FontSize="Medium"
+                                    HorizontalOptions="CenterAndExpand"/>
+                            <Button Grid.Column="1"
+                                    BackgroundColor="Blue" 
+                                    Text="Join Conversation"
+                                    TextColor="White"
+                                    BindingContext="{Binding Source={x:Reference Chats}, Path=BindingContext}"
+                                    Command="{Binding JoinConversationButtonCommand}"
+                                    CommandParameter="{Binding Source={x:Reference Item}, Path=BindingContext}"/>
+                            <Button Grid.Column="2"
+                                    BackgroundColor="Red" 
+                                    Text="Leave Conversation"
+                                    TextColor="White"
+                                    BindingContext="{Binding Source={x:Reference Chats}, Path=BindingContext}"
+                                    Command="{Binding LeaveConversationButtonCommand}"
+                                    CommandParameter="{Binding Source={x:Reference Item}, Path=BindingContext}"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <ImageButton Source="smth_butt.png"
+                     BackgroundColor="Transparent"
+                     AbsoluteLayout.LayoutFlags="PositionProportional"  
+                     AbsoluteLayout.LayoutBounds=".50,.95,80,80" 
+                     Command="{Binding CreateNewChatCommand}">
+        </ImageButton>
+    </AbsoluteLayout>
+    
+    
+</ContentPage>

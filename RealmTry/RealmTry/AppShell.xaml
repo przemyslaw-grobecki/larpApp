@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms" 
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:RealmTry.Views"
+       Title="RealmTry"
+       x:Class="RealmTry.AppShell">
+
+    <!--
+        The overall app visual hierarchy is defined here, along with navigation.
+    
+        https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/shell/
+    -->
+
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="Shell.ForegroundColor" Value="White" />
+                <Setter Property="Shell.TitleColor" Value="White" />
+                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
+                <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
+                <Setter Property="Shell.TabBarTitleColor" Value="White"/>
+            </Style>
+            <Style TargetType="TabBar" BasedOn="{StaticResource BaseStyle}" />
+            <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <!--
+    Login,
+    Registration
+    -->
+    <ShellItem FlyoutItemIsVisible="False">
+        <ShellContent Title="Login" 
+                      Icon="icon_feed.png" 
+                      Route="LoginPage" 
+                      ContentTemplate="{DataTemplate local:LoginPage}">
+        </ShellContent>
+    </ShellItem>
+    <ShellItem FlyoutItemIsVisible="False">
+        <ShellContent Title="ClassSelection" 
+                      Route="ClassSelectionPage" 
+                      ContentTemplate="{DataTemplate local:ClassSelectionPage}">
+        </ShellContent>
+    </ShellItem>
+    <ShellItem FlyoutItemIsVisible="False">
+        <ShellContent Title="SetCharacterDetails" 
+                      Route="SetCharacterDetailsPage" 
+                      ContentTemplate="{DataTemplate local:SetCharacterDetailsPage}">
+        </ShellContent>
+    </ShellItem>
+    <!--
+    Main app
+    -->
+    <FlyoutItem FlyoutIcon="icon_feed.png"
+                Title="Main Page">
+        <ShellContent Title="MainPage" 
+                      Route="MainPage" 
+                      ContentTemplate="{DataTemplate local:MainPage}">
+        </ShellContent>
+    </FlyoutItem>
+    <FlyoutItem FlyoutIcon="icon_feed.png"
+                Title="Friends">
+        <ShellContent Title="FriendsPage"
+                      Route="FriendsPage"
+                      ContentTemplate="{DataTemplate local:FriendsPage}">
+        </ShellContent>
+    </FlyoutItem>
+    <FlyoutItem FlyoutIcon="icon_feed.png"
+                Title="Chat">
+        <ShellContent Title="ChatPage" 
+                      Route="ChatPage" 
+                      ContentTemplate="{DataTemplate local:ChatPage}">
+            <ShellContent Title="Chat Details"
+                          Route="ChatPageDetails"
+                          ContentTemplate="{DataTemplate local:ChatPageDetails}">
+            </ShellContent>
+        </ShellContent>
+    </FlyoutItem>
+    <FlyoutItem FlyoutIcon="icon_feed.png"
+                Title="Manage Events">
+        <ShellContent Title="ManageEventsPage"
+                      Route="ManageEventsPage"
+                      ContentTemplate="{DataTemplate local:ManageEventsPage}">
+            <ShellContent Title="ManageHostedEventsPage"
+                          Route="ManageHostedEventsPage"
+                          ContentTemplate="{DataTemplate local:ManageHostedEventDetailsPage}">
+            </ShellContent>
+        </ShellContent>
+    </FlyoutItem>
+    <FlyoutItem FlyoutIcon="icon_feed.png"
+                Title="Inventory">
+        <ShellContent Title="InventoryPage"
+                      Route="InventoryPage"
+                      ContentTemplate="{DataTemplate local:InventoryPage}">
+        </ShellContent>
+    </FlyoutItem>
+    <FlyoutItem FlyoutIcon="icon_feed.png"
+                Title="Character">
+        <ShellContent Title="CharacterInformationPage"
+                      Route="CharacterInformationPage"
+                      ContentTemplate="{DataTemplate local:CharacterInformationPage}">
+        </ShellContent>
+    </FlyoutItem>
+    <FlyoutItem FlyoutIcon="icon_feed.png"
+                Title="Scan Item">
+        <ShellContent Title="ScanItemPage"
+                      Route="ScanItemPage"
+                      ContentTemplate="{DataTemplate local:ScanItemPage}">
+        </ShellContent>
+    </FlyoutItem>
+</Shell>

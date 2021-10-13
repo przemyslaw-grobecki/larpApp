@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xct:Popup   xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit" 
+             xmlns:viewmodels="clr-namespace:RealmTry.ViewModels" 
+             x:DataType="viewmodels:AddFriendsPopupViewModel"
+             x:Class="RealmTry.Views.AddFriendsPopupPage"
+             Size="300,200">
+
+    <StackLayout>
+        <Label Text="To befriend... send an invitation providing your comrade user id:"
+               TextColor="Black"/>
+        <Entry Text="{Binding AddedFriendId, Mode=TwoWay}" Placeholder="Id of the player you want to become friends with." 
+               PlaceholderColor="Gray"
+               TextColor="Black"/>
+        <Button Text="Add to friend list" TextColor="Black" BackgroundColor="Wheat"
+                Command="{Binding SendBefriendingRequest}"/>
+    </StackLayout>
+</xct:Popup>

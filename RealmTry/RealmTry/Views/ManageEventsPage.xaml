@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+            xmlns:viewmodels="clr-namespace:RealmTry.ViewModels" 
+            x:DataType="viewmodels:ManageEventsViewModel"
+            x:Class="RealmTry.Views.ManageEventsPage">
+    
+    <TabbedPage.BindingContext>
+        <viewmodels:ManageEventsViewModel/>
+    </TabbedPage.BindingContext>
+
+    <ContentPage Title="Hosted Events" IconImageSource="icon_feed.png">
+        <ListView   ItemsSource="{Binding HostedEvents}"  
+                    RefreshCommand="{Binding RefreshHostedEventsCommand}"
+                    IsRefreshing="{Binding IsRefreshingHostedEvents}"
+                    x:Name="HostedEvents"
+                    CachingStrategy="RecycleElement"
+                    HasUnevenRows="True"
+                    RowHeight="100"
+                    IsPullToRefreshEnabled="True"
+                    >
+            <ListView.ItemTemplate>
+                <DataTemplate >
+                    <ViewCell>
+                        <Grid x:Name="Item">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70*"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="100"/>
+                            </Grid.ColumnDefinitions>
+                            <Label  Grid.Column="0"
+                                    Text="{Binding Title}"
+                                    x:DataType="viewmodels:ItemEventViewModel"
+                                    TextColor="Black"
+                                    FontSize="Medium"
+                                    HorizontalOptions="CenterAndExpand"/>
+                            <Button Grid.Column="1"
+                                    BackgroundColor="Blue" 
+                                    Text="Manage"
+                                    TextColor="White"
+                                    BindingContext="{Binding Source={x:Reference HostedEvents}, Path=BindingContext}"
+                                    Command="{Binding ManageHostedEventButtonCommand}"
+                                    CommandParameter="{Binding Source={x:Reference Item}, Path=BindingContext}"/>
+                            <Button Grid.Column="2"
+                                    BackgroundColor="Red" 
+                                    Text="Abondom"
+                                    TextColor="White"
+                                    BindingContext="{Binding Source={x:Reference HostedEvents}, Path=BindingContext}"
+                                    Command="{Binding AbondomHostedEventButtonCommand}"
+                                    CommandParameter="{Binding Source={x:Reference Item}, Path=BindingContext}"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage>
+    <ContentPage Title="Events enrolled on" IconImageSource="icon_feed.png">
+        <ListView   ItemsSource="{Binding EventsEnrolledOn}"  
+                    RefreshCommand="{Binding RefreshEventsEnrolledOnCommand}"
+                    IsRefreshing="{Binding IsRefreshingEventsEnrolledOn}"
+                    x:Name="EventsEnrolledOn"
+                    CachingStrategy="RecycleElement"
+                    HasUnevenRows="True"
+                    RowHeight="100"
+                    IsPullToRefreshEnabled="True"
+                    >
+            <ListView.ItemTemplate>
+                <DataTemplate >
+                    <ViewCell>
+                        <Grid x:Name="Item">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="70*"/>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="100"/>
+                            </Grid.ColumnDefinitions>
+                            <Label  Grid.Column="0"
+                                    Text="{Binding Title}"
+                                    x:DataType="viewmodels:ItemEventViewModel"
+                                    TextColor="Black"
+                                    FontSize="Medium"
+                                    HorizontalOptions="CenterAndExpand"/>
+                            <Button Grid.Column="1"
+                                    BackgroundColor="Blue" 
+                                    Text="Manage"
+                                    TextColor="White"
+                                    BindingContext="{Binding Source={x:Reference EventsEnrolledOn}, Path=BindingContext}"
+                                    Command="{Binding ManageEventEnrolledOnButtonCommand}"
+                                    CommandParameter="{Binding Source={x:Reference Item}, Path=BindingContext}"/>
+                            <Button Grid.Column="2"
+                                    BackgroundColor="Red" 
+                                    Text="Leave"
+                                    TextColor="White"
+                                    BindingContext="{Binding Source={x:Reference EventsEnrolledOn}, Path=BindingContext}"
+                                    Command="{Binding LeaveEventEnrolledOnButtonCommand}"
+                                    CommandParameter="{Binding Source={x:Reference Item}, Path=BindingContext}"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </ContentPage>
+</TabbedPage>

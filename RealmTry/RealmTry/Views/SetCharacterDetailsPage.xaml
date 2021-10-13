@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"           
+             x:Class="RealmTry.Views.SetCharacterDetailsPage"
+             xmlns:vm="clr-namespace:RealmTry.ViewModels"
+             Title="{Binding Title}"
+             Shell.FlyoutBehavior="Disabled">
+    
+    <ContentPage.BindingContext>
+        <vm:SetCharacterDetailsViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry Text="{Binding CharacterName}"
+                   TextColor="Black"
+                   Placeholder="Your Character Ingame Name:"
+                   PlaceholderColor="Gray"
+                   HorizontalOptions="CenterAndExpand">
+            </Entry>
+            <Entry Text="{Binding CharacterSurname}"
+                   TextColor="Black"
+                   Placeholder="Your Character Ingame Surname (Optional):"
+                   PlaceholderColor="Gray"
+                   HorizontalOptions="Center">
+            </Entry>
+            <CarouselView ItemsSource="{Binding ViablePortraits}"
+                          CurrentItem="{Binding PortraitUrl}"
+                          Margin="10">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Frame HasShadow="True"
+                               Margin="5"
+                               Padding="5">
+                                <Image Source="{Binding .}"
+                                       Aspect="AspectFit"/>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+            <Button Command="{Binding OnSetDetailsClickedCommand}"
+                    HorizontalOptions="Center"
+                    Text="Set Character Details">
+            </Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:RealmTry.ViewModels"
+             x:DataType="viewmodels:ChatDetailsViewModel"
+             x:Class="RealmTry.Views.ChatPageDetails"
+             BackgroundImageSource="background_chat.jpg">
+    <ContentPage.Content>
+        <StackLayout>
+            <ListView x:Name="messagesList" 
+                      IsPullToRefreshEnabled="True"
+                      ItemsSource="{Binding Messages}"
+                      RefreshCommand="{Binding RefreshMessagesCommand}"
+                      IsRefreshing="{Binding IsRefreshing}"
+                      CachingStrategy="RecycleElement"
+                      HasUnevenRows="True"
+                      BackgroundColor="Transparent"
+                      SeparatorVisibility="Default"
+                      SeparatorColor="Black"
+                      Margin="10"
+                      >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30*"/>
+                                    <RowDefinition Height="30"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50*"/>
+                                    <ColumnDefinition Width="60"/>
+                                </Grid.ColumnDefinitions>
+                                <Label x:DataType="viewmodels:ItemMessageViewModel"
+                                       Grid.Row="0"
+                                       Grid.Column="0"
+                                       HorizontalOptions="Center"
+                                       Text="{Binding CharacterName}"
+                                       FontSize="Subtitle"
+                                       TextColor="#230909"
+                                       FontFamily="ChatFont"
+                                       BackgroundColor="Transparent"/>
+                                <Label x:DataType="viewmodels:ItemMessageViewModel"
+                                       Grid.Row="1"
+                                       Grid.Column="0"
+                                       Text="{Binding Content}"
+                                       TextColor="#480000"
+                                       BackgroundColor="Transparent"
+                                       VerticalOptions="CenterAndExpand"
+                                       FontFamily="ChatFont"
+                                       />
+                                <Label Grid.Row="2"
+                                       Grid.Column="0"
+                                       x:DataType="viewmodels:ItemMessageViewModel"
+                                       Text="{Binding TimeStamp}"
+                                       BackgroundColor="Transparent"
+                                       HorizontalOptions="Center"
+                                       TextColor="Gray"
+                                       FontFamily="ChatFont"/>
+                                <Image Grid.Column="1"
+                                       Grid.Row="0"
+                                       Grid.RowSpan="3"
+                                       x:DataType="viewmodels:ItemMessageViewModel"
+                                       BackgroundColor="Transparent"
+                                       Source="{Binding PortraitUrl}"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout Orientation="Horizontal">
+                <Entry Placeholder="Here you write your messages..."
+                       PlaceholderColor="Gray"
+                       Text="{Binding Mode=TwoWay, Path=MessageContent}" 
+                       TextColor="Black"/>
+                <ImageButton Source="smth_butt.png" 
+                             BackgroundColor="Transparent"
+                             Command="{Binding SendMessageCommand}"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

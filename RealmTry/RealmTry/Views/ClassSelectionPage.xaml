@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RealmTry.Views.ClassSelectionPage"
+             xmlns:vm="clr-namespace:RealmTry.ViewModels"
+             Title="{Binding Title}"
+             Shell.NavBarIsVisible="False"
+             Shell.FlyoutBehavior="Disabled">
+
+    
+    <ContentPage.BindingContext>
+        <vm:ClassSelectionViewModel />
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <CarouselView ItemsSource="{Binding ProffesionList}"
+                      Margin="10"
+                      IndicatorView="IndicatorView">
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                            <Frame HasShadow="True"
+                               Margin="5"
+                               Padding="5">
+                                <Image Source="{Binding ImageUrl}"
+                                   Aspect="AspectFit"/>
+                            </Frame>
+                            <Label Text="{Binding Name}"
+                                   TextColor="Black"
+                                   FontSize="Large"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center">
+                            </Label>
+                            <Button VerticalOptions="Center"
+                                    HorizontalOptions="Center"
+                                    Text="Choose This Class"
+                                    Command="{Binding ChooseClass}">
+                            </Button>
+                        </StackLayout>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
+            <IndicatorView
+                       IndicatorSize="20"
+                       x:Name="IndicatorView"
+                       IndicatorColor="LightGray"
+                       SelectedIndicatorColor="Black"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       IndicatorsShape="Circle"
+                       IsClippedToBounds="False">
+            </IndicatorView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

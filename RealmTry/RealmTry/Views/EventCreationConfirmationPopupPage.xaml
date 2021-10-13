@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xct:Popup  xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:xct="http://xamarin.com/schemas/2020/toolkit" 
+            xmlns:viewmodels="clr-namespace:RealmTry.ViewModels" 
+            x:DataType="viewmodels:EventCreationConfirmationPopupViewModel"
+            x:Class="RealmTry.Views.EventCreationConfirmationPopupPage"
+            Size="300,500">
+
+    <StackLayout>
+        <Label Text="Enter detailed event information" 
+               TextColor="Black"
+               VerticalOptions="CenterAndExpand" 
+               HorizontalOptions="CenterAndExpand" />
+        <Entry Text="{Binding EventTitle, Mode=TwoWay}" TextColor="Black" Placeholder="Event Title:" PlaceholderColor="Gray"/>
+        <Label Text="Date" 
+               TextColor="Black"
+               HorizontalOptions="Center"/>
+        <DatePicker MinimumDate="{Binding MinDate}"
+                    MaximumDate="{Binding MaxDate}"
+                    Date="{Binding Date, Mode=TwoWay}"
+                    BackgroundColor="DarkTurquoise"
+                    xct:IconTintColorEffect.TintColor="Aqua"/>
+        <TimePicker Time="{Binding SelectedTime, Mode=TwoWay}" BackgroundColor="CadetBlue" TextColor="White"/>
+        <Label Text="Number of participants:" TextColor="Black" HorizontalOptions="Center"/>
+        <Entry Text="{Binding ParticipantsNumber, Mode=TwoWay}" 
+               TextColor="Black"/>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Button Text="-" BackgroundColor="Gray" Command="{Binding SubtractCommand}"/>
+            <Button Text="+" BackgroundColor="LightGray" Command="{Binding AddCommand}"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Label Text="Public" 
+                   TextColor="Black"/>
+            <Label Text="Private" 
+                   TextColor="Black"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <RadioButton BorderWidth="7" IsChecked="{Binding IsPublicChecked}"/>
+            <RadioButton BorderWidth="7" IsChecked="{Binding IsPrivateChecked}"/>
+        </StackLayout>
+        <Button Text="Create Event" TextColor="White" BackgroundColor="Goldenrod" Command="{Binding CreateEventCommand}"/>
+    </StackLayout>
+</xct:Popup>

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+            xmlns:viewmodels="clr-namespace:RealmTry.ViewModels" 
+            x:DataType="viewmodels:LoginViewModel"
+            mc:Ignorable="d"
+            x:Class="RealmTry.Views.LoginPage"
+            Shell.NavBarIsVisible="False"
+            Shell.FlyoutBehavior="Disabled">
+    
+    <TabbedPage.BindingContext>
+        <viewmodels:LoginViewModel/>
+    </TabbedPage.BindingContext>
+
+
+    <ContentPage Title="Sign in" IconImageSource="icon_feed.png">
+        <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
+            <Entry HorizontalOptions="Center" 
+                   MaxLength="25" 
+                   Placeholder="Username"
+                   PlaceholderColor="Gray"
+                   Text="{Binding LoginUsername}"
+                   TextColor="Black">
+            </Entry>
+            <Entry HorizontalOptions="Center" 
+                   MaxLength="25" 
+                   Placeholder="Password"
+                   PlaceholderColor="Gray"
+                   IsPassword="True"
+                   Text="{Binding LoginPassword}"
+                   TextColor="Black">
+            </Entry>
+            <Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}"/>
+        </StackLayout>
+    </ContentPage>
+    
+    <ContentPage Title="Register" IconImageSource="icon_about.png">
+        <StackLayout VerticalOptions="Center">
+            <Entry HorizontalOptions="Center" 
+                   MaxLength="100" 
+                   Placeholder="E-mail address"
+                   PlaceholderColor="Gray"
+                   Text="{Binding RegisteredEmail}"
+                   TextColor="Black">
+            </Entry>
+            <Entry HorizontalOptions="Center" 
+                   MaxLength="25" 
+                   Placeholder="Username"
+                   PlaceholderColor="Gray"
+                   Text="{Binding RegisteredUsername}"
+                   TextColor="Black">
+            </Entry>
+            <Entry HorizontalOptions="Center" 
+                   MaxLength="25" 
+                   Placeholder="Password"
+                   PlaceholderColor="Gray"
+                   IsPassword="True"
+                   Text="{Binding RegisteredPassword}"
+                   TextColor="Black">
+            </Entry>
+            <Button Text="Register" VerticalOptions="Center" 
+                    Command="{Binding RegisterCommand}">
+            </Button>
+        </StackLayout>
+    </ContentPage>
+    
+</TabbedPage>
