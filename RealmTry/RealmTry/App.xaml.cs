@@ -6,19 +6,26 @@ using Xamarin.Forms.Xaml;
 using Realms;
 using Realms.Sync;
 using System.Threading.Tasks;
+using System.Diagnostics;
+using System.Threading;
 
 namespace RealmTry
 {
     public partial class App : Application
     {
+        private CancellationTokenSource testTaskCancellationSource = new CancellationTokenSource();
+        private CancellationToken testTaskCancellationToken;
+        Stopwatch sw = new Stopwatch();
+        Task t;
         public App()
         {
             InitializeComponent();
             MainPage = new AppShell();
         }
 
-        protected override void OnStart()
+        protected async override void OnStart()
         {
+            sw.Start();
             try
             {
                 var app = RealmDB.App;
@@ -29,31 +36,39 @@ namespace RealmTry
                 Console.WriteLine(e.ToString());
                 throw;
             }
+            t = Task.Run(testTask, testTaskCancellationSource.Token);
+        }
 
-            Task t = Task.Run(() => {
-                while (true)
+        private async void testTask()
+        {
+            try
+            {
+                testTaskCancellationToken = testTaskCancellationSource.Token;
+                while (!testTaskCancellationToken.IsCancellationRequested)
                 {
-                    Task.Delay(5000).Wait();
-                    Console.WriteLine("Task ended delay...");
+                    sw.Stop();
+                    Console.WriteLine($"Task ended delay... {sw.Elapsed} s");
+                    sw.Start();
+                    await Task.Delay(5000);
                 }
-            });
+                testTaskCancellationToken.ThrowIfCancellationRequested();
+            }
+            catch(OperationCanceledException e)
+            {
+                Console.WriteLine($"{e.Message} + *******************************************");
+            }
         }
 
         protected override void OnSleep()
         {
-
+            testTaskCancellationSource.Cancel();
         }
 
         protected async override void OnResume()
         {
+            testTaskCancellationSource = new CancellationTokenSource();
             await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
-            Task t = Task.Run(() => {
-                while (true)
-                {
-                    Task.Delay(5000).Wait();
-                    Console.WriteLine("Task ended delay...");
-                }
-            });
+            t = Task.Run(testTask, testTaskCancellationSource.Token);
         }
     }
 }

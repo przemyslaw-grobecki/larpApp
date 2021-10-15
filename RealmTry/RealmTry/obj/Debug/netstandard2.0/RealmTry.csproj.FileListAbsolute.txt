@@ -28,3 +28,4 @@ D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry\obj\Debug\netstandard2.0
 D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry\obj\Debug\netstandard2.0\Views\EventCreationConfirmationPopupPage.xaml.g.cs
 D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry\obj\Debug\netstandard2.0\Views\ManageEventsPage.xaml.g.cs
 D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry\obj\Debug\netstandard2.0\Views\ManageHostedEventDetailsPage.xaml.g.cs
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry\obj\Debug\netstandard2.0\Views\ManageHostedEventParticipantPopupPage.xaml.g.cs
