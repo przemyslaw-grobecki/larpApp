@@ -69,10 +69,10 @@ namespace RealmTry.ViewModels
             {
                 using (var realm = await Realm.GetInstanceAsync(RealmDB.Configuration))
                 {
-                    var appUser = realm.All<Models.User>().Where(t => t.Username == loginUsername);
-                    RealmDB.CurrentlyLoggedUserId = appUser.First<Models.User>().Id;
+                    var appUser = realm.All<Models.User>().Where(t => t.Username == loginUsername);                    
                     if (appUser.Any())
                     {
+                        RealmDB.CurrentlyLoggedUserId = appUser.First<Models.User>().Id;
                         if (Services.SecurePasswordHasher.Verify(loginPassword, appUser.First<Models.User>().Password))
                         { 
                             await Shell.Current.GoToAsync($"/{nameof(MainPage)}");

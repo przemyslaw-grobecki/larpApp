@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Realms;
+using RealmTry.Services;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
@@ -10,12 +12,12 @@ namespace RealmTry.ViewModels
     {
         private ObservableCollection<string> stats = new ObservableCollection<string>
         {
-            "STR",
-            "DEX",
-            "CON",
-            "INT",
-            "WIS",
-            "CHA"
+            "STRENGTH",
+            "DEXTERITY",
+            "CONSTITUTION",
+            "INTELIGENCE",
+            "WISDOM",
+            "CHARISMA"
         };
         private string damageCounter = "0";
         public string DamageCounter
@@ -48,7 +50,11 @@ namespace RealmTry.ViewModels
             get => participantId;
             set => SetProperty(ref participantId, value);
         }
-        public Command ConfirmCommand
+        public Command AskForRollCommand
+        {
+            get; private set;
+        }
+        public Command DealDamageCommand
         {
             get; private set;
         }
@@ -69,9 +75,33 @@ namespace RealmTry.ViewModels
                     DamageCounter = (int.Parse(DamageCounter) - 1).ToString();
                 }
             });
-            ConfirmCommand = new Command(() =>
+            AskForRollCommand = new Command(() =>
             {
+                //Create a prompt
+            });
+            DealDamageCommand = new Command(async () =>
+            {
+                //modify character hp
 
+
+                using (var realm = await Realm.GetInstanceAsync(RealmDB.Configuration))
+                {
+                    Models.Prompt damageInfoPrompt = new Models.Prompt()
+                    {
+                        Id = Services.RealmDB.GetUniqueKey(8),
+                        _partitionKey = "_partitionKey",
+                        Receiver = participantId,
+                        Sender = Services.RealmDB.CurrentlyLoggedUserId,
+                        Type = "Information",
+                        Information = $"You have been dealt {damageCounter} points of damage",
+                        Status = "Waiting",
+                        TimeStamp = DateTime.Now.ToString(),
+                    };
+                    realm.Write(()=>
+                    {
+                        realm.Add(damageInfoPrompt);
+                    });
+                }
             });
         }
     }

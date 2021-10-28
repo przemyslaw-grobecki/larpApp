@@ -21,7 +21,7 @@
         <StackLayout VerticalOptions="Center">
             <StackLayout>
                 <Label Text="Deal damage" HorizontalOptions="Center" TextColor="White" FontSize="Large"/>
-                <Entry HorizontalOptions="Center" 
+                <Entry HorizontalOptions="CenterAndExpand" 
                        Placeholder="0" 
                        PlaceholderColor="Gray" 
                        BackgroundColor="LightBlue" 
@@ -37,21 +37,25 @@
                             Command="{Binding DecrementDamageCounter}"
                             BackgroundColor="Gray"/>
                 </StackLayout>
-                <StackLayout>
-                    <Label Text="Ask for roll"
-                           HorizontalOptions="Center" 
-                           TextColor="White" 
-                           FontSize="Large"/>
-                    <Picker HorizontalOptions="Center"
-                            TextColor="Black" 
-                            BackgroundColor="LightBlue"
-                            ItemsSource="{Binding Stats}"/>
-                </StackLayout>
+                <Button Text="Deal damage" 
+                        TextColor="White" 
+                        BackgroundColor="Red"
+                        Command="{Binding DealDamageCommand}"/>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Ask for roll"
+                       HorizontalOptions="Center" 
+                       TextColor="White" 
+                       FontSize="Large"/>
+                <Picker HorizontalOptions="CenterAndExpand"
+                        TextColor="Black" 
+                        BackgroundColor="LightBlue"
+                        ItemsSource="{Binding Stats}"/>
                 <Button Text="Confirm" 
                         TextColor="White" 
                         FontSize="Large" 
                         BackgroundColor="LightBlue"
-                        Command="{Binding ConfirmCommand}"/>
+                        Command="{Binding AskForRollCommand}"/>
             </StackLayout>
         </StackLayout>
     </Grid>

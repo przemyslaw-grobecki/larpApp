@@ -13,18 +13,17 @@ namespace RealmTry
 {
     public partial class App : Application
     {
-        private CancellationTokenSource testTaskCancellationSource = new CancellationTokenSource();
-        private CancellationToken testTaskCancellationToken;
         Stopwatch sw = new Stopwatch();
-        Task t;
+        PromptingService promptingService;
         public App()
         {
             InitializeComponent();
             MainPage = new AppShell();
+            promptingService = new PromptingService();
         }
 
         protected async override void OnStart()
-        {
+        {        
             sw.Start();
             try
             {
@@ -36,39 +35,19 @@ namespace RealmTry
                 Console.WriteLine(e.ToString());
                 throw;
             }
-            t = Task.Run(testTask, testTaskCancellationSource.Token);
-        }
-
-        private async void testTask()
-        {
-            try
-            {
-                testTaskCancellationToken = testTaskCancellationSource.Token;
-                while (!testTaskCancellationToken.IsCancellationRequested)
-                {
-                    sw.Stop();
-                    Console.WriteLine($"Task ended delay... {sw.Elapsed} s");
-                    sw.Start();
-                    await Task.Delay(5000);
-                }
-                testTaskCancellationToken.ThrowIfCancellationRequested();
-            }
-            catch(OperationCanceledException e)
-            {
-                Console.WriteLine($"{e.Message} + *******************************************");
-            }
+            promptingService.ServiceStart();
         }
 
         protected override void OnSleep()
         {
-            testTaskCancellationSource.Cancel();
+            promptingService.ServiceStop();
+            RealmDB.CurrentlyLoggedUserId = null;
         }
 
         protected async override void OnResume()
         {
-            testTaskCancellationSource = new CancellationTokenSource();
+            promptingService.ServiceStart();
             await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
-            t = Task.Run(testTask, testTaskCancellationSource.Token);
         }
     }
 }
