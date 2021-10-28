@@ -9,61 +9,94 @@
             x:Class="RealmTry.Views.LoginPage"
             Shell.NavBarIsVisible="False"
             Shell.FlyoutBehavior="Disabled">
-    
+
     <TabbedPage.BindingContext>
         <viewmodels:LoginViewModel/>
     </TabbedPage.BindingContext>
 
-
     <ContentPage Title="Sign in" IconImageSource="icon_feed.png">
-        <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
-            <Entry HorizontalOptions="Center" 
-                   MaxLength="25" 
-                   Placeholder="Username"
-                   PlaceholderColor="Gray"
-                   Text="{Binding LoginUsername}"
-                   TextColor="Black">
-            </Entry>
-            <Entry HorizontalOptions="Center" 
-                   MaxLength="25" 
-                   Placeholder="Password"
-                   PlaceholderColor="Gray"
-                   IsPassword="True"
-                   Text="{Binding LoginPassword}"
-                   TextColor="Black">
-            </Entry>
-            <Button VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}"/>
-        </StackLayout>
+        <Grid>
+            <BoxView x:Name="loginGradient" AnchorX="0.5" AnchorY="0.5" Scale="3">
+                <BoxView.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" >
+                        <GradientStop Color="DodgerBlue" Offset="0.25"/>
+                        <GradientStop Color="CadetBlue" Offset="0.5"/>
+                        <GradientStop Color="DeepSkyBlue" Offset="0.75"/>
+                        <GradientStop Color="CornflowerBlue" Offset="1.0  "/>
+                    </LinearGradientBrush>
+                </BoxView.Background>
+            </BoxView>
+
+            <Image Source="d20.png" Scale="0.5" AnchorY="1.2" AnchorX="0.55"></Image>
+            <Frame CornerRadius="48" 
+                   Padding ="0" 
+                   HasShadow="True"
+                   BackgroundColor="LightBlue" 
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center">
+                <StackLayout Padding="50,50,50,50" VerticalOptions="Center" HorizontalOptions="Center" >
+                    <Label Padding="0,0,0,20" Text="LARPApp" TextColor="DarkBlue" FontSize="Large" FontFamily="FFF_Tusj.ttf"/>
+                    <Entry HorizontalOptions="Center" 
+                           MaxLength="25" 
+                           Placeholder="Username"
+                           PlaceholderColor="Gray"
+                           Text="{Binding LoginUsername}"
+                           TextColor="Black">
+                    </Entry>
+                    <Entry HorizontalOptions="Center" 
+                           MaxLength="25" 
+                           Placeholder="Password"
+                           PlaceholderColor="Gray"
+                           IsPassword="True"
+                           Text="{Binding LoginPassword}"
+                           TextColor="Black">
+                    </Entry>
+                    <Button   VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}"/>
+                </StackLayout>
+            </Frame>
+        </Grid>
     </ContentPage>
     
     <ContentPage Title="Register" IconImageSource="icon_about.png">
-        <StackLayout VerticalOptions="Center">
-            <Entry HorizontalOptions="Center" 
-                   MaxLength="100" 
-                   Placeholder="E-mail address"
-                   PlaceholderColor="Gray"
-                   Text="{Binding RegisteredEmail}"
-                   TextColor="Black">
-            </Entry>
-            <Entry HorizontalOptions="Center" 
-                   MaxLength="25" 
-                   Placeholder="Username"
-                   PlaceholderColor="Gray"
-                   Text="{Binding RegisteredUsername}"
-                   TextColor="Black">
-            </Entry>
-            <Entry HorizontalOptions="Center" 
-                   MaxLength="25" 
-                   Placeholder="Password"
-                   PlaceholderColor="Gray"
-                   IsPassword="True"
-                   Text="{Binding RegisteredPassword}"
-                   TextColor="Black">
-            </Entry>
-            <Button Text="Register" VerticalOptions="Center" 
-                    Command="{Binding RegisterCommand}">
-            </Button>
-        </StackLayout>
+        <Grid>
+            <BoxView x:Name="registerGradient" AnchorX="0.5" AnchorY="0.5" Scale="3">
+                <BoxView.Background>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" >
+                        <GradientStop Color="LightGreen" Offset="0.25"/>
+                        <GradientStop Color="LightBlue" Offset="0.5"/>
+                        <GradientStop Color="CadetBlue" Offset="0.75"/>
+                        <GradientStop Color="green" Offset="1.0  "/>
+                    </LinearGradientBrush>
+                </BoxView.Background>
+            </BoxView>
+            <StackLayout VerticalOptions="Center">
+                <Entry HorizontalOptions="Center" 
+                       MaxLength="100" 
+                       Placeholder="E-mail address"
+                       PlaceholderColor="Gray"
+                       Text="{Binding RegisteredEmail}"
+                       TextColor="Black">
+                </Entry>
+                <Entry HorizontalOptions="Center" 
+                       MaxLength="25" 
+                       Placeholder="Username"
+                       PlaceholderColor="Gray"
+                       Text="{Binding RegisteredUsername}"
+                       TextColor="Black">
+                </Entry>
+                <Entry HorizontalOptions="Center" 
+                       MaxLength="25" 
+                       Placeholder="Password"
+                       PlaceholderColor="Gray"
+                       IsPassword="True"
+                       Text="{Binding RegisteredPassword}"
+                       TextColor="Black">
+                </Entry>
+                <Button Text="Register" VerticalOptions="Center" 
+                        Command="{Binding RegisterCommand}">
+                </Button>
+            </StackLayout>
+        </Grid>
     </ContentPage>
     
 </TabbedPage>

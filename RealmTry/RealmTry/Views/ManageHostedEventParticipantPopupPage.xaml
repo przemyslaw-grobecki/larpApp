@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xct:Popup  xmlns:xct="http://xamarin.com/schemas/2020/toolkit" 
+            xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+            xmlns:viewmodels="clr-namespace:RealmTry.ViewModels" 
+            x:DataType="viewmodels:ManageHostedEventParticipantPopupViewModel"
+            x:Class="RealmTry.Views.ManageHostedEventParticipantPopupPage"
+            Size="400,400">
+    <Grid>
+        <BoxView x:Name="bdGradient">
+            <BoxView.Background>
+                <LinearGradientBrush StartPoint="0,1" EndPoint="1,1">
+                    <GradientStop Color="Aqua" Offset="0.25"/>
+                    <GradientStop Color="LightBlue" Offset="0.5"/>
+                    <GradientStop Color="CadetBlue" Offset="0.75"/>
+                    <GradientStop Color="CornflowerBlue" Offset="1.0  "/>
+                </LinearGradientBrush>
+            </BoxView.Background>
+        </BoxView>
+
+        <StackLayout VerticalOptions="Center">
+            <StackLayout>
+                <Label Text="Deal damage" HorizontalOptions="Center" TextColor="White" FontSize="Large"/>
+                <Entry HorizontalOptions="CenterAndExpand" 
+                       Placeholder="0" 
+                       PlaceholderColor="Gray" 
+                       BackgroundColor="LightBlue" 
+                       TextColor="White"
+                       Text="{Binding DamageCounter, Mode=TwoWay}"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Button Text="+" 
+                            TextColor="White"
+                            Command="{Binding IncrementDamageCounter}"
+                            BackgroundColor="LightGray"/>
+                    <Button Text="-" 
+                            TextColor="White" 
+                            Command="{Binding DecrementDamageCounter}"
+                            BackgroundColor="Gray"/>
+                </StackLayout>
+                <Button Text="Deal damage" 
+                        TextColor="White" 
+                        BackgroundColor="Red"
+                        Command="{Binding DealDamageCommand}"/>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Ask for roll"
+                       HorizontalOptions="Center" 
+                       TextColor="White" 
+                       FontSize="Large"/>
+                <Picker HorizontalOptions="CenterAndExpand"
+                        TextColor="Black" 
+                        BackgroundColor="LightBlue"
+                        ItemsSource="{Binding Stats}"/>
+                <Button Text="Confirm" 
+                        TextColor="White" 
+                        FontSize="Large" 
+                        BackgroundColor="LightBlue"
+                        Command="{Binding AskForRollCommand}"/>
+            </StackLayout>
+        </StackLayout>
+    </Grid>
+</xct:Popup>

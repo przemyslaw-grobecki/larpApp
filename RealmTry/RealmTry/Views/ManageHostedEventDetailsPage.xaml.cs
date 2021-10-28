@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RealmTry.ViewModels;
+using Xamarin.CommunityToolkit.Extensions;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -22,9 +23,9 @@ namespace RealmTry.Views
             InitializeComponent();
         }
 
-        private void messagesList_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private void messagesList_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-
+            Shell.Current.ShowPopup(new ManageHostedEventParticipantPopupPage((e.Item as ItemHostedEventParticipantViewModel).ParticipantId));
         }
     }
 }

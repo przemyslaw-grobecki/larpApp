@@ -25,7 +25,8 @@
                       SeparatorVisibility="Default"
                       SeparatorColor="Black"
                       Margin="10"
-                      ItemSelected="messagesList_ItemSelected">
+                      SelectionMode="None"
+                      ItemTapped="messagesList_ItemTapped">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
