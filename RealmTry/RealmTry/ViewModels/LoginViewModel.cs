@@ -7,6 +7,7 @@ using Realms;
 using Realms.Sync;
 using RealmTry.Services;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace RealmTry.ViewModels
 {
@@ -68,28 +69,28 @@ namespace RealmTry.ViewModels
             {
                 using (var realm = await Realm.GetInstanceAsync(RealmDB.Configuration))
                 {
-                    var appUser = realm.All<Models.User>().Where(t => t.Username == loginUsername);
-                    RealmDB.CurrentlyLoggedUserId = appUser.First<Models.User>().Id;
+                    var appUser = realm.All<Models.User>().Where(t => t.Username == loginUsername);                    
                     if (appUser.Any())
                     {
+                        RealmDB.CurrentlyLoggedUserId = appUser.First<Models.User>().Id;
                         if (Services.SecurePasswordHasher.Verify(loginPassword, appUser.First<Models.User>().Password))
-                        {                        
+                        { 
                             await Shell.Current.GoToAsync($"/{nameof(MainPage)}");
                         }
                         else
                         {
                             await App.Current.MainPage.DisplayAlert(
                                 "Wrong Password", 
-                                "sorry :(", 
-                                "Ok :CCCC");
+                                "You have entered wrong password.",
+                                "Ok");
                         }
                     }
                     else
                     {
                         await App.Current.MainPage.DisplayAlert(
                             "No user found!", 
-                            "sorry :(", 
-                            "Ok :CCCC");
+                            "There is no user with provided login.",
+                            "Ok");
                     }
                 }
             }
@@ -109,7 +110,7 @@ namespace RealmTry.ViewModels
                 if(registeredUsername.Length < 6)
                 {
                     await App.Current.MainPage.DisplayAlert("Invalid username", 
-                        "Your username is either too short or too long!", "Ok :(");
+                        "Your username is either too short or too long.", "Ok");
                     return;
                 }
                 var username = realm.All<Models.User>().Where(t => t.Username == registeredUsername);

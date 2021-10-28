@@ -9,7 +9,7 @@ namespace RealmTry.Services
 {
     class RealmDB
     {
-        private static readonly string myRealmAppId = "xxxxxxxxxx";
+        private static readonly string myRealmAppId = "";
         private static Realms.Sync.App app;
         public static Realms.Sync.App App
         {
@@ -22,9 +22,16 @@ namespace RealmTry.Services
                 return app;
             }
         }
-        public static void Login()
+        public static async void Login()
         {
-            App.LogInAsync(Realms.Sync.Credentials.Anonymous());
+            try
+            {
+                await App.LogInAsync(Realms.Sync.Credentials.Anonymous());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n!!!!!!!!!!!!!!!!!!!!!\n{ex.Message}");
+            }
             user = App.CurrentUser;
         }
         private static Realms.Sync.User user;

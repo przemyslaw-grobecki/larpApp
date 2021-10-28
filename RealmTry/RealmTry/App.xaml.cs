@@ -6,19 +6,25 @@ using Xamarin.Forms.Xaml;
 using Realms;
 using Realms.Sync;
 using System.Threading.Tasks;
+using System.Diagnostics;
+using System.Threading;
 
 namespace RealmTry
 {
     public partial class App : Application
     {
+        Stopwatch sw = new Stopwatch();
+        PromptingService promptingService;
         public App()
         {
             InitializeComponent();
             MainPage = new AppShell();
+            promptingService = new PromptingService();
         }
 
-        protected override void OnStart()
-        {
+        protected async override void OnStart()
+        {        
+            sw.Start();
             try
             {
                 var app = RealmDB.App;
@@ -29,31 +35,19 @@ namespace RealmTry
                 Console.WriteLine(e.ToString());
                 throw;
             }
-
-            Task t = Task.Run(() => {
-                while (true)
-                {
-                    Task.Delay(5000).Wait();
-                    Console.WriteLine("Task ended delay...");
-                }
-            });
+            promptingService.ServiceStart();
         }
 
         protected override void OnSleep()
         {
-
+            promptingService.ServiceStop();
+            RealmDB.CurrentlyLoggedUserId = null;
         }
 
         protected async override void OnResume()
         {
+            promptingService.ServiceStart();
             await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
-            Task t = Task.Run(() => {
-                while (true)
-                {
-                    Task.Delay(5000).Wait();
-                    Console.WriteLine("Task ended delay...");
-                }
-            });
         }
     }
 }

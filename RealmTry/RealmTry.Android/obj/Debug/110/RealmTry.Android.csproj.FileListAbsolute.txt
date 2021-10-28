@@ -752,9 +752,11 @@ D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\an
 D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\android\src\crc64515ee83f00766c60\VisualFeedbackEffectRouter_FastRendererOnLayoutChangeListener.java
 D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\android\src\crc645b8ccbad6ecd7dce\SideMenuViewRenderer.java
 D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\res\drawable\background_chat.jpg
-D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\androidx\jl\f0d0e4ee-9551-409e-b91f-dc6dbf11b226.jar
-D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\androidx\proguard\270e48b8-e857-440e-8878-5d3895e0a822.txt
-D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\androidx\proguard\7e2032a6-c011-490b-8162-429f4d9e904e.cfg
-D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\androidx\proguard\95f50148-1c1b-48d8-a3a6-e99f31d3cb64.txt
-D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\androidx\proguard\ce39e6c3-9eb6-413b-af99-405a9c547967.txt
 D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\res\drawable\fajka_accept.png
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\androidx\jl\f1c4d31e-8979-4668-b50b-211c50ef326e.jar
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\androidx\proguard\95be8eeb-f126-4351-a143-5689e48a9c5c.txt
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\androidx\proguard\bfec2bbe-0cb1-4951-be20-1d802b6c6457.cfg
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\androidx\proguard\ce231c77-5b1a-4a41-a775-cac0308a7f99.txt
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\androidx\proguard\ea4458b9-fc5f-4f9f-8d5b-4d0675bd4b52.txt
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\res\drawable\d20.png
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\res\drawable\orange_tree.png

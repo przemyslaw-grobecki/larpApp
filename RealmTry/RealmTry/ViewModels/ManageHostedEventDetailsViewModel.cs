@@ -76,6 +76,9 @@ namespace RealmTry.ViewModels
 
             Clues = new ObservableCollection<ItemClueViewModel>();
             RefreshCluesCommand = new Command(RefreshClues);
+
+            //Get the wheels spinning...
+            RefreshParticipants();
         }
     }
 }
