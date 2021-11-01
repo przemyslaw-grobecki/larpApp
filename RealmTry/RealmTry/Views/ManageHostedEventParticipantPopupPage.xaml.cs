@@ -23,7 +23,8 @@ namespace RealmTry.Views
         {
             InitializeComponent();
             this.participantId = participantId;
-            BindingContext = new ManageHostedEventParticipantPopupViewModel(participantId);
+            this.BackgroundColor = new Color(0, 0, 0, 0);
+            BindingContext = new ManageHostedEventParticipantPopupViewModel(participantId, this);
         }
     }
 }

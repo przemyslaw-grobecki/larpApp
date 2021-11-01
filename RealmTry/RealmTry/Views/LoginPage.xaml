@@ -27,33 +27,77 @@
                 </BoxView.Background>
             </BoxView>
 
-            <Image Source="d20.png" Scale="0.5" AnchorY="1.2" AnchorX="0.55"></Image>
-            <Frame CornerRadius="48" 
-                   Padding ="0" 
-                   HasShadow="True"
-                   BackgroundColor="LightBlue" 
-                   VerticalOptions="Center"
-                   HorizontalOptions="Center">
-                <StackLayout Padding="50,50,50,50" VerticalOptions="Center" HorizontalOptions="Center" >
-                    <Label Padding="0,0,0,20" Text="LARPApp" TextColor="DarkBlue" FontSize="Large" FontFamily="FFF_Tusj.ttf"/>
-                    <Entry HorizontalOptions="Center" 
-                           MaxLength="25" 
-                           Placeholder="Username"
-                           PlaceholderColor="Gray"
-                           Text="{Binding LoginUsername}"
-                           TextColor="Black">
-                    </Entry>
-                    <Entry HorizontalOptions="Center" 
-                           MaxLength="25" 
-                           Placeholder="Password"
-                           PlaceholderColor="Gray"
-                           IsPassword="True"
-                           Text="{Binding LoginPassword}"
-                           TextColor="Black">
-                    </Entry>
-                    <Button   VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}"/>
-                </StackLayout>
-            </Frame>
+            <StackLayout VerticalOptions="CenterAndExpand" Padding="0,80,0,0"
+                         Spacing="50">
+                <Frame CornerRadius="48" 
+                       Padding ="0" 
+                       HasShadow="True"
+                       BackgroundColor="LightBlue" 
+                       HorizontalOptions="Center"
+                       BorderColor="AliceBlue"
+                       >
+                    <Frame CornerRadius="48" 
+                       Padding ="0" 
+                       HasShadow="True"
+                       BackgroundColor="LightBlue" 
+                       HorizontalOptions="Center">
+                        <Frame.Background>
+                            <RadialGradientBrush Center="0.5,0.5" >
+                                <GradientStop Color="White" Offset="0.1"/>
+                                <GradientStop Color="Transparent" Offset="1.0"/>
+                            </RadialGradientBrush>
+                        </Frame.Background>
+                        <Label Padding="20,20,20,20" Text="LARPApp" TextColor="DarkBlue" FontSize="50" FontFamily="FFF_Tusj.ttf"/>
+                    </Frame>
+                </Frame>
+                <Frame CornerRadius="48" 
+                       Padding ="0" 
+                       HasShadow="True"
+                       BackgroundColor="LightBlue" 
+                       HorizontalOptions="Center"
+                       BorderColor="AliceBlue"
+                       WidthRequest="300">
+                    <Frame CornerRadius="48" 
+                       Padding ="0" 
+                       HasShadow="True"
+                       BackgroundColor="LightBlue" 
+                       HorizontalOptions="Center">
+                    <Frame.Background>
+                        <RadialGradientBrush Center="0.5,0.5" >
+                            <GradientStop Color="White" Offset="0.1"/>
+                            <GradientStop Color="Transparent" Offset="1.0"/>
+                        </RadialGradientBrush>
+                    </Frame.Background>
+                    <StackLayout Padding="90,50,90,50" 
+                                 VerticalOptions="Center" HorizontalOptions="Center" >
+                        <Entry HorizontalOptions="Center" 
+                               MaxLength="25" 
+                               Placeholder="Username"
+                               PlaceholderColor="Gray"
+                               Text="{Binding LoginUsername}"
+                               TextColor="Black">
+                        </Entry>
+                        <Entry HorizontalOptions="Center" 
+                               MaxLength="25" 
+                               Placeholder="Password"
+                               PlaceholderColor="Gray"
+                               IsPassword="True"
+                               Text="{Binding LoginPassword}"
+                               TextColor="Black">
+                        </Entry>
+                        <Button Margin="5,20,5,5" 
+                                BorderColor="White" 
+                                TextColor="White"
+                                BorderWidth="1"
+                                BackgroundColor="DarkBlue"
+                                VerticalOptions="Center" Text="Login" Command="{Binding LoginCommand}"/>
+                    </StackLayout>
+                
+                    </Frame>
+                </Frame>
+                <Image Source="d20.png" Scale="0.5" AnchorX="0.55" AnchorY="-0.1" ></Image>
+            </StackLayout>
+
         </Grid>
     </ContentPage>
     
@@ -62,39 +106,85 @@
             <BoxView x:Name="registerGradient" AnchorX="0.5" AnchorY="0.5" Scale="3">
                 <BoxView.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,1" >
-                        <GradientStop Color="LightGreen" Offset="0.25"/>
-                        <GradientStop Color="LightBlue" Offset="0.5"/>
-                        <GradientStop Color="CadetBlue" Offset="0.75"/>
-                        <GradientStop Color="green" Offset="1.0  "/>
+                        <GradientStop Color="DodgerBlue" Offset="0.25"/>
+                        <GradientStop Color="CadetBlue" Offset="0.5"/>
+                        <GradientStop Color="DeepSkyBlue" Offset="0.75"/>
+                        <GradientStop Color="CornflowerBlue" Offset="1.0  "/>
                     </LinearGradientBrush>
                 </BoxView.Background>
             </BoxView>
-            <StackLayout VerticalOptions="Center">
-                <Entry HorizontalOptions="Center" 
-                       MaxLength="100" 
-                       Placeholder="E-mail address"
-                       PlaceholderColor="Gray"
-                       Text="{Binding RegisteredEmail}"
-                       TextColor="Black">
-                </Entry>
-                <Entry HorizontalOptions="Center" 
-                       MaxLength="25" 
-                       Placeholder="Username"
-                       PlaceholderColor="Gray"
-                       Text="{Binding RegisteredUsername}"
-                       TextColor="Black">
-                </Entry>
-                <Entry HorizontalOptions="Center" 
-                       MaxLength="25" 
-                       Placeholder="Password"
-                       PlaceholderColor="Gray"
-                       IsPassword="True"
-                       Text="{Binding RegisteredPassword}"
-                       TextColor="Black">
-                </Entry>
-                <Button Text="Register" VerticalOptions="Center" 
-                        Command="{Binding RegisterCommand}">
-                </Button>
+            <StackLayout VerticalOptions="CenterAndExpand" Padding="0,80,0,0" Spacing="30">
+                <Frame CornerRadius="48" 
+                       Padding ="0" 
+                       HasShadow="True"
+                       BackgroundColor="LightBlue" 
+                       HorizontalOptions="Center"
+                       BorderColor="AliceBlue"
+                       >
+                    <Frame CornerRadius="48" 
+                       Padding ="0" 
+                       HasShadow="True"
+                       BackgroundColor="LightBlue" 
+                       HorizontalOptions="Center">
+                        <Frame.Background>
+                            <RadialGradientBrush Center="0.5,0.5" >
+                                <GradientStop Color="White" Offset="0.1"/>
+                                <GradientStop Color="Transparent" Offset="1.0"/>
+                            </RadialGradientBrush>
+                        </Frame.Background>
+                        <Label Padding="20,20,20,20" Text="LARPApp" TextColor="DarkBlue" FontSize="50" FontFamily="FFF_Tusj.ttf"/>
+                    </Frame>
+                </Frame>
+                <Frame CornerRadius="48" 
+                           Padding ="0" 
+                           HasShadow="True"
+                           BackgroundColor="LightBlue" 
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           BorderColor="AliceBlue">
+                    <Frame CornerRadius="48" 
+                           Padding ="0" 
+                           HasShadow="True"
+                           BackgroundColor="LightBlue" 
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           BorderColor="AliceBlue">
+                        <Frame.Background>
+                            <RadialGradientBrush Center="0.5,0.5" >
+                                <GradientStop Color="White" Offset="0.1"/>
+                                <GradientStop Color="Transparent" Offset="1.0"/>
+                            </RadialGradientBrush>
+                        </Frame.Background>
+                        <StackLayout VerticalOptions="Center" Padding="50">
+                            <Entry HorizontalOptions="Center" 
+                                   MaxLength="100" 
+                                   Placeholder="E-mail address"
+                                   PlaceholderColor="Gray"
+                                   Text="{Binding RegisteredEmail}"
+                                   TextColor="Black">
+                            </Entry>
+                            <Entry HorizontalOptions="Center" 
+                                   MaxLength="25" 
+                                   Placeholder="Username"
+                                   PlaceholderColor="Gray"
+                                   Text="{Binding RegisteredUsername}"
+                                   TextColor="Black">
+                            </Entry>
+                            <Entry HorizontalOptions="Center" 
+                                   MaxLength="25" 
+                                   Placeholder="Password"
+                                   PlaceholderColor="Gray"
+                                   IsPassword="True"
+                                   Text="{Binding RegisteredPassword}"
+                                   TextColor="Black">
+                            </Entry>
+                            <Button Text="Register" VerticalOptions="Center" 
+                                    Command="{Binding RegisterCommand}">
+                            </Button>
+                        </StackLayout>
+                    </Frame>
+                </Frame>
+                <Image Source="d20.png" Scale="0.5" AnchorX="0.55" AnchorY="-0.1" ></Image>
             </StackLayout>
         </Grid>
     </ContentPage>

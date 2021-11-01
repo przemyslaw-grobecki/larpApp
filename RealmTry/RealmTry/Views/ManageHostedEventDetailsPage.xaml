@@ -5,107 +5,135 @@
              xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms" 
              xmlns:zxingcommon="clr-namespace:ZXing.Common;assembly=zxing.portable"
              x:DataType="viewmodels:ManageHostedEventDetailsViewModel"
-             x:Class="RealmTry.Views.ManageHostedEventDetailsPage">
+             x:Class="RealmTry.Views.ManageHostedEventDetailsPage"
+             BackgroundColor="CornflowerBlue">
     <ContentPage.Content>
-        <StackLayout>
-            <StackLayout HeightRequest="300" BackgroundColor="LightSteelBlue">
-                <Label Text="Participants"
+        <ScrollView>
+            <StackLayout Padding="10">
+                <Frame BackgroundColor="#6ccecb"
+                       CornerRadius="50"
+                       MinimumHeightRequest="200"
+                       Padding="10"
+                       HasShadow="True">
+                    <StackLayout>
+                        <Label Text="Participants"
+                            FontSize="Large"
+                            TextColor="Black"
+                            VerticalOptions="Fill" 
+                            HorizontalOptions="CenterAndExpand"/>
+                        <ListView x:Name="messagesList" 
+                              IsPullToRefreshEnabled="True"                         
+                              ItemsSource="{Binding Participants}"
+                              RefreshCommand="{Binding RefreshParticipantsCommand}"
+                              IsRefreshing="{Binding IsRefreshingParticipants}"
+                              CachingStrategy="RecycleElement"
+                              HasUnevenRows="True"
+                              BackgroundColor="Transparent"
+                              SeparatorVisibility="Default"
+                              SeparatorColor="Black"
+                              Margin="10"
+                              HeightRequest="300"
+                              SelectionMode="None"
+                              ItemTapped="messagesList_ItemTapped">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="30"/>
+                                                <RowDefinition Height="30*"/>
+                                                <RowDefinition Height="30"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="60"/>
+                                                <ColumnDefinition Width="50*"/>
+                                                <ColumnDefinition Width="60"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Image Source="fajka_accept.png" 
+                                                   x:DataType="viewmodels:ItemHostedEventParticipantViewModel" 
+                                                   IsVisible="{Binding IsParticipantReady}"
+                                                   Grid.Row="0"
+                                                   Grid.RowSpan="3"
+                                                   Grid.Column="0"/> 
+                                            <Label x:DataType="viewmodels:ItemHostedEventParticipantViewModel"
+                                                Grid.Row="0"
+                                                Grid.Column="1"
+                                                HorizontalOptions="Center"
+                                                Text="{Binding ParticipantCharacterName}"
+                                                FontSize="Subtitle"
+                                                TextColor="#230909"
+                                                BackgroundColor="Transparent"/>
+                                            <Label x:DataType="viewmodels:ItemHostedEventParticipantViewModel"
+                                                Grid.Row="1"
+                                                Grid.Column="1"
+                                                Text="{Binding ParticipantCharacterSurname}"
+                                                TextColor="#480000"
+                                                BackgroundColor="Transparent"
+                                                VerticalOptions="Center"
+                                                HorizontalOptions="Center"/>
+                                            <Label Grid.Row="2"
+                                                Grid.Column="1"
+                                                x:DataType="viewmodels:ItemHostedEventParticipantViewModel"
+                                                Text="{Binding ParticipantId}"
+                                                BackgroundColor="Transparent"
+                                                HorizontalOptions="Center"
+                                                TextColor="Gray"/>
+                                            <Image Grid.Column="2"
+                                                Grid.Row="0"
+                                                Grid.RowSpan="3"
+                                                x:DataType="viewmodels:ItemHostedEventParticipantViewModel"
+                                                BackgroundColor="Transparent"
+                                                Source="{Binding ParticipantPortraitUrl}"/>
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                </Frame>
+                <Frame BackgroundColor="#6ccecb"
+                       CornerRadius="50"
+                       MinimumHeightRequest="200"
+                       Padding="10"
+                       HasShadow="True">
+                    <Label Text="Clues"
                     FontSize="Large"
                     TextColor="Black"
-                    VerticalOptions="Fill" 
+                    VerticalOptions="CenterAndExpand" 
                     HorizontalOptions="CenterAndExpand"/>
-                <ListView x:Name="messagesList" 
-                      IsPullToRefreshEnabled="True"
-                      ItemsSource="{Binding Participants}"
-                      RefreshCommand="{Binding RefreshParticipantsCommand}"
-                      IsRefreshing="{Binding IsRefreshingParticipants}"
-                      CachingStrategy="RecycleElement"
-                      HasUnevenRows="True"
-                      BackgroundColor="Transparent"
-                      SeparatorVisibility="Default"
-                      SeparatorColor="Black"
-                      Margin="10"
-                      SelectionMode="None"
-                      ItemTapped="messagesList_ItemTapped">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="30"/>
-                                        <RowDefinition Height="30*"/>
-                                        <RowDefinition Height="30"/>
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="60"/>
-                                        <ColumnDefinition Width="50*"/>
-                                        <ColumnDefinition Width="60"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Image Source="fajka_accept.png" 
-                                           x:DataType="viewmodels:ItemHostedEventParticipantViewModel" 
-                                           IsVisible="{Binding IsParticipantReady}"
-                                           Grid.Row="0"
-                                           Grid.RowSpan="3"
-                                           Grid.Column="0"/> 
-                                    <Label x:DataType="viewmodels:ItemHostedEventParticipantViewModel"
-                                        Grid.Row="0"
-                                        Grid.Column="1"
-                                        HorizontalOptions="Center"
-                                        Text="{Binding ParticipantCharacterName}"
-                                        FontSize="Subtitle"
-                                        TextColor="#230909"
-                                        BackgroundColor="Transparent"/>
-                                    <Label x:DataType="viewmodels:ItemHostedEventParticipantViewModel"
-                                        Grid.Row="1"
-                                        Grid.Column="1"
-                                        Text="{Binding ParticipantCharacterSurname}"
-                                        TextColor="#480000"
-                                        BackgroundColor="Transparent"
-                                        VerticalOptions="Center"
-                                        HorizontalOptions="Center"/>
-                                    <Label Grid.Row="2"
-                                        Grid.Column="1"
-                                        x:DataType="viewmodels:ItemHostedEventParticipantViewModel"
-                                        Text="{Binding ParticipantId}"
-                                        BackgroundColor="Transparent"
-                                        HorizontalOptions="Center"
-                                        TextColor="Gray"/>
-                                    <Image Grid.Column="2"
-                                        Grid.Row="0"
-                                        Grid.RowSpan="3"
-                                        x:DataType="viewmodels:ItemHostedEventParticipantViewModel"
-                                        BackgroundColor="Transparent"
-                                        Source="{Binding ParticipantPortraitUrl}"/>
-                                </Grid>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackLayout>
-            <Label Text="Clues"
-                FontSize="Large"
-                TextColor="Black"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand"/>
-            <Label Text="Rewards"
-                   FontSize="Large"
-                   TextColor="Black"
-                   VerticalOptions="CenterAndExpand" 
-                   HorizontalOptions="CenterAndExpand"/>
-            <StackLayout>
-                <Label Text="Invitation QR" 
+                </Frame>
+                <Frame BackgroundColor="#6ccecb"
+                       CornerRadius="50"
+                       MinimumHeightRequest="200"
+                       Padding="10"
+                       HasShadow="True">
+                    <Label Text="Rewards"
                        FontSize="Large"
                        TextColor="Black"
                        VerticalOptions="CenterAndExpand" 
                        HorizontalOptions="CenterAndExpand"/>
-                <zxing:ZXingBarcodeImageView BarcodeValue="{Binding EventId}" 
-                                             WidthRequest="500" 
-                                             HeightRequest="500">
-                    <zxing:ZXingBarcodeImageView.BarcodeOptions>
-                        <zxingcommon:EncodingOptions Height="500" Width="500" />
-                    </zxing:ZXingBarcodeImageView.BarcodeOptions>
-                </zxing:ZXingBarcodeImageView>
+                </Frame>
+                <Frame BackgroundColor="#6ccecb"
+                       CornerRadius="50"
+                       MinimumHeightRequest="200"
+                       Padding="10"
+                       HasShadow="True">
+                    <StackLayout>
+                        <Label Text="Invitation QR" 
+                           FontSize="Large"
+                           TextColor="Black"
+                           VerticalOptions="CenterAndExpand" 
+                           HorizontalOptions="CenterAndExpand"/>
+                        <zxing:ZXingBarcodeImageView BarcodeValue="{Binding EventId}" 
+                                                 WidthRequest="500" 
+                                                 HeightRequest="500">
+                            <zxing:ZXingBarcodeImageView.BarcodeOptions>
+                                <zxingcommon:EncodingOptions Height="500" Width="500" />
+                            </zxing:ZXingBarcodeImageView.BarcodeOptions>
+                        </zxing:ZXingBarcodeImageView>
+                    </StackLayout>
+                </Frame>
             </StackLayout>
-        </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

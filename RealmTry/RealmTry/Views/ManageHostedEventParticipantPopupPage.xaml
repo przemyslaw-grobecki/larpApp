@@ -5,58 +5,65 @@
             xmlns:viewmodels="clr-namespace:RealmTry.ViewModels" 
             x:DataType="viewmodels:ManageHostedEventParticipantPopupViewModel"
             x:Class="RealmTry.Views.ManageHostedEventParticipantPopupPage"
-            Size="400,400">
-    <Grid>
-        <BoxView x:Name="bdGradient">
-            <BoxView.Background>
-                <LinearGradientBrush StartPoint="0,1" EndPoint="1,1">
-                    <GradientStop Color="Aqua" Offset="0.25"/>
-                    <GradientStop Color="LightBlue" Offset="0.5"/>
-                    <GradientStop Color="CadetBlue" Offset="0.75"/>
-                    <GradientStop Color="CornflowerBlue" Offset="1.0  "/>
-                </LinearGradientBrush>
-            </BoxView.Background>
-        </BoxView>
-
-        <StackLayout VerticalOptions="Center">
-            <StackLayout>
-                <Label Text="Deal damage" HorizontalOptions="Center" TextColor="White" FontSize="Large"/>
-                <Entry HorizontalOptions="CenterAndExpand" 
-                       Placeholder="0" 
-                       PlaceholderColor="Gray" 
-                       BackgroundColor="LightBlue" 
-                       TextColor="White"
-                       Text="{Binding DamageCounter, Mode=TwoWay}"/>
-                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-                    <Button Text="+" 
-                            TextColor="White"
-                            Command="{Binding IncrementDamageCounter}"
-                            BackgroundColor="LightGray"/>
-                    <Button Text="-" 
+            Size="300,520"
+            BackgroundColor="Transparent">
+    <Grid BackgroundColor="Transparent">
+        <Frame BackgroundColor="#6ccecb"
+               Padding="30"
+               >
+            <StackLayout BackgroundColor="Transparent" VerticalOptions="Center">
+            <Frame BackgroundColor="LightBlue"
+                   CornerRadius="50"
+                   Padding="20">
+                <StackLayout>
+                    <Label Text="Deal damage" HorizontalOptions="Center" TextColor="White" FontSize="Large"/>
+                    <Entry HorizontalOptions="CenterAndExpand" 
+                           Placeholder="0" 
+                           PlaceholderColor="Gray" 
+                           BackgroundColor="LightBlue" 
+                           TextColor="White"
+                           Text="{Binding DamageCounter, Mode=TwoWay}"/>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <Button Text="+" 
+                                TextColor="White"
+                                Command="{Binding IncrementDamageCounter}"
+                                BackgroundColor="LightGray"
+                                CornerRadius="50"/>
+                        <Button Text="-" 
+                                TextColor="White" 
+                                Command="{Binding DecrementDamageCounter}"
+                                BackgroundColor="Gray"
+                                CornerRadius="50"/>
+                    </StackLayout>
+                    <Button HorizontalOptions="Fill"
+                            Text="Confirm" 
                             TextColor="White" 
-                            Command="{Binding DecrementDamageCounter}"
-                            BackgroundColor="Gray"/>
+                            BackgroundColor="Red"
+                            CornerRadius="10"
+                            Command="{Binding DealDamageCommand}"/>
                 </StackLayout>
-                <Button Text="Deal damage" 
-                        TextColor="White" 
-                        BackgroundColor="Red"
-                        Command="{Binding DealDamageCommand}"/>
-            </StackLayout>
-            <StackLayout>
-                <Label Text="Ask for roll"
-                       HorizontalOptions="Center" 
-                       TextColor="White" 
-                       FontSize="Large"/>
-                <Picker HorizontalOptions="CenterAndExpand"
-                        TextColor="Black" 
-                        BackgroundColor="LightBlue"
-                        ItemsSource="{Binding Stats}"/>
-                <Button Text="Confirm" 
-                        TextColor="White" 
-                        FontSize="Large" 
-                        BackgroundColor="LightBlue"
-                        Command="{Binding AskForRollCommand}"/>
-            </StackLayout>
+            </Frame>
+            <Frame BackgroundColor="LightBlue"
+                   CornerRadius="50"
+                   Padding="20">
+                <StackLayout BackgroundColor="Transparent">
+                    <Label Text="Ask for roll"
+                           HorizontalOptions="Center" 
+                           TextColor="White" 
+                           FontSize="Large"/>
+                    <Picker HorizontalOptions="FillAndExpand"
+                            TextColor="Black" 
+                            BackgroundColor="LightBlue"
+                            ItemsSource="{Binding Stats}"
+                            SelectedIndex="{Binding SelectedStat}"/>
+                    <Button Text="Confirm" 
+                            TextColor="White" 
+                            BackgroundColor="Red"
+                            CornerRadius="10"
+                            Command="{Binding AskForRollCommand}"/>
+                </StackLayout>
+            </Frame>
         </StackLayout>
+        </Frame>
     </Grid>
 </xct:Popup>

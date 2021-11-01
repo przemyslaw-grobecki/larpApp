@@ -33,3 +33,4 @@ D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry\obj\Debug\netstandard2.0
 D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry\obj\Debug\netstandard2.0\Views\AskForItemCheckPopupPage.xaml.g.cs
 D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry\obj\Debug\netstandard2.0\Views\AskForRollPopupPage.xaml.g.cs
 D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry\obj\Debug\netstandard2.0\Views\AskForStatCheckPopupPage.xaml.g.cs
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry\obj\Debug\netstandard2.0\Templates\FlyoutHeaderTemplate.xaml.g.cs
