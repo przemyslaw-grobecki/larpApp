@@ -10,11 +10,17 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Padding="10">
-                <Frame BackgroundColor="#6ccecb"
+                <Frame BorderColor="White"
                        CornerRadius="50"
                        MinimumHeightRequest="200"
                        Padding="10"
                        HasShadow="True">
+                    <Frame.Background>
+                        <RadialGradientBrush Center="0.5,0.5" >
+                            <GradientStop Color="White" Offset="0.1"/>
+                            <GradientStop Color="LightBlue" Offset="1.0"/>
+                        </RadialGradientBrush>
+                    </Frame.Background>
                     <StackLayout>
                         <Label Text="Participants"
                             FontSize="Large"
@@ -91,33 +97,51 @@
                         </ListView>
                     </StackLayout>
                 </Frame>
-                <Frame BackgroundColor="#6ccecb"
+                <Frame BorderColor="White"
                        CornerRadius="50"
                        MinimumHeightRequest="200"
                        Padding="10"
                        HasShadow="True">
+                    <Frame.Background>
+                        <RadialGradientBrush Center="0.5,0.5" >
+                            <GradientStop Color="White" Offset="0.1"/>
+                            <GradientStop Color="LightBlue" Offset="1.0"/>
+                        </RadialGradientBrush>
+                    </Frame.Background>
                     <Label Text="Clues"
                     FontSize="Large"
                     TextColor="Black"
                     VerticalOptions="CenterAndExpand" 
                     HorizontalOptions="CenterAndExpand"/>
                 </Frame>
-                <Frame BackgroundColor="#6ccecb"
+                <Frame BorderColor="White"
                        CornerRadius="50"
                        MinimumHeightRequest="200"
                        Padding="10"
                        HasShadow="True">
+                    <Frame.Background>
+                        <RadialGradientBrush Center="0.5,0.5" >
+                            <GradientStop Color="White" Offset="0.1"/>
+                            <GradientStop Color="LightBlue" Offset="1.0"/>
+                        </RadialGradientBrush>
+                    </Frame.Background>
                     <Label Text="Rewards"
                        FontSize="Large"
                        TextColor="Black"
                        VerticalOptions="CenterAndExpand" 
                        HorizontalOptions="CenterAndExpand"/>
                 </Frame>
-                <Frame BackgroundColor="#6ccecb"
+                <Frame BorderColor="White"
                        CornerRadius="50"
                        MinimumHeightRequest="200"
                        Padding="10"
                        HasShadow="True">
+                    <Frame.Background>
+                        <RadialGradientBrush Center="0.5,0.5" >
+                            <GradientStop Color="White" Offset="0.1"/>
+                            <GradientStop Color="LightBlue" Offset="1.0"/>
+                        </RadialGradientBrush>
+                    </Frame.Background>
                     <StackLayout>
                         <Label Text="Invitation QR" 
                            FontSize="Large"

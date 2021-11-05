@@ -7,6 +7,7 @@
             x:Class="RealmTry.Views.ManageHostedEventParticipantPopupPage"
             Size="300,520"
             BackgroundColor="Transparent">
+    <ScrollView>
     <Grid BackgroundColor="Transparent">
         <Frame BackgroundColor="#6ccecb"
                Padding="30"
@@ -18,6 +19,7 @@
                 <StackLayout>
                     <Label Text="Deal damage" HorizontalOptions="Center" TextColor="White" FontSize="Large"/>
                     <Entry HorizontalOptions="CenterAndExpand" 
+                           WidthRequest="30"
                            Placeholder="0" 
                            PlaceholderColor="Gray" 
                            BackgroundColor="LightBlue" 
@@ -51,19 +53,41 @@
                            HorizontalOptions="Center" 
                            TextColor="White" 
                            FontSize="Large"/>
+                    <Label Text="Choose statistic" TextColor="Black" HorizontalOptions="Center"/>
                     <Picker HorizontalOptions="FillAndExpand"
-                            TextColor="Black" 
-                            BackgroundColor="LightBlue"
-                            ItemsSource="{Binding Stats}"
-                            SelectedIndex="{Binding SelectedStat}"/>
-                    <Button Text="Confirm" 
+                        TextColor="Black" 
+                        BackgroundColor="LightBlue"
+                        ItemsSource="{Binding Stats}"
+                        SelectedIndex="{Binding SelectedStat}"/>
+                    <Label Text="Roll difficulty" TextColor="Black" HorizontalOptions="Center"/>
+                    <Entry HorizontalOptions="CenterAndExpand" 
+                           WidthRequest="30"
+                       Placeholder="0" 
+                       PlaceholderColor="Gray" 
+                       BackgroundColor="LightBlue" 
+                       TextColor="White"
+                       Text="{Binding RollDifficultyCounter, Mode=TwoWay}"/>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                        <Button Text="+" 
+                            TextColor="White"
+                            Command="{Binding IncrementRollDifficulty}"
+                            BackgroundColor="LightGray"
+                            CornerRadius="50"/>
+                        <Button Text="-" 
                             TextColor="White" 
-                            BackgroundColor="Red"
-                            CornerRadius="10"
-                            Command="{Binding AskForRollCommand}"/>
+                            Command="{Binding DecrementRollDifficulty}"
+                            BackgroundColor="Gray"
+                            CornerRadius="50"/>
+                    </StackLayout>
+                    <Button Text="Confirm" 
+                        TextColor="White" 
+                        BackgroundColor="Red"
+                        CornerRadius="10"
+                        Command="{Binding AskForRollCommand}"/>
                 </StackLayout>
             </Frame>
         </StackLayout>
         </Frame>
     </Grid>
+    </ScrollView>
 </xct:Popup>

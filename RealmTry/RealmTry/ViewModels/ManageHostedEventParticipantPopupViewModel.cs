@@ -39,11 +39,31 @@ namespace RealmTry.ViewModels
                 }
             }
         }
+        private string rollDifficultyCounter = "0";
+        public string RollDifficultyCounter
+        {
+            get => rollDifficultyCounter;
+            set
+            {
+                if (int.Parse(rollDifficultyCounter) <= 20 || int.Parse(rollDifficultyCounter) >= 0)
+                {
+                    SetProperty(ref rollDifficultyCounter, value);
+                }
+            }
+        }
         public Command IncrementDamageCounter
         {
             get; private set;
         }
         public Command DecrementDamageCounter
+        {
+            get; private set;
+        }
+        public Command IncrementRollDifficulty
+        {
+            get; private set;
+        }
+        public Command DecrementRollDifficulty
         {
             get; private set;
         }
@@ -84,6 +104,20 @@ namespace RealmTry.ViewModels
                     DamageCounter = (int.Parse(DamageCounter) - 1).ToString();
                 }
             });
+            IncrementRollDifficulty = new Command(() =>
+            {
+                if (int.Parse(RollDifficultyCounter) < 20)
+                {
+                    RollDifficultyCounter = (int.Parse(RollDifficultyCounter) + 1).ToString();
+                }
+            });
+            DecrementRollDifficulty = new Command(() =>
+            {
+                if (int.Parse(RollDifficultyCounter) > 0)
+                {
+                    RollDifficultyCounter = (int.Parse(RollDifficultyCounter) - 1).ToString();
+                }
+            });
             AskForRollCommand = new Command(async () =>
             {
                 //Create a prompt
@@ -97,7 +131,7 @@ namespace RealmTry.ViewModels
                             Receiver = participantId,
                             Sender = Services.RealmDB.CurrentlyLoggedUserId,
                             Type = "AskForRoll",
-                            Information = $"You have been requested to make {SelectedStat} check roll.",
+                            Information = $"{SelectedStat} {RollDifficultyCounter}",
                             Status = "Waiting",
                             TimeStamp = DateTime.Now.ToString(),
                         };

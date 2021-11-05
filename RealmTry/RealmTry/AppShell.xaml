@@ -6,7 +6,7 @@
        Title="RealmTry"
        x:Class="RealmTry.AppShell"
        FlyoutHeaderTemplate="{DataTemplate templates:FlyoutHeaderTemplate}"
-       FlyoutBackgroundColor="AntiqueWhite"
+       FlyoutBackgroundColor="LightSkyBlue"
 
        >
 
@@ -37,8 +37,8 @@
     <Shell.ItemTemplate>
         <DataTemplate>
             <Frame  Padding="30,0,0,0" 
-                    BackgroundColor="AntiqueWhite"
-                   BorderColor="Black">
+                    BackgroundColor="LightBlue"
+                   >
                 <Frame.Background>
                     <RadialGradientBrush Center="0.5,0.5" >
                         <GradientStop Color="White" Offset="0.1"/>
@@ -64,9 +64,7 @@
 
     <Shell.MenuItemTemplate>
         <DataTemplate>
-            <Frame  Padding="30,0,0,0" 
-                    BackgroundColor="Red"
-                   BorderColor="Black">
+            <Frame  Padding="30,0,0,0" >
                 <Frame.Background>
                     <RadialGradientBrush Center="0.5,0.5" >
                         <GradientStop Color="White" Offset="0.1"/>

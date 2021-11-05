@@ -8,8 +8,8 @@
              >
     <ContentPage.Content Title="World Map">
         <AbsoluteLayout>
-            
-            <maps:Map AbsoluteLayout.LayoutBounds="0,0,410,540" 
+
+            <maps:Map AbsoluteLayout.LayoutBounds="0,0,410,755" 
                       x:Name="map" IsShowingUser="True"
                       MapClicked="map_MapClicked"
                       >
@@ -29,36 +29,21 @@
                 </x:Arguments>
             </maps:Map>
             <ImageButton x:Name="FinalizeEventButton"
-                         Source="smth_butt.png"
+                         Source="fajka_accept.png"
                          BackgroundColor="Transparent"
                          AbsoluteLayout.LayoutFlags="PositionProportional"  
                          AbsoluteLayout.LayoutBounds=".50,.95,80,80" 
                          Clicked="ImageButton_Clicked">
             </ImageButton>
-            <Image Source="diceBackground.png"                   
-                   Aspect="AspectFit"
-                   InputTransparent="True">
-            </Image>
-            <Frame BackgroundColor="DarkRed"
-                   BorderColor="Black"
-                   CornerRadius="0"
-                   
-                AbsoluteLayout.LayoutBounds="0,548,420,208" >
-                <Frame.Background>
-                    <RadialGradientBrush Center="0.5,0.5" >
-                        <GradientStop Color="White" Offset="0.0"/>
-                        <GradientStop Color="Black" Offset="0.5"/>
-                        <GradientStop Color="Black" Offset="1.0"/>
-                    </RadialGradientBrush>
-                </Frame.Background>
-                <ImageButton x:Name="RefreshButton"
+
+            <ImageButton x:Name="RefreshButton"
                          Source="restart.png"
-                         Scale="0.7"
+                         Scale="0.5"
                          BackgroundColor="Transparent"
                          AbsoluteLayout.LayoutFlags="PositionProportional"  
+                         AbsoluteLayout.LayoutBounds=".0,.0,100,100" 
                          Clicked="RefreshButton_Clicked">
-                </ImageButton>
-            </Frame>
+            </ImageButton>
         </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>
