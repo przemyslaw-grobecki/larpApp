@@ -7,6 +7,8 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using Xamarin.Forms;
+using Xamarin.CommunityToolkit;
+using Xamarin.CommunityToolkit.Extensions;
 
 namespace RealmTry.ViewModels
 {
@@ -52,12 +54,64 @@ namespace RealmTry.ViewModels
         public Command RefreshCluesCommand { get; set; }
         private async void RefreshClues()
         {
+            Clues.Clear();
             IsRefreshingClues = true;
             using (var realm = await Realm.GetInstanceAsync(RealmDB.Configuration))
             {
-
+                var clues = realm.All<Models.Clue>().Where(t => t.EventId == eventId).ToList();
+                foreach(Models.Clue clue in clues)
+                {
+                    Clues.Add(new ItemClueViewModel
+                    {
+                        ClueContent = clue.ClueContent,
+                        ClueImageUrl = clue.ClueImageUrl,
+                        AlternativeClueContent = clue.AlternativeClueContent,
+                        AttributeTested = clue.AttributeTested,
+                        ClueRequirement = clue.ClueRequirement,
+                        Description = clue.Description,
+                        EventId = clue.EventId,
+                        Id = clue.Id,
+                        NeedsDiceRoll = clue.NeedsDiceRoll,
+                        TestDifficulty = clue.TestDifficulty
+                    });
+                }
             }
             IsRefreshingClues = false;
+        }
+        public Command AddClueCommand { get; private set; }
+        public void AddClue()
+        {
+            Shell.Current.ShowPopup(new Views.AddCluePopupPage(EventId));
+        }
+        public Command EditClueCommand { get; private set; }
+        private async void EditClue(object clue)
+        {
+            using (var realm = await Realm.GetInstanceAsync(RealmDB.Configuration))
+            {
+                var clueToEdit = realm.All<Models.Clue>().FirstOrDefault(t => t.Id == (clue as ItemClueViewModel).Id);
+
+                var result = await Shell.Current.DisplayPromptAsync("Editing clue", "Please enter new clue message:", "OK", "Cancel","New Content",-1);
+
+                realm.Write(() =>
+                {
+                    clueToEdit.ClueContent = result;
+                });
+            }
+            RefreshClues();
+        }
+
+        public Command DeleteClueCommand { get; private set; }
+        private async void DeleteClue(object clue)
+        {
+            using (var realm = await Realm.GetInstanceAsync(RealmDB.Configuration))
+            {
+                var clueToDelete = realm.All<Models.Clue>().FirstOrDefault(t => t.Id == (clue as ItemClueViewModel).Id);
+                realm.Write(() =>
+                {
+                    realm.Remove(clueToDelete);
+                });
+            }
+            RefreshClues();
         }
 
         //public ObservableCollection<ItemRewardViewModel> Rewards { get; set; }
@@ -76,9 +130,13 @@ namespace RealmTry.ViewModels
 
             Clues = new ObservableCollection<ItemClueViewModel>();
             RefreshCluesCommand = new Command(RefreshClues);
+            EditClueCommand = new Command(EditClue);
+            DeleteClueCommand = new Command(DeleteClue);
+            AddClueCommand = new Command(AddClue);
 
             //Get the wheels spinning...
             RefreshParticipants();
+            RefreshClues();
         }
     }
 }

@@ -4,12 +4,12 @@
              xmlns:viewmodels="clr-namespace:RealmTry.ViewModels" 
              xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"
              x:DataType="viewmodels:MainPageViewModel"
-             x:Class="RealmTry.Views.MainPage"
-             
+             x:Class="RealmTry.Views.MainPage"        
              >
     <ContentPage.Content Title="World Map">
         <AbsoluteLayout>
-            <maps:Map AbsoluteLayout.LayoutBounds="0,0,410,760" 
+
+            <maps:Map AbsoluteLayout.LayoutBounds="0,0,410,755" 
                       x:Name="map" IsShowingUser="True"
                       MapClicked="map_MapClicked"
                       >
@@ -29,17 +29,19 @@
                 </x:Arguments>
             </maps:Map>
             <ImageButton x:Name="FinalizeEventButton"
-                         Source="smth_butt.png"
+                         Source="fajka_accept.png"
                          BackgroundColor="Transparent"
                          AbsoluteLayout.LayoutFlags="PositionProportional"  
                          AbsoluteLayout.LayoutBounds=".50,.95,80,80" 
                          Clicked="ImageButton_Clicked">
             </ImageButton>
+
             <ImageButton x:Name="RefreshButton"
-                         Source="icon_feed.png"
+                         Source="restart.png"
+                         Scale="0.5"
                          BackgroundColor="Transparent"
                          AbsoluteLayout.LayoutFlags="PositionProportional"  
-                         AbsoluteLayout.LayoutBounds=".80,.0,80,80" 
+                         AbsoluteLayout.LayoutBounds=".0,.0,100,100" 
                          Clicked="RefreshButton_Clicked">
             </ImageButton>
         </AbsoluteLayout>

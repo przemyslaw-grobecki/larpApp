@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "F7J5nc9tpQr6fk+ZAaKIzCkSPPcSSaJYP8lti8RuQM+os1dsSkB8Im44SXfq2fIk6uLNm2MEcR8ez1vUFfD+kQ==",
+  "dgSpecHash": "8KjiBxxh7Hy0VLD3zxA3uwGNq2RmjxU16FLCPL1W4B8vUoma1eMkn73N8ERicU2DtQe2U+HNcsU6tiO8ZnvCVA==",
   "success": true,
   "projectFilePath": "D:\\Thesis\\LarpApp\\playground\\RealmTry\\RealmTry\\RealmTry\\RealmTry.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\pgtar\\.nuget\\packages\\com.airbnb.xamarin.forms.lottie\\4.0.11\\com.airbnb.xamarin.forms.lottie.4.0.11.nupkg.sha512",
     "C:\\Users\\pgtar\\.nuget\\packages\\fody\\6.5.2\\fody.6.5.2.nupkg.sha512",
     "C:\\Users\\pgtar\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\pgtar\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",

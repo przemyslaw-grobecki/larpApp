@@ -4,46 +4,78 @@
              x:Class="RealmTry.Views.SetCharacterDetailsPage"
              xmlns:vm="clr-namespace:RealmTry.ViewModels"
              Title="{Binding Title}"
-             Shell.FlyoutBehavior="Disabled">
+             Shell.FlyoutBehavior="Disabled"
+             BackgroundImageSource="background_chat.png">
     
     <ContentPage.BindingContext>
         <vm:SetCharacterDetailsViewModel/>
     </ContentPage.BindingContext>
     
     <ContentPage.Content>
-        <StackLayout>
-            <Entry Text="{Binding CharacterName}"
-                   TextColor="Black"
-                   Placeholder="Your Character Ingame Name:"
-                   PlaceholderColor="Gray"
-                   HorizontalOptions="CenterAndExpand">
-            </Entry>
-            <Entry Text="{Binding CharacterSurname}"
-                   TextColor="Black"
-                   Placeholder="Your Character Ingame Surname (Optional):"
-                   PlaceholderColor="Gray"
-                   HorizontalOptions="Center">
-            </Entry>
-            <CarouselView ItemsSource="{Binding ViablePortraits}"
-                          CurrentItem="{Binding PortraitUrl}"
-                          Margin="10">
-                <CarouselView.ItemTemplate>
-                    <DataTemplate>
-                        <StackLayout>
-                            <Frame HasShadow="True"
-                               Margin="5"
-                               Padding="5">
-                                <Image Source="{Binding .}"
-                                       Aspect="AspectFit"/>
-                            </Frame>
-                        </StackLayout>
-                    </DataTemplate>
-                </CarouselView.ItemTemplate>
-            </CarouselView>
-            <Button Command="{Binding OnSetDetailsClickedCommand}"
-                    HorizontalOptions="Center"
-                    Text="Set Character Details">
-            </Button>
+        <StackLayout VerticalOptions="Center" Padding="50">
+            <Frame BackgroundColor="AntiqueWhite"
+                   HasShadow="True"
+                   BorderColor="Black"
+               CornerRadius="48"
+               VerticalOptions="Center"
+               HorizontalOptions="Center"
+               >
+                <StackLayout Spacing="20">
+                    <Entry Text="{Binding CharacterName}"
+                           TextColor="Black"
+                           Placeholder="Ingame Name:"
+                           PlaceholderColor="Gray"
+                           HorizontalTextAlignment="Center"
+                           HorizontalOptions="Center">
+                    </Entry>
+                    <Entry Text="{Binding CharacterSurname}"
+                           TextColor="Black"
+                           Placeholder="Ingame Surname (Optional):"
+                           PlaceholderColor="Gray"
+                           HorizontalTextAlignment="Center"
+                           HorizontalOptions="Center">
+                    </Entry>
+                    <CarouselView ItemsSource="{Binding ViablePortraits}"
+                                  CurrentItem="{Binding PortraitUrl}"
+                                  Margin="10"
+                                  HeightRequest="250"
+                                  HorizontalOptions="Fill">
+                        <CarouselView.ItemTemplate>
+                            <DataTemplate>
+                                <StackLayout>
+                                    <Frame HeightRequest="210">
+                                        <Frame.Background>
+                                            <RadialGradientBrush Center="0.5,0.5" >
+                                                <GradientStop Color="Black" Offset="0.1"/>
+                                                <GradientStop Color="Transparent" Offset="1.0"/>
+                                            </RadialGradientBrush>
+                                        </Frame.Background>
+                                        <Frame HasShadow="True"
+                                           VerticalOptions="CenterAndExpand"
+                                           HorizontalOptions="CenterAndExpand"
+                                           CornerRadius="48"
+                                           BackgroundColor="Black"
+                                           Padding="1">
+
+                                            <Image Source="{Binding .}"
+                                               Aspect="AspectFit"/>
+                                        </Frame>
+                                    </Frame>
+                                </StackLayout>
+                            </DataTemplate>
+                        </CarouselView.ItemTemplate>
+                    </CarouselView>
+                    <Button Command="{Binding OnSetDetailsClickedCommand}"
+                            HorizontalOptions="Center"
+                            BorderWidth="1"
+                            BorderColor="Black"
+                            BackgroundColor="LightGray"
+                            Text="Set Character Details"
+                            Padding="10"
+                            >
+                    </Button>
+                </StackLayout>
+            </Frame>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

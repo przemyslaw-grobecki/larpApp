@@ -1,13 +1,58 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <xct:Popup  xmlns:xct="http://xamarin.com/schemas/2020/toolkit" 
             xmlns="http://xamarin.com/schemas/2014/forms"
-            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+            xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms" xmlns:views="clr-namespace:RealmTry.Views" x:DataType="views:AskForRollPopupPage"
             x:Class="RealmTry.Views.AskForRollPopupPage"
-            Dismissed="Popup_Dismissed">
-    <StackLayout>
-         <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
+            Dismissed="Popup_Dismissed"
+            IsLightDismissEnabled="False"
+            Size="350,720">
+    <StackLayout BackgroundColor="CornflowerBlue" Padding="20,20,20,20"
+                 Spacing="20">
+        <Frame CornerRadius="50"
+               BorderColor="White">
+            <Frame.Background>
+                <RadialGradientBrush Center="0.5,0.5" >
+                    <GradientStop Color="White" Offset="0.1"/>
+                    <GradientStop Color="LightBlue" Offset="1.0"/>
+                </RadialGradientBrush>
+            </Frame.Background>
+            <Label 
+                x:Name="labelForExclamation"
+                Text="An event creator has asked u to perform a roll!"
+                   FontFamily="FFF_Tusj.ttf"
+                TextColor="DarkBlue"
+                FontSize="Medium"
+                VerticalOptions="Start" 
                 HorizontalOptions="CenterAndExpand" />
+        </Frame>
+        <lottie:AnimationView x:Name="lottieAni"
+                              Animation="dice_shuffle.json"
+                              AutoPlay="false"
+                              WidthRequest="300"
+                              HeightRequest="300"                              
+                              VerticalOptions="CenterAndExpand"
+                              HorizontalOptions="CenterAndExpand"/>
+        <Button Text="Roll the dices!" CornerRadius="50" BorderColor="White" BorderWidth="1" TextColor="DarkBlue" BackgroundColor="Black" Clicked="Shuffle_Clicked">
+            <Button.Background>
+                <RadialGradientBrush Center="0.5,0.5" >
+                    <GradientStop Color="White" Offset="0.1"/>
+                    <GradientStop Color="LightBlue" Offset="1.0"/>
+                </RadialGradientBrush>
+            </Button.Background>
+        </Button>
+        <Frame x:Name="frameForRollText"
+               CornerRadius="50"
+               BorderColor="White"
+               Opacity="0">
+            <Label FontFamily="FFF_Tusj.ttf" x:Name= "labelForRollText" TextColor="DarkBlue"/>
+            <Frame.Background>
+                <RadialGradientBrush Center="0.5,0.5" >
+                    <GradientStop Color="White" Offset="0.1"/>
+                    <GradientStop Color="LightBlue" Offset="1.0"/>
+                </RadialGradientBrush>
+            </Frame.Background>
+        </Frame>
     </StackLayout>
 
 </xct:Popup>

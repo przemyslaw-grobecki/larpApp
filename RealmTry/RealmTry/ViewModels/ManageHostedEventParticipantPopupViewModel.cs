@@ -4,12 +4,14 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using Xamarin.CommunityToolkit.UI.Views;
 using Xamarin.Forms;
 
 namespace RealmTry.ViewModels
 {
     class ManageHostedEventParticipantPopupViewModel : BaseViewModel
     {
+        private Popup popup;
         private ObservableCollection<string> stats = new ObservableCollection<string>
         {
             "STRENGTH",
@@ -19,6 +21,12 @@ namespace RealmTry.ViewModels
             "WISDOM",
             "CHARISMA"
         };
+        private string selectedStat = null;
+        public string SelectedStat
+        {
+            get => selectedStat;
+            set => SetProperty(ref selectedStat, value);
+        }
         private string damageCounter = "0";
         public string DamageCounter
         {
@@ -31,11 +39,31 @@ namespace RealmTry.ViewModels
                 }
             }
         }
+        private string rollDifficultyCounter = "0";
+        public string RollDifficultyCounter
+        {
+            get => rollDifficultyCounter;
+            set
+            {
+                if (int.Parse(rollDifficultyCounter) <= 20 || int.Parse(rollDifficultyCounter) >= 0)
+                {
+                    SetProperty(ref rollDifficultyCounter, value);
+                }
+            }
+        }
         public Command IncrementDamageCounter
         {
             get; private set;
         }
         public Command DecrementDamageCounter
+        {
+            get; private set;
+        }
+        public Command IncrementRollDifficulty
+        {
+            get; private set;
+        }
+        public Command DecrementRollDifficulty
         {
             get; private set;
         }
@@ -58,8 +86,9 @@ namespace RealmTry.ViewModels
         {
             get; private set;
         }
-        public ManageHostedEventParticipantPopupViewModel(string participantId)
+        public ManageHostedEventParticipantPopupViewModel(string participantId, Popup popup)
         {
+            this.popup = popup;
             ParticipantId = participantId;
             IncrementDamageCounter = new Command(() =>
             {
@@ -75,15 +104,48 @@ namespace RealmTry.ViewModels
                     DamageCounter = (int.Parse(DamageCounter) - 1).ToString();
                 }
             });
-            AskForRollCommand = new Command(() =>
+            IncrementRollDifficulty = new Command(() =>
+            {
+                if (int.Parse(RollDifficultyCounter) < 20)
+                {
+                    RollDifficultyCounter = (int.Parse(RollDifficultyCounter) + 1).ToString();
+                }
+            });
+            DecrementRollDifficulty = new Command(() =>
+            {
+                if (int.Parse(RollDifficultyCounter) > 0)
+                {
+                    RollDifficultyCounter = (int.Parse(RollDifficultyCounter) - 1).ToString();
+                }
+            });
+            AskForRollCommand = new Command(async () =>
             {
                 //Create a prompt
+                if (SelectedStat != null) {
+                    using (var realm = await Realm.GetInstanceAsync(RealmDB.Configuration))
+                    {
+                        Models.Prompt damageInfoPrompt = new Models.Prompt()
+                        {
+                            Id = Services.RealmDB.GetUniqueKey(8),
+                            _partitionKey = "_partitionKey",
+                            Receiver = participantId,
+                            Sender = Services.RealmDB.CurrentlyLoggedUserId,
+                            Type = "AskForRoll",
+                            Information = $"{stats[int.Parse(SelectedStat)]} {RollDifficultyCounter}",
+                            Status = "Waiting",
+                            TimeStamp = DateTime.Now.ToString(),
+                        };
+                        realm.Write(() =>
+                        {
+                            realm.Add(damageInfoPrompt);
+                        });
+                    }
+                    popup.Dismiss(null);
+                }
             });
             DealDamageCommand = new Command(async () =>
             {
                 //modify character hp
-
-
                 using (var realm = await Realm.GetInstanceAsync(RealmDB.Configuration))
                 {
                     Models.Prompt damageInfoPrompt = new Models.Prompt()
@@ -92,7 +154,7 @@ namespace RealmTry.ViewModels
                         _partitionKey = "_partitionKey",
                         Receiver = participantId,
                         Sender = Services.RealmDB.CurrentlyLoggedUserId,
-                        Type = "Information",
+                        Type = "PassInformation",
                         Information = $"You have been dealt {damageCounter} points of damage",
                         Status = "Waiting",
                         TimeStamp = DateTime.Now.ToString(),
@@ -101,6 +163,7 @@ namespace RealmTry.ViewModels
                     {
                         realm.Add(damageInfoPrompt);
                     });
+                    popup.Dismiss(null);
                 }
             });
         }
