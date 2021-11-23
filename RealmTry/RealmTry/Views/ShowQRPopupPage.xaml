@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xct:Popup  xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+            xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+            xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms" xmlns:zxingcommon="clr-namespace:ZXing.Common;assembly=zxing.portable" xmlns:viewmodels="clr-namespace:RealmTry.ViewModels" x:DataType="viewmodels:ShowQRPopupViewModel"
+            x:Class="RealmTry.Views.ShowQRPopupPage"
+            Size="200,200">
+
+    <zxing:ZXingBarcodeImageView BarcodeValue="{Binding ClueId}" 
+                                                 WidthRequest="300" 
+                                                 HeightRequest="300">
+        <zxing:ZXingBarcodeImageView.BarcodeOptions>
+            <zxingcommon:EncodingOptions Height="300" Width="300" />
+        </zxing:ZXingBarcodeImageView.BarcodeOptions>
+    </zxing:ZXingBarcodeImageView>
+
+</xct:Popup>

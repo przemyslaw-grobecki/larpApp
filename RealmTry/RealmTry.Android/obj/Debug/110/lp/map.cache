@@ -1,5 +1,8 @@
 FastAndroidCamera.dll
 FormsViewGroup.dll
+Lottie.Android.dll
+Lottie.Forms.dll
+Square.OkIO.dll
 Xamarin.AndroidX.Activity.dll
 Xamarin.AndroidX.Annotation.dll
 Xamarin.AndroidX.Annotation.Experimental.dll
@@ -107,6 +110,3 @@ playservicesbasement-17.1.0.aar
 playservicestasks-17.0.0.aar
 playservicesbase-17.1.0.aar
 playservicesmaps-17.0.0.aar
-Lottie.Android.dll
-Lottie.Forms.dll
-Square.OkIO.dll

@@ -2,8 +2,13 @@
 <Shell xmlns="http://xamarin.com/schemas/2014/forms" 
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:local="clr-namespace:RealmTry.Views"
+       xmlns:templates="clr-namespace:RealmTry.Templates" xmlns:realmtry="clr-namespace:RealmTry" 
        Title="RealmTry"
-       x:Class="RealmTry.AppShell">
+       x:Class="RealmTry.AppShell"
+       FlyoutHeaderTemplate="{DataTemplate templates:FlyoutHeaderTemplate}"
+       FlyoutBackgroundColor="LightSkyBlue"
+
+       >
 
     <!--
         The overall app visual hierarchy is defined here, along with navigation.
@@ -19,7 +24,7 @@
                 <Setter Property="Shell.TitleColor" Value="White" />
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
                 <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
-                <Setter Property="Shell.TabBarBackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="Shell.TabBarBackgroundColor" Value="LightCoral" />
                 <Setter Property="Shell.TabBarForegroundColor" Value="White"/>
                 <Setter Property="Shell.TabBarUnselectedColor" Value="#95FFFFFF"/>
                 <Setter Property="Shell.TabBarTitleColor" Value="White"/>
@@ -28,6 +33,60 @@
             <Style TargetType="FlyoutItem" BasedOn="{StaticResource BaseStyle}" />
         </ResourceDictionary>
     </Shell.Resources>
+
+    <Shell.ItemTemplate>
+        <DataTemplate>
+            <Frame  Padding="30,0,0,0" 
+                    BackgroundColor="LightBlue"
+                   >
+                <Frame.Background>
+                    <RadialGradientBrush Center="0.5,0.5" >
+                        <GradientStop Color="White" Offset="0.1"/>
+                        <GradientStop Color="Transparent" Offset="1.0"/>
+                    </RadialGradientBrush>
+                </Frame.Background>
+                <Grid ColumnDefinitions="0.2*,0.8*">
+                <Image Source="{Binding FlyoutIcon}"
+                       Margin="10"
+                       HeightRequest="45" />
+                <Label Grid.Column="0"
+                       Grid.ColumnSpan="2"
+                       HorizontalTextAlignment="Center"
+                       TextColor="Black"
+                       Text="{Binding Title}"
+                       FontSize="18"
+                       FontAttributes="Italic"
+                       VerticalTextAlignment="Center" />
+            </Grid>
+            </Frame>
+        </DataTemplate>
+    </Shell.ItemTemplate>
+
+    <Shell.MenuItemTemplate>
+        <DataTemplate>
+            <Frame  Padding="30,0,0,0" >
+                <Frame.Background>
+                    <RadialGradientBrush Center="0.5,0.5" >
+                        <GradientStop Color="White" Offset="0.1"/>
+                        <GradientStop Color="LightGray" Offset="1.0"/>
+                    </RadialGradientBrush>
+                </Frame.Background>
+                <Grid ColumnDefinitions="0.2*,0.8*">
+                    <Image Source="{Binding FlyoutIcon}"
+                       Margin="10"
+                       HeightRequest="45" />
+                    <Label Grid.Column="0"
+                       Grid.ColumnSpan="2"
+                       HorizontalTextAlignment="Center"
+                       TextColor="Black"
+                       Text="{Binding Title}"
+                       FontSize="18"
+                       FontAttributes="Italic"
+                       VerticalTextAlignment="Center" />
+                </Grid>
+            </Frame>
+        </DataTemplate>
+    </Shell.MenuItemTemplate>
 
     <!--
     Login,
@@ -55,61 +114,85 @@
     <!--
     Main app
     -->
-    <FlyoutItem FlyoutIcon="icon_feed.png"
-                Title="Main Page">
-        <ShellContent Title="MainPage" 
+
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent Shell.TabBarIsVisible="false"
+                      Title="Navigation" 
                       Route="MainPage" 
+                      FlyoutIcon="navigation.png"
                       ContentTemplate="{DataTemplate local:MainPage}">
         </ShellContent>
-    </FlyoutItem>
-    <FlyoutItem FlyoutIcon="icon_feed.png"
-                Title="Friends">
-        <ShellContent Title="FriendsPage"
+
+        <ShellContent Title="Friends"
+                      Shell.TabBarIsVisible="false"
                       Route="FriendsPage"
+                      FlyoutIcon="friends.png"
                       ContentTemplate="{DataTemplate local:FriendsPage}">
         </ShellContent>
-    </FlyoutItem>
-    <FlyoutItem FlyoutIcon="icon_feed.png"
-                Title="Chat">
-        <ShellContent Title="ChatPage" 
-                      Route="ChatPage" 
+
+        <ShellContent Title="Chat" 
+                      Shell.TabBarIsVisible="false"
+                      Route="ChatPage"
+                      FlyoutIcon="chat.png"
                       ContentTemplate="{DataTemplate local:ChatPage}">
             <ShellContent Title="Chat Details"
+                          Shell.TabBarIsVisible="false"
                           Route="ChatPageDetails"
                           ContentTemplate="{DataTemplate local:ChatPageDetails}">
             </ShellContent>
         </ShellContent>
-    </FlyoutItem>
-    <FlyoutItem FlyoutIcon="icon_feed.png"
-                Title="Manage Events">
-        <ShellContent Title="ManageEventsPage"
+
+        <ShellContent Title="Events"
+                      Shell.TabBarIsVisible="false"
                       Route="ManageEventsPage"
+                      FlyoutIcon="icon_feed.png"
                       ContentTemplate="{DataTemplate local:ManageEventsPage}">
             <ShellContent Title="ManageHostedEventsPage"
+                          Shell.TabBarIsVisible="false"
                           Route="ManageHostedEventsPage"
                           ContentTemplate="{DataTemplate local:ManageHostedEventDetailsPage}">
             </ShellContent>
         </ShellContent>
-    </FlyoutItem>
-    <FlyoutItem FlyoutIcon="icon_feed.png"
-                Title="Inventory">
-        <ShellContent Title="InventoryPage"
+        
+        <ShellContent Title="Inventory"
+                      Shell.TabBarIsVisible="false"
                       Route="InventoryPage"
+                      FlyoutIcon="backpack.png"
                       ContentTemplate="{DataTemplate local:InventoryPage}">
         </ShellContent>
-    </FlyoutItem>
-    <FlyoutItem FlyoutIcon="icon_feed.png"
-                Title="Character">
-        <ShellContent Title="CharacterInformationPage"
+
+        <ShellContent Title="Character"
+                      Shell.TabBarIsVisible="false"
                       Route="CharacterInformationPage"
+                      FlyoutIcon="character.png"
                       ContentTemplate="{DataTemplate local:CharacterInformationPage}">
         </ShellContent>
-    </FlyoutItem>
-    <FlyoutItem FlyoutIcon="icon_feed.png"
-                Title="Scan Item">
-        <ShellContent Title="ScanItemPage"
+
+        <ShellContent Title="Scan"
+                      Shell.TabBarIsVisible="false"
                       Route="ScanItemPage"
+                      FlyoutIcon="scan.png"
                       ContentTemplate="{DataTemplate local:ScanItemPage}">
         </ShellContent>
     </FlyoutItem>
+    <!--
+    Menu
+    -->
+    <MenuItem Text="About" 
+              x:DataType="realmtry:AppShell"
+              IconImageSource="info.png"
+              Clicked="Info_Clicked">
+    </MenuItem>
+
+    <MenuItem Text="Help" 
+              x:DataType="realmtry:AppShell"
+              IconImageSource="help.png"
+              Clicked="Help_Clicked">
+    </MenuItem>
+
+    <MenuItem Text="Logout" 
+          x:DataType="realmtry:AppShell"
+          IconImageSource="logout.png"
+          Clicked="Logout_Clicked">
+    </MenuItem>
 </Shell>

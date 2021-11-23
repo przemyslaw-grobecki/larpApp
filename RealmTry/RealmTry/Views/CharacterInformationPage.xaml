@@ -10,11 +10,127 @@
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Character Information Implemented Here"
-                   TextColor="Black"
-                    VerticalOptions="CenterAndExpand" 
-                    HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid BackgroundColor="AliceBlue"
+              Padding="20,20,20,20">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="120"/>
+                <RowDefinition Height="380"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Frame CornerRadius="0"
+                   BorderColor="White"
+                   Grid.Row="0"
+                   Grid.ColumnSpan="1">
+                <StackLayout>
+                    <Image x:Name="portraitImage"/>
+                    <Label x:Name="levelLabel" TextColor="Black" FontSize="Medium" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+                <Frame.Background>
+                    <RadialGradientBrush Center="0.5,0.5" >
+                        <GradientStop Color="White" Offset="0.1"/>
+                        <GradientStop Color="LightBlue" Offset="1.0"/>
+                    </RadialGradientBrush>
+                </Frame.Background>
+            </Frame>
+            <Frame CornerRadius="0"
+                   BorderColor="White"
+                   Grid.Row="0"
+                   Grid.Column="1"
+                   Grid.ColumnSpan="1">
+                <StackLayout>
+                    <Label x:Name="nameLabel" TextColor="Black" FontSize="Medium" HorizontalTextAlignment="Center"/>
+                    <Label x:Name="surnameLabel" TextColor="Black" FontSize="Medium" HorizontalTextAlignment="Center"/>
+                    <Label x:Name="professionLabel" TextColor="DarkBlue" FontSize="Small" HorizontalTextAlignment="Center"/>
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="EndAndExpand">
+                        <Label x:Name="healthLabel" TextColor="Black" FontSize="Small" HorizontalTextAlignment="Center"/>
+                        <Image Source="heart.png" HeightRequest="20"/>
+                    </StackLayout>
+                </StackLayout>
+                <Frame.Background>
+                    <RadialGradientBrush Center="0.5,0.5" >
+                        <GradientStop Color="White" Offset="0.1"/>
+                        <GradientStop Color="LightBlue" Offset="1.0"/>
+                    </RadialGradientBrush>
+                </Frame.Background>
+            </Frame>
+            <Frame CornerRadius="0"
+                   BorderColor="White"
+                   Grid.Row="1"
+                   Grid.ColumnSpan="2">
+                <StackLayout>
+                    <Label Text="Experience" TextColor="Black" FontSize="Medium" HorizontalTextAlignment="Center"/>
+                    <ProgressBar x:Name="expProgress" Progress="0" HeightRequest="10" ProgressColor="Violet"/>
+                    <Label x:Name="expLabel" TextColor="Black" FontSize="Medium" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+                <Frame.Background>
+                    <RadialGradientBrush Center="0.5,0.5" >
+                        <GradientStop Color="White" Offset="0.1"/>
+                        <GradientStop Color="LightBlue" Offset="1.0"/>
+                    </RadialGradientBrush>
+                </Frame.Background>
+            </Frame>
+            
+            <Frame CornerRadius="0"
+                   BorderColor="White"
+                   Grid.Row="2"
+                   Grid.ColumnSpan="2">
+                <StackLayout>
+                    <Label Text="Statistics" TextColor="Black" FontSize="Large"/>
+                    <StackLayout>
+                        <Label Text="STRENGTH"
+                               TextColor="Black"
+                               VerticalOptions="CenterAndExpand" 
+                               HorizontalOptions="StartAndExpand" />
+                        <ProgressBar x:Name="strProgress" Progress="0" ProgressColor="Red"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="DEXTERITY"
+                               TextColor="Black"
+                               VerticalOptions="CenterAndExpand" 
+                               HorizontalOptions="StartAndExpand" />
+                        <ProgressBar x:Name="dexProgress" Progress="0" ProgressColor="Green"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="CONSTITUTION"
+                               TextColor="Black"
+                               VerticalOptions="CenterAndExpand" 
+                               HorizontalOptions="StartAndExpand" />
+                        <ProgressBar x:Name="conProgress" Progress="0" ProgressColor="Purple"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="INTELIGENCE"
+                               TextColor="Black"
+                               VerticalOptions="CenterAndExpand" 
+                               HorizontalOptions="StartAndExpand" />
+                        <ProgressBar x:Name="intProgress" Progress="0" ProgressColor="Blue"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="WISDOM"
+                               TextColor="Black"
+                               VerticalOptions="CenterAndExpand" 
+                               HorizontalOptions="StartAndExpand" />
+                        <ProgressBar x:Name="wisProgress" Progress="0" ProgressColor="Aqua"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Text="CHARISMA"
+                               TextColor="Black"
+                               VerticalOptions="CenterAndExpand" 
+                               HorizontalOptions="StartAndExpand" />
+                        <ProgressBar x:Name="chaProgress" Progress="0" ProgressColor="Yellow"/>
+                    </StackLayout>
+                </StackLayout>
+                <Frame.Background>
+                    <RadialGradientBrush Center="0.5,0.5" >
+                        <GradientStop Color="White" Offset="0.1"/>
+                        <GradientStop Color="LightBlue" Offset="1.0"/>
+                    </RadialGradientBrush>
+                </Frame.Background>
+            </Frame>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xct:Popup  xmlns:xct="http://xamarin.com/schemas/2020/toolkit" 
+            xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RealmTry.Views.ClueScanPopupPage"
+            Size="300,500">
+    <ScrollView>
+        <StackLayout BackgroundColor="CornflowerBlue" Padding="20,20,20,20"
+                 Spacing="20">
+            <Frame CornerRadius="50"
+               BorderColor="White">
+                <Frame.Background>
+                    <RadialGradientBrush Center="0.5,0.5" >
+                        <GradientStop Color="White" Offset="0.1"/>
+                        <GradientStop Color="LightBlue" Offset="1.0"/>
+                    </RadialGradientBrush>
+                </Frame.Background>
+                <StackLayout>
+                    <Label 
+                    x:Name="labelForExclamation"
+                    Text="Congratulations You have found a Clue! It is supposed to help You to progress with the event itself!"
+                    FontFamily="FFF_Tusj.ttf"
+                    TextColor="DarkBlue"
+                    FontSize="Medium"
+                    VerticalOptions="Start" 
+                    HorizontalOptions="CenterAndExpand" 
+                    Opacity="0"/>
+                    <Label   x:Name="labelForDescription"
+                    Text=""
+                    FontFamily="FFF_Tusj.ttf"
+                    TextColor="Black"
+                    FontSize="Small"
+                    VerticalOptions="Start" 
+                    HorizontalOptions="CenterAndExpand" 
+                    Opacity="0"/>
+                    <Image x:Name="clueImage" Opacity="0"/>
+                   
+                    <Button x:Name="ContinueFirstButton" 
+                        Text="Continue?" 
+                        Opacity="0" 
+                        CornerRadius="50" 
+                        BorderColor="White" 
+                        BorderWidth="1" 
+                        TextColor="DarkBlue" 
+                        BackgroundColor="Black" 
+                        Clicked="ContinueFirstButton_Clicked">
+                        <Button.Background>
+                            <RadialGradientBrush Center="0.5,0.5" >
+                                <GradientStop Color="White" Offset="0.1"/>
+                                <GradientStop Color="LightBlue" Offset="1.0"/>
+                            </RadialGradientBrush>
+                        </Button.Background>
+                    </Button>
+                </StackLayout>
+            </Frame>
+
+            <Frame x:Name="contentFrame"
+               CornerRadius="50"
+               BorderColor="White"
+               Opacity="0">
+                <StackLayout>
+                    <Label FontFamily="FFF_Tusj.ttf" 
+                       x:Name= "contentLabel" 
+                       TextColor="DarkBlue"/>
+                    <Button x:Name="ContinueSecondButton" 
+                        Text="Continue" 
+                        CornerRadius="50" 
+                        BorderColor="White" 
+                        BorderWidth="1" 
+                        TextColor="DarkBlue" 
+                        BackgroundColor="Black" 
+                        Clicked="ContinueSecondButton_Clicked">
+                        <Button.Background>
+                            <RadialGradientBrush Center="0.5,0.5" >
+                                <GradientStop Color="White" Offset="0.1"/>
+                                <GradientStop Color="LightBlue" Offset="1.0"/>
+                            </RadialGradientBrush>
+                        </Button.Background>
+                    </Button>
+                </StackLayout>
+                <Frame.Background>
+                    <RadialGradientBrush Center="0.5,0.5" >
+                        <GradientStop Color="White" Offset="0.1"/>
+                        <GradientStop Color="LightBlue" Offset="1.0"/>
+                    </RadialGradientBrush>
+                </Frame.Background>
+            </Frame>
+        </StackLayout>
+    </ScrollView>
+</xct:Popup>

@@ -5,7 +5,8 @@
              xmlns:vm="clr-namespace:RealmTry.ViewModels"
              Title="{Binding Title}"
              Shell.NavBarIsVisible="False"
-             Shell.FlyoutBehavior="Disabled">
+             Shell.FlyoutBehavior="Disabled"
+             BackgroundImageSource="background_chat.jpg">
 
     
     <ContentPage.BindingContext>
@@ -13,31 +14,61 @@
     </ContentPage.BindingContext>
     
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout VerticalOptions="Center">
             <CarouselView ItemsSource="{Binding ProffesionList}"
                       Margin="10"
-                      IndicatorView="IndicatorView">
+                      IndicatorView="IndicatorView"
+                          HeightRequest="300">
                 <CarouselView.ItemTemplate>
                     <DataTemplate>
-                        <StackLayout>
-                            <Frame HasShadow="True"
-                               Margin="5"
-                               Padding="5">
-                                <Image Source="{Binding ImageUrl}"
-                                   Aspect="AspectFit"/>
+                        <Frame BackgroundColor="AntiqueWhite" 
+                               VerticalOptions="Fill"
+                               HasShadow="True"
+                               CornerRadius="48"
+                               HorizontalOptions="Center"
+                               BorderColor="Black">
+                            <Frame BackgroundColor="AntiqueWhite" 
+                               VerticalOptions="Fill"
+                               HasShadow="True"
+                               CornerRadius="48"
+                               HorizontalOptions="Center"
+                                   WidthRequest="220">
+                                <Frame.Background>
+                                    <RadialGradientBrush Center="0.5,0.5" >
+                                        <GradientStop Color="Black" Offset="0.1"/>
+                                        <GradientStop Color="Transparent" Offset="1.0"/>
+                                    </RadialGradientBrush>
+                                </Frame.Background>
+                                <StackLayout>
+                                    <Frame HasShadow="True"
+                                           VerticalOptions="Fill"
+                                           HorizontalOptions="Center"
+                                           BackgroundColor="Black"
+                                           CornerRadius="48"
+                                           Margin="5"
+                                           Padding="0">
+                                        <Image Source="{Binding ImageUrl}"
+                                           Aspect="AspectFit"/>
+                                    </Frame>
+                                    <Label Text="{Binding Name}"
+                                           TextColor="Black"
+                                           FontSize="Large"
+                                           FontFamily="FFF_Tusj.ttf"
+                                           VerticalOptions="Center"
+                                           HorizontalOptions="Center">
+                                    </Label>
+                                    <Button VerticalOptions="Center"
+                                            CornerRadius="30"
+                                            BorderColor="black"
+                                            BorderWidth="1"
+                                            HorizontalOptions="Center"
+                                            Text="Choose This Class"
+                                            BackgroundColor="LightGray"
+                                            Command="{Binding ChooseClass}">
+                                    </Button>
+                                </StackLayout>
                             </Frame>
-                            <Label Text="{Binding Name}"
-                                   TextColor="Black"
-                                   FontSize="Large"
-                                   VerticalOptions="Center"
-                                   HorizontalOptions="Center">
-                            </Label>
-                            <Button VerticalOptions="Center"
-                                    HorizontalOptions="Center"
-                                    Text="Choose This Class"
-                                    Command="{Binding ChooseClass}">
-                            </Button>
-                        </StackLayout>
+                        </Frame>
                     </DataTemplate>
                 </CarouselView.ItemTemplate>
             </CarouselView>
@@ -49,7 +80,8 @@
                        HorizontalOptions="Center"
                        VerticalOptions="Center"
                        IndicatorsShape="Circle"
-                       IsClippedToBounds="False">
+                       IsClippedToBounds="False"
+                       Padding="50">
             </IndicatorView>
         </StackLayout>
     </ContentPage.Content>

@@ -25,5 +25,19 @@ namespace RealmTry
             Routing.RegisterRoute(nameof(ChatPageDetails), typeof(ChatPageDetails));
             Routing.RegisterRoute(nameof(ManageHostedEventDetailsPage), typeof(ManageHostedEventDetailsPage));
         }
+
+        private void Info_Clicked(object sender, EventArgs e)
+        {
+            Shell.Current.DisplayAlert("Info", "This is a LARPApp. Welcome aboard!", "Ok");
+        }
+
+        private void Help_Clicked(object sender, EventArgs e)
+        {
+            Shell.Current.DisplayAlert("Help", "Help yourself punk!", "Ok");
+        }
+        private async void Logout_Clicked(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync($"//{nameof(LoginPage)}");
+        }
     }
 }

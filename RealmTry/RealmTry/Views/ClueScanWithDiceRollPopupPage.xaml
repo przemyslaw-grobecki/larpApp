@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xct:Popup  xmlns:xct="http://xamarin.com/schemas/2020/toolkit" 
+            xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+            xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
+            x:Class="RealmTry.Views.ClueScanWithDiceRollPopupPage"
+            Size="400,700">
+    <ScrollView>
+    <StackLayout BackgroundColor="CornflowerBlue" Padding="20,20,20,20"
+                 Spacing="20">
+        <Frame CornerRadius="50"
+               BorderColor="White">
+            <Frame.Background>
+                <RadialGradientBrush Center="0.5,0.5" >
+                    <GradientStop Color="White" Offset="0.1"/>
+                    <GradientStop Color="LightBlue" Offset="1.0"/>
+                </RadialGradientBrush>
+            </Frame.Background>
+            <StackLayout>
+                <Label 
+                    x:Name="labelForExclamation"
+                    Text="Congratulations You have found a Clue! It is supposed to help You to progress with the event itself! However, firstly, Your abilities will be put to the test!"
+                    FontFamily="FFF_Tusj.ttf"
+                    TextColor="DarkBlue"
+                    FontSize="Medium"
+                    VerticalOptions="Start" 
+                    HorizontalOptions="CenterAndExpand" 
+                    Opacity="0"/>
+                <Label   x:Name="labelForDescription"
+                    Text=""
+                    FontFamily="FFF_Tusj.ttf"
+                    TextColor="Black"
+                    FontSize="Small"
+                    VerticalOptions="Start" 
+                    HorizontalOptions="CenterAndExpand" 
+                    Opacity="0"/>
+                <Image x:Name="clueImage" Opacity="0"/>
+
+                <Label
+                    x:Name="labelForStatTested"  
+                    Text=""
+                    FontFamily="FFF_Tusj.ttf"
+                    TextColor="DarkBlue"
+                    FontSize="Small"
+                    VerticalOptions="Start" 
+                    HorizontalOptions="CenterAndExpand" 
+                    Opacity="0"/>
+            </StackLayout>
+        </Frame>
+        <lottie:AnimationView x:Name="lottieAni"
+                              Animation="dice_shuffle.json"
+                              AutoPlay="false"
+                              WidthRequest="300"
+                              HeightRequest="300"                              
+                              VerticalOptions="CenterAndExpand"
+                              HorizontalOptions="CenterAndExpand"/>
+        <Button Text="Roll the dices!" CornerRadius="50" BorderColor="White" BorderWidth="1" TextColor="DarkBlue" BackgroundColor="Black" Clicked="Shuffle_Clicked">
+            <Button.Background>
+                <RadialGradientBrush Center="0.5,0.5" >
+                    <GradientStop Color="White" Offset="0.1"/>
+                    <GradientStop Color="LightBlue" Offset="1.0"/>
+                </RadialGradientBrush>
+            </Button.Background>
+        </Button>
+        <Frame x:Name="frameForRollText"
+               CornerRadius="50"
+               BorderColor="White"
+               Opacity="0">
+            <StackLayout>
+                <Label FontFamily="FFF_Tusj.ttf" x:Name= "labelForRollText" TextColor="DarkBlue"/>
+                <Label FontFamily="FFF_Tusj.ttf" x:Name= "labelForClueContent" TextColor="DarkBlue"/>
+                <Button x:Name="ContinueButton" Text="Continue" Opacity="0" CornerRadius="50" BorderColor="White" BorderWidth="1" TextColor="DarkBlue" BackgroundColor="Black" Clicked="Continue_Clicked">
+                    <Button.Background>
+                        <RadialGradientBrush Center="0.5,0.5" >
+                            <GradientStop Color="White" Offset="0.1"/>
+                            <GradientStop Color="LightBlue" Offset="1.0"/>
+                        </RadialGradientBrush>
+                    </Button.Background>
+                </Button>
+            </StackLayout>
+            <Frame.Background>
+                <RadialGradientBrush Center="0.5,0.5" >
+                    <GradientStop Color="White" Offset="0.1"/>
+                    <GradientStop Color="LightBlue" Offset="1.0"/>
+                </RadialGradientBrush>
+            </Frame.Background>
+        </Frame>
+    </StackLayout>
+    </ScrollView>
+</xct:Popup>

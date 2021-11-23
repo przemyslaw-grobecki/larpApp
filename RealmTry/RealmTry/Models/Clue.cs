@@ -6,7 +6,7 @@ using Realms.Sync;
 
 namespace RealmTry.Models
 {
-    class Clue : RealmObject
+    public class Clue : RealmObject
     {
         [PrimaryKey]
         [Required]
@@ -24,6 +24,8 @@ namespace RealmTry.Models
         [Required]
         [MapTo("clueImageUrl")]
         public string ClueImageUrl { get; set; }
+        [MapTo("needsRequirement")]
+        public bool NeedsRequirement { get; set; }
         [MapTo("clueRequirement")]
         public string ClueRequirement { get; set; }
         [MapTo("needsDiceRoll")]
