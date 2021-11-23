@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "MssfWVhwh+e3bHICdNbcWtvajk64Ob0cOS+3GIimOPyEQGWH1ZfRVao5peXNhl/c790iTmboumtqd+J1vGk/gA==",
+  "dgSpecHash": "wQpnu76Pr7BcjYSm1ZIev7VGC3xf3drVcPORbr8E4miX3mcqLFKbwdDX0ls7NUyycwuWLrz8YUGsZ7i625EuQQ==",
   "success": true,
   "projectFilePath": "D:\\Thesis\\LarpApp\\playground\\RealmTry\\RealmTry\\RealmTry.Android\\RealmTry.Android.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\pgtar\\.nuget\\packages\\com.airbnb.android.lottie\\4.1.0\\com.airbnb.android.lottie.4.1.0.nupkg.sha512",
+    "C:\\Users\\pgtar\\.nuget\\packages\\com.airbnb.xamarin.forms.lottie\\4.0.11\\com.airbnb.xamarin.forms.lottie.4.0.11.nupkg.sha512",
     "C:\\Users\\pgtar\\.nuget\\packages\\fastandroidcamera\\2.0.0\\fastandroidcamera.2.0.0.nupkg.sha512",
     "C:\\Users\\pgtar\\.nuget\\packages\\fody\\6.5.2\\fody.6.5.2.nupkg.sha512",
     "C:\\Users\\pgtar\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
@@ -11,6 +13,7 @@
     "C:\\Users\\pgtar\\.nuget\\packages\\realm\\10.3.0\\realm.10.3.0.nupkg.sha512",
     "C:\\Users\\pgtar\\.nuget\\packages\\realm.fody\\10.3.0\\realm.fody.10.3.0.nupkg.sha512",
     "C:\\Users\\pgtar\\.nuget\\packages\\remotion.linq\\2.2.0\\remotion.linq.2.2.0.nupkg.sha512",
+    "C:\\Users\\pgtar\\.nuget\\packages\\square.okio\\1.17.4\\square.okio.1.17.4.nupkg.sha512",
     "C:\\Users\\pgtar\\.nuget\\packages\\system.buffers\\4.4.0\\system.buffers.4.4.0.nupkg.sha512",
     "C:\\Users\\pgtar\\.nuget\\packages\\system.codedom\\4.5.0\\system.codedom.4.5.0.nupkg.sha512",
     "C:\\Users\\pgtar\\.nuget\\packages\\system.dynamic.runtime\\4.3.0\\system.dynamic.runtime.4.3.0.nupkg.sha512",

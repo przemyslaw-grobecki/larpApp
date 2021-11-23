@@ -3,10 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:viewmodels="clr-namespace:RealmTry.ViewModels" 
              xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms" 
-             xmlns:zxingcommon="clr-namespace:ZXing.Common;assembly=zxing.portable"
+             xmlns:zxingcommon="clr-namespace:ZXing.Common;assembly=zxing.portable" xmlns:lottie="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              x:DataType="viewmodels:ManageHostedEventDetailsViewModel"
              x:Class="RealmTry.Views.ManageHostedEventDetailsPage"
-             BackgroundColor="CornflowerBlue">
+             BackgroundColor="CornflowerBlue"
+             >
+
     <ContentPage.Content>
         <ScrollView>
             <StackLayout Padding="10">
@@ -60,7 +62,7 @@
                                                    IsVisible="{Binding IsParticipantReady}"
                                                    Grid.Row="0"
                                                    Grid.RowSpan="3"
-                                                   Grid.Column="0"/> 
+                                                   Grid.Column="0"/>
                                             <Label x:DataType="viewmodels:ItemHostedEventParticipantViewModel"
                                                 Grid.Row="0"
                                                 Grid.Column="1"
@@ -108,11 +110,65 @@
                             <GradientStop Color="LightBlue" Offset="1.0"/>
                         </RadialGradientBrush>
                     </Frame.Background>
-                    <Label Text="Clues"
-                    FontSize="Large"
-                    TextColor="Black"
-                    VerticalOptions="CenterAndExpand" 
-                    HorizontalOptions="CenterAndExpand"/>
+                    <StackLayout>
+                        <Label Text="Clues"
+                        FontSize="Large"
+                        TextColor="Black"
+                        VerticalOptions="CenterAndExpand" 
+                        HorizontalOptions="CenterAndExpand"/>
+                        <ListView x:Name="Clues" 
+                                  IsPullToRefreshEnabled="True"                         
+                                  ItemsSource="{Binding Clues}"
+                                  RefreshCommand="{Binding RefreshCluesCommand}"
+                                  IsRefreshing="{Binding IsRefreshingClues}"
+                                  CachingStrategy="RecycleElement"
+                                  HasUnevenRows="True"
+                                  BackgroundColor="Transparent"
+                                  SeparatorVisibility="Default"
+                                  SeparatorColor="Black"
+                                  Margin="10"
+                                  HeightRequest="300"
+                                  SelectionMode="None"
+                                  ItemTapped="cluesList_ItemTapped">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>
+                                        <Grid x:Name="Item">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="30*"/>
+                                                <RowDefinition Height="30"/>
+                                                <RowDefinition Height="30"/>
+                                            </Grid.RowDefinitions>
+                                            <Image Source="{Binding ClueImageUrl}" 
+                                                       x:DataType="viewmodels:ItemClueViewModel" 
+                                                       Grid.Row="0"/>
+                                            <Label x:DataType="viewmodels:ItemClueViewModel" 
+                                                    Grid.Row="1"
+                                                    HorizontalOptions="Center"
+                                                    Text="{Binding ClueContent}"
+                                                    FontSize="Small"
+                                                    TextColor="#230909"
+                                                    BackgroundColor="Transparent"/>
+                                            <StackLayout Orientation="Horizontal" Grid.Row="2" HorizontalOptions="Center">
+                                                <ImageButton Source="cog.png"
+                                                             BackgroundColor="Transparent"
+                                                         BindingContext="{Binding Source={x:Reference Clues}, Path=BindingContext}"
+                                                         Command="{Binding EditClueCommand}"
+                                                         CommandParameter="{Binding Source={x:Reference Item}, Path=BindingContext}"/>
+                                                <ImageButton Source="trash.png"
+                                                             BackgroundColor="Transparent"
+                                                         BindingContext="{Binding Source={x:Reference Clues}, Path=BindingContext}"
+                                                         Command="{Binding DeleteClueCommand}"
+                                                         CommandParameter="{Binding Source={x:Reference Item}, Path=BindingContext}"
+                                                             />
+                                            </StackLayout>
+                                        </Grid>
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        <ImageButton Source="plus.png" Command="{Binding AddClueCommand}" BackgroundColor="Transparent" Scale="0.2"/>
+                    </StackLayout>
                 </Frame>
                 <Frame BorderColor="White"
                        CornerRadius="50"

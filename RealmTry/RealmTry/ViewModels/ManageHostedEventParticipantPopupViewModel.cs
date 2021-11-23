@@ -131,7 +131,7 @@ namespace RealmTry.ViewModels
                             Receiver = participantId,
                             Sender = Services.RealmDB.CurrentlyLoggedUserId,
                             Type = "AskForRoll",
-                            Information = $"{SelectedStat} {RollDifficultyCounter}",
+                            Information = $"{stats[int.Parse(SelectedStat)]} {RollDifficultyCounter}",
                             Status = "Waiting",
                             TimeStamp = DateTime.Now.ToString(),
                         };

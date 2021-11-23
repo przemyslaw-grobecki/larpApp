@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "c1d4y6JarMAEGP4UI2hLrLuKZKS+euP8HtRcORBEus6pFnlzCpB3hC5i7OBOsvjOGjeMQoNW+ks7zvnwxHpYEQ==",
+  "dgSpecHash": "8TY1C0vhr4KiatMiPqL6u0qgL2DaryfvhRUpR4KDOHoMI8gsJT3XH3Pt1IbR+iDWds49yWQsXzHuNqXj66XnlQ==",
   "success": true,
   "projectFilePath": "D:\\Thesis\\LarpApp\\playground\\RealmTry\\RealmTry\\RealmTry.iOS\\RealmTry.iOS.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\pgtar\\.nuget\\packages\\com.airbnb.ios.lottie\\2.5.13\\com.airbnb.ios.lottie.2.5.13.nupkg.sha512",
+    "C:\\Users\\pgtar\\.nuget\\packages\\com.airbnb.xamarin.forms.lottie\\4.0.11\\com.airbnb.xamarin.forms.lottie.4.0.11.nupkg.sha512",
     "C:\\Users\\pgtar\\.nuget\\packages\\fody\\6.5.2\\fody.6.5.2.nupkg.sha512",
     "C:\\Users\\pgtar\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\pgtar\\.nuget\\packages\\mongodb.bson\\2.11.3\\mongodb.bson.2.11.3.nupkg.sha512",

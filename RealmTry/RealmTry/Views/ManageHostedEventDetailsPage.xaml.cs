@@ -27,5 +27,10 @@ namespace RealmTry.Views
         {
             Shell.Current.ShowPopup(new ManageHostedEventParticipantPopupPage((e.Item as ItemHostedEventParticipantViewModel).ParticipantId));
         }
+
+        private void cluesList_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            Shell.Current.ShowPopup(new ShowQRPopupPage((e.Item as ItemClueViewModel).Id));
+        }
     }
 }

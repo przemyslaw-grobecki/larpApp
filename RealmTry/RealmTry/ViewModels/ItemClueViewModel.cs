@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RealmTry.ViewModels
 {
-    class ItemClueViewModel : BaseViewModel
+    public class ItemClueViewModel : BaseViewModel
     {
         private string id;
         public string Id
@@ -65,6 +65,12 @@ namespace RealmTry.ViewModels
         {
             get => alternativeClueContent; 
             set => SetProperty(ref alternativeClueContent, value);
+        }
+        private bool needsRequirement;
+        public bool NeedsRequirement
+        {
+            get => needsRequirement;
+            set => SetProperty(ref needsRequirement, value);
         }
     }
 }

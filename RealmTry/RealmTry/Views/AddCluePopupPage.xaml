@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xct:Popup  xmlns:xct="http://xamarin.com/schemas/2020/toolkit" 
+            xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+            xmlns:viewmodels="clr-namespace:RealmTry.ViewModels" 
+            x:DataType="viewmodels:AddCluePopupViewModel"
+            x:Class="RealmTry.Views.AddCluePopupPage"
+            Size="320,650"
+            IsLightDismissEnabled="False">
+    <Frame>
+        <Frame.Background>
+            <RadialGradientBrush Center="0.5,0.5" >
+                <GradientStop Color="White" Offset="0.1"/>
+                <GradientStop Color="LightBlue" Offset="1.0"/>
+            </RadialGradientBrush>
+        </Frame.Background>
+        <ScrollView>
+            <StackLayout>
+                <Frame>
+                    <StackLayout>
+                        <Label Text="Clue Creation"
+                               FontSize="Large"
+                               TextColor="Black"
+                               VerticalOptions="Start" 
+                               HorizontalOptions="CenterAndExpand"/>
+                        <Entry HeightRequest="60" Text="{Binding ClueDescription}" TextColor="Black" Placeholder="Clue description: ex.: ~You have found an Apple! But it is one strange Apple...~" PlaceholderColor="DarkGray"/>
+                    </StackLayout>
+                </Frame>
+                <Frame>
+                    <CarouselView ItemsSource="{Binding ViableIcons}"
+                                          CurrentItem="{Binding ChosenIconUrl}"
+                                          Margin="0"
+                                          HeightRequest="300"
+                                          VerticalOptions="Start">
+                        <CarouselView.ItemTemplate>
+                            <DataTemplate >
+                                <Image x:DataType="x:String"
+                                               HeightRequest="300"
+                                               Source="{Binding .}"/>
+                            </DataTemplate>
+                        </CarouselView.ItemTemplate>
+                    </CarouselView>
+                </Frame>
+                <Frame>
+                    <StackLayout >
+                        <Label Text="Needs a dice roll?" TextColor="Black" HorizontalOptions="Center" FontSize="Medium"/>
+                        <Label Text="(Optional)" TextColor="DarkGray" HorizontalOptions="Center" />
+                        <StackLayout HorizontalOptions="Center">
+                            <Label Text="No / Yes" TextColor="Black" HorizontalOptions="Center"/>
+                            <StackLayout Orientation="Horizontal">
+                                <RadioButton IsChecked="{Binding RollNeedNo}"/>
+                                <RadioButton IsChecked="{Binding RollNeedYes}"/>
+                            </StackLayout>
+                        </StackLayout>
+                        <Label Text="Attribute tested" TextColor="Black" HorizontalOptions="Center" FontSize="Medium"/>
+                        <Picker SelectedItem="{Binding ChosenStat}" WidthRequest="160" HorizontalOptions="CenterAndExpand" TextColor="Black" ItemsSource="{Binding Stats}"/>
+                        <Label Text="Roll difficulty" TextColor="Black" HorizontalOptions="Center" FontSize="Medium"/>
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                            <Button Text="-" 
+                                    TextColor="White" 
+                                    Command="{Binding DecrementRollDifficulty}"
+                                    BackgroundColor="Gray"
+                                    CornerRadius="50"/>
+                            <Button Text="+" 
+                                    TextColor="White"
+                                    Command="{Binding IncrementRollDifficulty}"
+                                    BackgroundColor="LightGray"
+                                    CornerRadius="50"/>
+                        </StackLayout>
+                        <Entry WidthRequest="30" HorizontalOptions="Center" Text="{Binding RollDifficultyCounter}" TextColor="Black"/>
+                    </StackLayout>
+                </Frame>
+                <Frame>
+                    <StackLayout>
+                        <Label Text="Needs prerequisites to be fulfilled?" TextColor="Black" HorizontalOptions="Center" FontSize="Medium"/>
+                        <StackLayout HorizontalOptions="Center">
+                            <Label Text="No / Yes" TextColor="Black" HorizontalOptions="Center"/>
+                            <StackLayout Orientation="Horizontal">
+                                <RadioButton IsChecked="{Binding RequirementMetNeedNo}"/>
+                                <RadioButton IsChecked="{Binding RequirementMetNeedYes}"/>
+                            </StackLayout>
+                            <Label Text="Limit to certain class" TextColor="Black" HorizontalOptions="Center"/>
+                            <Picker SelectedItem="{Binding ChosenProffesion}" ItemsSource="{Binding ViableProffesions}" WidthRequest="160" HorizontalOptions="CenterAndExpand" TextColor="Black"/>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+                <Frame>
+                    <Entry HeightRequest="60" x:Name="ClueContent" Text="{Binding ClueContent}" TextColor="Black" Placeholder="Clue information:" PlaceholderColor="DarkGray"/>
+                </Frame>
+                <Frame>
+                    <StackLayout>
+                        <Entry HeightRequest="60" x:Name="AlternativeClueContent" Text="{Binding AlternativeClueContent}" TextColor="Black" Placeholder="Clue information when test fails:" PlaceholderColor="DarkGray"/>
+                        <Label Text="(Optional)" TextColor="DarkGray" HorizontalOptions="Center" />
+                    </StackLayout>
+                </Frame>
+                <Button Text="Confirm" BackgroundColor="CadetBlue" TextColor="Black" Command="{Binding CreateClueCommand}">
+                </Button>
+            </StackLayout>
+        </ScrollView>
+    </Frame>
+</xct:Popup>
