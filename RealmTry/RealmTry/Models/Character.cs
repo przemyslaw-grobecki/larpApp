@@ -44,11 +44,5 @@ namespace RealmTry.Models
         public int Wisdom { get; set; }
         [MapTo("charisma")]
         public int Charisma { get; set; }
-        [MapTo("itemList")]
-        public IList<Models.Item> ItemList { get; }
-        [MapTo("armorList")]
-        public IList<Models.Armor> ArmorList { get; }
-        [MapTo("skillList")]
-        public IList<Models.Skill> SkillList { get; }
     }
 }

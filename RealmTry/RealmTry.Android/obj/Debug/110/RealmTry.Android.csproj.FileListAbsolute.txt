@@ -773,11 +773,6 @@ D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\an
 D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\android\assets\Lottie.Forms.dll
 D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\android\assets\Lottie.Forms.pdb
 D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\android\assets\Square.OkIO.dll
-D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\androidx\jl\cbc2ac6d-d81e-45ae-a2c4-802fd647bcad.jar
-D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\androidx\proguard\784d7106-7be0-43ad-ab71-cea74a2a3f12.cfg
-D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\androidx\proguard\86cfde99-5023-4637-a8c0-db5978531859.txt
-D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\androidx\proguard\a286bd2e-f09c-4ee9-942a-2b8e54015dad.txt
-D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\androidx\proguard\f2dc231a-fce0-4944-b4fa-764741d1d0b3.txt
 D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\android\src\com\airbnb\lottie\LottieAnimationView_ImageAssetDelegateImpl.java
 D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\android\src\com\airbnb\lottie\LottieComposition$Factory_ActionCompositionLoaded.java
 D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\android\src\com\airbnb\lottie\R.java
@@ -797,3 +792,8 @@ D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\re
 D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\res\drawable\trash.png
 D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\res\drawable\plus.png
 D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\res\drawable\heart.png
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\androidx\jl\9c1d8449-68d0-4a23-a345-c27f0247101a.jar
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\androidx\proguard\166390aa-a788-4e18-91c1-d7087886e53f.txt
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\androidx\proguard\1fc89c2d-402f-4711-ac43-03226f8a6553.txt
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\androidx\proguard\af8610a6-6e16-4435-bd58-940b211fb9af.txt
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\androidx\proguard\f71a74f1-56ff-414d-87bb-69bdc40affb4.cfg

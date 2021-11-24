@@ -22,9 +22,6 @@ com.google.android.material.bottomnavigation.BottomNavigationView;D:\Thesis\Larp
 com.google.android.material.tabs.TabLayout;D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\lp\55\jl\res\layout\fallbacktabbardonotuse.xml
 com.google.android.material.tabs.TabLayout;D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\lp\55\jl\res\layout\rootlayout.xml
 com.google.android.material.tabs.TabLayout;D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\lp\55\jl\res\layout\tabbar.xml
-crc642e1c7a98bdb5c44a.AutoFitTextureView;D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\lp\52\jl\res\layout\camerafragment.xml
-crc643f46942d9dd1fff9.ShellFlyoutLayout;D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\lp\55\jl\res\layout\flyoutcontent.xml
-crc64720bb2db43a66fe9.FormsViewPager;D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\lp\55\jl\res\layout\rootlayout.xml
 declare-styleable;D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\lp\2\jl\res\values\values.xml
 declare-styleable;D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\lp\55\jl\res\values\attrs.xml
 enum;D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\lp\2\jl\res\values\values.xml
