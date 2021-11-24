@@ -23,12 +23,12 @@ namespace RealmTry.Factories
             "CHARISMA"
         };
         Random random = new Random();
-        private readonly string Legendary = "#FFFFC800";
-        private readonly string Epic = "#FF9F05B7";
-        private readonly string Rare = "#FF1837B7";
-        private readonly string Uncommon = "#FF0CE926";
-        private readonly string Common = "#FFFFFFFF";
-        private readonly string Junk = "#FF666060";
+        private readonly string Legendary = "#FFC800";
+        private readonly string Epic = "#9F05B7";
+        private readonly string Rare = "#1837B7";
+        private readonly string Uncommon = "#0CE926";
+        private readonly string Common = "#FFFFFF";
+        private readonly string Junk = "#666060";
         private readonly Dictionary<string, string> FirstWordsForHelmet = new Dictionary<string, string>
         {
             { "Helmet","https://i.ibb.co/9VhZZhg/equipable-helmet.png" },
@@ -174,7 +174,7 @@ namespace RealmTry.Factories
                         new ItemStatBonusViewModel
                         {
                             Stat = chosenStat,
-                            Increase = -1
+                            Increase = "-1"
                         }
                     }
                 },
@@ -201,7 +201,7 @@ namespace RealmTry.Factories
                         new ItemStatBonusViewModel
                         {
                             Stat = chosenStat,
-                            Increase = 1
+                            Increase = "1"
                         }
                     }
                 },
@@ -227,12 +227,12 @@ namespace RealmTry.Factories
                     new ItemStatBonusViewModel
                     {
                         Stat = chosenPrimaryStat,
-                        Increase = 1
+                        Increase = "1"
                     },
                     new ItemStatBonusViewModel
                     {
                         Stat = chosenSecondaryStat,
-                        Increase = 1
+                        Increase = "1"
                     }
                 },
                 ImageUrl = item.ImageUrl,
@@ -256,7 +256,7 @@ namespace RealmTry.Factories
                     new ItemStatBonusViewModel
                     {
                         Stat = chosenPrimaryStat,
-                        Increase = 2
+                        Increase = "2"
                     }
                 },
                 ImageUrl = item.ImageUrl,
@@ -281,12 +281,12 @@ namespace RealmTry.Factories
                     new ItemStatBonusViewModel
                     {
                         Stat = chosenPrimaryStat,
-                        Increase = 2
+                        Increase = "2"
                     },
                     new ItemStatBonusViewModel
                     {
                         Stat = chosenSecondaryStat,
-                        Increase = 1
+                        Increase = "1"
                     }
                 },
                 ImageUrl = item.ImageUrl,
@@ -307,32 +307,32 @@ namespace RealmTry.Factories
                     new ItemStatBonusViewModel
                     {
                         Stat = "STRENGTH",
-                        Increase = 1
+                        Increase = "1"
                     },
                     new ItemStatBonusViewModel
                     {
                         Stat = "DEXTERITY",
-                        Increase = 1
+                        Increase = "1"
                     },
                     new ItemStatBonusViewModel
                     {
                         Stat = "CONSTITUTION",
-                        Increase = 1
+                        Increase = "1"
                     },
                     new ItemStatBonusViewModel
                     {
                         Stat = "INTELIGENCE",
-                        Increase = 1
+                        Increase = "1"
                     },
                     new ItemStatBonusViewModel
                     {
                         Stat = "WISDOM",
-                        Increase = 1
+                        Increase = "1"
                     },
                     new ItemStatBonusViewModel
                     {
                         Stat = "CHARISMA",
-                        Increase = 1
+                        Increase = "1"
                     }
                 },
                 ImageUrl = item.ImageUrl,
