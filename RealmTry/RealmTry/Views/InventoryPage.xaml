@@ -5,12 +5,40 @@
   <!--Pages can be added as references or inline-->
     <ContentPage Title="Equipment" IconImageSource="icon_feed.png">
         <ContentPage.Content>
-            <StackLayout>
-                <Label Text="Equipment Implemented Here"
-                       TextColor="Black"
-                       VerticalOptions="CenterAndExpand" 
-                       HorizontalOptions="CenterAndExpand" />
-            </StackLayout>
+            <RelativeLayout>
+                <ImageButton x:Name="armorButton"
+                       Clicked="armorButton_Clicked"
+                       BackgroundColor="#00FFFFFF"
+                       Source="armor.png"
+                       RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.3}"
+                       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.26}"/>
+                <ImageButton x:Name="helmetButton"
+                       Clicked="helmetButton_Clicked"
+                       BackgroundColor="Transparent"
+                       Source="helmet.png"
+                       RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=-0.13}"
+                       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0}"
+                       Scale="0.4"/>
+                <ImageButton x:Name="hand_rightButton"
+                       Clicked="hand_rightButton_Clicked"
+                       BackgroundColor="Transparent"
+                       Source="hand_right.png"  Scale="0.3" Rotation="15"
+                       RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.28}"
+                       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=-0.3}"/>
+                <ImageButton x:Name="hand_leftButton"
+                       Clicked="hand_leftButton_Clicked"
+                       BackgroundColor="Transparent" 
+                       Source="hand_left.png"  Scale="0.3" Rotation="-15"
+                       RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.28}"
+                       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0.3}"/>
+                <ImageButton x:Name="bootsButton"
+                       Clicked="bootsButton_Clicked"      
+                       BackgroundColor="Transparent"
+                       Source="boots.png" 
+                       Scale="0.45"
+                       RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height, Factor=0.5}"
+                       RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width, Factor=0}"/>
+            </RelativeLayout>
         </ContentPage.Content>
     </ContentPage>
     <ContentPage Title="Backpack" IconImageSource="icon_feed.png">

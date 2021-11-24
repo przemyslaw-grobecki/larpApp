@@ -797,3 +797,8 @@ D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\an
 D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\androidx\proguard\1fc89c2d-402f-4711-ac43-03226f8a6553.txt
 D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\androidx\proguard\af8610a6-6e16-4435-bd58-940b211fb9af.txt
 D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\androidx\proguard\f71a74f1-56ff-414d-87bb-69bdc40affb4.cfg
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\res\drawable\armor.png
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\res\drawable\boots.png
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\res\drawable\hand_left.png
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\res\drawable\hand_right.png
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry.Android\obj\Debug\110\res\drawable\helmet.png

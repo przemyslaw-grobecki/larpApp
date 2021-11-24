@@ -16,5 +16,30 @@ namespace RealmTry.Views
         {
             InitializeComponent();
         }
+
+        private void armorButton_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void helmetButton_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void hand_rightButton_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void hand_leftButton_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bootsButton_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }
