@@ -114,7 +114,8 @@ namespace RealmTry.ViewModels
             RefreshClues();
         }
 
-        //public ObservableCollection<ItemRewardViewModel> Rewards { get; set; }
+
+
         private string eventId;
         public string EventId
         {

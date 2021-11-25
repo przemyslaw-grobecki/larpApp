@@ -13,6 +13,7 @@ namespace RealmTry.ViewModels
     class EventCreationConfirmationPopupViewModel : BaseViewModel
     {
         private string eventTitle;
+        private Factories.ItemEquipableFactory itemEquipableFactory;
         public string EventTitle { get => eventTitle; set => SetProperty(ref eventTitle, value); }
         private Polygon polygon;
         public Polygon Polygon { get; set; }
@@ -120,6 +121,39 @@ namespace RealmTry.ViewModels
                             Longtitude = position.Longitude
                         });
                     }
+
+                    //Create reward
+
+                    itemEquipableFactory = new Factories.ItemEquipableFactory();
+                    ItemEquipableViewModel newRewardModel = itemEquipableFactory.ProduceRandom();
+
+                    //Models.
+
+
+                    Models.Reward newReward = new Models.Reward
+                    {
+                        Id = RealmDB.GetUniqueKey(8),
+                        EventId = newlyCreatedEventId,
+                        _partitionKey = "_partitionKey",
+                        Equipable = new Models.Equipable
+                        {
+                            Name = newRewardModel.Name,
+                            Rarity =newRewardModel.Rarity,
+                            ImageUrl = newRewardModel.ImageUrl,
+                            Type = newRewardModel.Type
+                        }
+                    };
+
+                    foreach(ItemStatBonusViewModel statBonusViewModel in newRewardModel.StatBonuses)
+                    {
+                        newReward.Equipable.StatBonuses.Add(new Models.StatBonus 
+                        {
+                            Stat = statBonusViewModel.Stat,
+                            Increase = statBonusViewModel.Increase
+                        });
+                    }
+                    //Create reward
+
                     try
                     {
                         realm.Write(() =>
@@ -127,7 +161,20 @@ namespace RealmTry.ViewModels
                             realm.Add(newlyCreatedEvent);
                         });
                     }
+
                     catch(Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                    try
+                    {
+                        realm.Write(() =>
+                        {
+                            realm.Add(newReward);
+                        });
+                    }
+
+                    catch (Exception ex)
                     {
                         Console.WriteLine(ex.Message);
                     }
