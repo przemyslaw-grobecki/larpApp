@@ -95,6 +95,30 @@ namespace RealmTry.ViewModels
                                 }
                             }
                         }
+                        else if (Result.Text.Contains("EVENT "))
+                        {
+                            string evId = Result.Text.Split(' ')[1];
+                            using (var realm = await Realm.GetInstanceAsync(RealmDB.Configuration))
+                            {
+                                var ev = realm.All<Models.Event>().Where(t => t.Id == evId).FirstOrDefault();
+                                if(ev.Participants.Contains(RealmDB.CurrentlyLoggedUserId))
+                                {
+                                    await Shell.Current.DisplayAlert("Failure", "You are aldready enrolled on this event.", "Ok");
+                                }
+                                else if(ev.MaxParticipantsCount == ev.Participants.Count)
+                                {
+                                    await Shell.Current.DisplayAlert("Failure", "Max participants number reached.", "Ok");
+                                }
+                                else
+                                {
+                                    realm.Write(() => {
+                                        ev.Participants.Add(RealmDB.CurrentlyLoggedUserId);
+                                    });
+                                    await Shell.Current.DisplayAlert("Success", "Congratulations! You have successfully enrolled on private event!", "Ok");
+                                }
+                            }
+                            isScanning = false;
+                        }
                         else
                         {
                             await Shell.Current.DisplayAlert("Not a clue.", "Sorry, the code You are trying to decipher is not a valid Clue.", "Ok");

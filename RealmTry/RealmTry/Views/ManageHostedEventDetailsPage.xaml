@@ -23,6 +23,35 @@
                             <GradientStop Color="LightBlue" Offset="1.0"/>
                         </RadialGradientBrush>
                     </Frame.Background>
+                    <StackLayout Padding="20,20,20,20"
+                                 Spacing="20">
+                        <Label Text="Event Panel" 
+                               TextColor="Black"
+                               FontSize="Large" 
+                               HorizontalOptions="Center"/>
+                        <Label Text="{Binding EventStatus.Information}" 
+                               TextColor="Gray" 
+                               HorizontalOptions="Center"
+                               FontSize="Large"/>
+                        <Button x:Name="ChangeEventStateButton" 
+                                BackgroundColor="CornflowerBlue"
+                                HorizontalOptions="Center"
+                                Text="Change Event Status"
+                                TextColor="Black"
+                                Command="{Binding ChangeEventStateCommand}"/>
+                    </StackLayout>
+                </Frame>
+                <Frame BorderColor="White"
+                       CornerRadius="50"
+                       MinimumHeightRequest="200"
+                       Padding="10"
+                       HasShadow="True">
+                    <Frame.Background>
+                        <RadialGradientBrush Center="0.5,0.5" >
+                            <GradientStop Color="White" Offset="0.1"/>
+                            <GradientStop Color="LightBlue" Offset="1.0"/>
+                        </RadialGradientBrush>
+                    </Frame.Background>
                     <StackLayout>
                         <Label Text="Participants"
                             FontSize="Large"
@@ -127,7 +156,7 @@
                                   SeparatorVisibility="Default"
                                   SeparatorColor="Black"
                                   Margin="10"
-                                  HeightRequest="300"
+                                  HeightRequest="200"
                                   SelectionMode="None"
                                   ItemTapped="cluesList_ItemTapped">
                             <ListView.ItemTemplate>
@@ -181,11 +210,18 @@
                             <GradientStop Color="LightBlue" Offset="1.0"/>
                         </RadialGradientBrush>
                     </Frame.Background>
-                    <Label Text="Rewards"
+                    <StackLayout>
+                        <Label Text="Rewards"
                        FontSize="Large"
                        TextColor="Black"
                        VerticalOptions="CenterAndExpand" 
                        HorizontalOptions="CenterAndExpand"/>
+                        <StackLayout Orientation="Vertical">
+                            <Image Source="{Binding Reward.ImageUrl}" HorizontalOptions="Center" Scale="8" HeightRequest="100"/>
+                            <Label Text="{Binding Reward.Name}" TextColor="{Binding Reward.Rarity}" FontSize="Medium" HorizontalTextAlignment="Center" HorizontalOptions="Center" BackgroundColor="#1f000000"/>
+                            <Label Text="{Binding Reward.Type}" TextColor="Gray" FontSize="Small" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </StackLayout>
                 </Frame>
                 <Frame BorderColor="White"
                        CornerRadius="50"
@@ -204,7 +240,7 @@
                            TextColor="Black"
                            VerticalOptions="CenterAndExpand" 
                            HorizontalOptions="CenterAndExpand"/>
-                        <zxing:ZXingBarcodeImageView BarcodeValue="{Binding EventId}" 
+                        <zxing:ZXingBarcodeImageView BarcodeValue="{Binding EnhancedEventId}" 
                                                  WidthRequest="500" 
                                                  HeightRequest="500">
                             <zxing:ZXingBarcodeImageView.BarcodeOptions>

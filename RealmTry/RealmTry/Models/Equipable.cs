@@ -5,7 +5,7 @@ using System.Text;
 
 namespace RealmTry.Models
 {
-    class Equipable : EmbeddedObject
+    public class Equipable : EmbeddedObject
     {
         [MapTo("name")]
         public string Name { get; set; }

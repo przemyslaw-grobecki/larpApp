@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RealmTry.ViewModels
 {
-    class ItemHostedEventParticipantViewModel : BaseViewModel
+    public class ItemHostedEventParticipantViewModel : BaseViewModel
     {
         public string ParticipantId { get; set; }
         public string ParticipantCharacterName { get; set; }

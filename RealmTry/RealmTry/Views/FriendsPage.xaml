@@ -10,33 +10,51 @@
     </TabbedPage.BindingContext>
 
     <ContentPage Title="Friend List">
-        <AbsoluteLayout>
+
+        <Frame>
+            <Frame.Background>
+                <RadialGradientBrush Center="0.5,0.5" >
+                    <GradientStop Color="White" Offset="0.1"/>
+                    <GradientStop Color="LightBlue" Offset="1.0"/>
+                </RadialGradientBrush>
+            </Frame.Background>
             <ListView IsPullToRefreshEnabled="True"
                       ItemsSource="{Binding Friends}"
                       RefreshCommand="{Binding RefreshFriendsCommand}"
                       IsRefreshing="{Binding IsRefreshing}"
+                      SeparatorColor="Black"
                       >
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="viewmodels:ItemFriendViewModel">
                         <ViewCell>
                             <StackLayout Orientation="Horizontal">
-                                <Label Text="{Binding UserId}"
-                                       TextColor="Black"/>
                                 <Label Text="{Binding CharacterName}"
-                                       TextColor="Black"/>
+                                           FontSize="Medium"
+                                           TextColor="Black"/>
                                 <Label Text="{Binding CharacterSurname}"
-                                       TextColor="Black"/>
+                                           TextColor="Black"
+                                       FontSize="Medium"/>
                                 <Label Text="{Binding CharacterProffesion}"
-                                       TextColor="Black"/>
+                                       TextColor="DarkBlue"
+                                       FontSize="Medium"/>
+                                <Label Text="{Binding UserId}"
+                                       TextColor="Gray"
+                                       FontSize="Medium"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </AbsoluteLayout>
+        </Frame>
     </ContentPage>
 
     <ContentPage Title="Waiting for acceptation">
+        <ContentPage.Background>
+            <RadialGradientBrush Center="0.5,0.5" >
+                <GradientStop Color="White" Offset="0.1"/>
+                <GradientStop Color="LightBlue" Offset="1.0"/>
+            </RadialGradientBrush>
+        </ContentPage.Background>
         <AbsoluteLayout>
             <StackLayout Orientation="Horizontal" BackgroundColor="AliceBlue">
                 <Label Text="Id" TextColor="Black"/>
@@ -109,20 +127,32 @@
     </ContentPage>
 
     <ContentPage Title="Add friend requests">
+        <ContentPage.Background>
+            <RadialGradientBrush Center="0.5,0.5" >
+                <GradientStop Color="White" Offset="0.1"/>
+                <GradientStop Color="LightBlue" Offset="1.0"/>
+            </RadialGradientBrush>
+        </ContentPage.Background>
         <AbsoluteLayout>
             <ListView IsPullToRefreshEnabled="True"
                       ItemsSource="{Binding Requests}"
                       RefreshCommand="{Binding RefreshRequestsCommand}"
                       IsRefreshing="{Binding IsRefreshing}"
-                      >
+                      SeparatorColor="Black"
+                      HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="viewmodels:ItemFriendRequestViewModel">
                         <ViewCell>
-                            <StackLayout Orientation="Horizontal">
+                            <StackLayout Orientation="Horizontal"
+                                         Spacing="20"
+                                         Padding="20,20,20,20">
                                 <Label Text="{Binding Id}"
+                                       FontSize="Large"
                                        TextColor="Black"/>
                                 <Label Text="{Binding Status}"
-                                       TextColor="Black"/>
+                                       FontSize="Large"
+                                       HorizontalOptions="EndAndExpand"
+                                       TextColor="DarkBlue"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace RealmTry.Models
 {
-    class StatBonus : EmbeddedObject
+    public class StatBonus : EmbeddedObject
     {
         [MapTo("stat")]
         public string Stat { get; set; }

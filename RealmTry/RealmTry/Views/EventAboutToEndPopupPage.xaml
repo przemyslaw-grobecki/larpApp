@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xct:Popup  xmlns:xct="http://xamarin.com/schemas/2020/toolkit" 
+            xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+            xmlns:viewmodels="clr-namespace:RealmTry.ViewModels" 
+            x:DataType="viewmodels:EventAboutToEndPopupViewModel"
+            x:Class="RealmTry.Views.EventAboutToEndPopupPage"
+            Size="300,400">
+
+    <Frame>
+        <Frame.Background>
+            <RadialGradientBrush Center="0.5,0.5" >
+                <GradientStop Color="White" Offset="0.1"/>
+                <GradientStop Color="LightBlue" Offset="1.0"/>
+            </RadialGradientBrush>
+        </Frame.Background>
+        <StackLayout Padding="20,20,20,20" Spacing="20">
+            <Label Text="Choose a participant, that will aquire the reward:"
+                       FontSize="Large"
+                       TextColor="Black"
+                       VerticalOptions="CenterAndExpand" 
+                       HorizontalOptions="CenterAndExpand" />
+            <ListView x:Name="participants" 
+                                  IsPullToRefreshEnabled="True"                         
+                                  ItemsSource="{Binding Participants}"
+                                  RefreshCommand="{Binding RefreshParticipantsCommand}"
+                                  IsRefreshing="{Binding IsRefreshingParticipants}"
+                                  CachingStrategy="RecycleElement"
+                                  HasUnevenRows="True"
+                                  BackgroundColor="Transparent"
+                                  SeparatorVisibility="Default"
+                                  SeparatorColor="Black"
+                                  Margin="10"
+                                  HeightRequest="300"
+                                  SelectionMode="None"
+                                  ItemTapped="participants_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="30*"/>
+                                    <RowDefinition Height="30"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="60"/>
+                                    <ColumnDefinition Width="50*"/>
+                                    <ColumnDefinition Width="60"/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="fajka_accept.png" 
+                                                       x:DataType="viewmodels:ItemHostedEventParticipantViewModel" 
+                                                       IsVisible="{Binding IsParticipantReady}"
+                                                       Grid.Row="0"
+                                                       Grid.RowSpan="3"
+                                                       Grid.Column="0"/>
+                                <Label x:DataType="viewmodels:ItemHostedEventParticipantViewModel"
+                                                    Grid.Row="0"
+                                                    Grid.Column="1"
+                                                    HorizontalOptions="Center"
+                                                    Text="{Binding ParticipantCharacterName}"
+                                                    FontSize="Subtitle"
+                                                    TextColor="#230909"
+                                                    BackgroundColor="Transparent"/>
+                                <Label x:DataType="viewmodels:ItemHostedEventParticipantViewModel"
+                                                    Grid.Row="1"
+                                                    Grid.Column="1"
+                                                    Text="{Binding ParticipantCharacterSurname}"
+                                                    TextColor="#480000"
+                                                    BackgroundColor="Transparent"
+                                                    VerticalOptions="Center"
+                                                    HorizontalOptions="Center"/>
+                                <Label Grid.Row="2"
+                                                    Grid.Column="1"
+                                                    x:DataType="viewmodels:ItemHostedEventParticipantViewModel"
+                                                    Text="{Binding ParticipantId}"
+                                                    BackgroundColor="Transparent"
+                                                    HorizontalOptions="Center"
+                                                    TextColor="Gray"/>
+                                <Image Grid.Column="2"
+                                                    Grid.Row="0"
+                                                    Grid.RowSpan="3"
+                                                    x:DataType="viewmodels:ItemHostedEventParticipantViewModel"
+                                                    BackgroundColor="Transparent"
+                                                    Source="{Binding ParticipantPortraitUrl}"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </Frame>
+</xct:Popup>

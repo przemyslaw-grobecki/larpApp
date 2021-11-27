@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RealmTry.Views.InventoryPage">
-  <!--Pages can be added as references or inline-->
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:viewmodels="clr-namespace:RealmTry.ViewModels" x:DataType="viewmodels:InventoryViewModel"
+            x:Class="RealmTry.Views.InventoryPage">
+    <!--Pages can be added as references or inline-->
     <ContentPage Title="Equipment" IconImageSource="icon_feed.png">
         <ContentPage.Content>
             <RelativeLayout>
@@ -44,10 +44,60 @@
     <ContentPage Title="Backpack" IconImageSource="icon_feed.png">
         <ContentPage.Content>
             <StackLayout>
-                <Label Text="Backpack Implemented Here"
-                       TextColor="Black"
-                       VerticalOptions="CenterAndExpand" 
-                       HorizontalOptions="CenterAndExpand" />
+                <ListView x:Name="equipablesList" 
+                          IsPullToRefreshEnabled="True"                         
+                          ItemsSource="{Binding Equipables}"
+                          RefreshCommand="{Binding RefreshEquipablesCommand}"
+                          IsRefreshing="{Binding IsRefreshingEquipables}"
+                          CachingStrategy="RecycleElement"
+                          HasUnevenRows="True"
+                          BackgroundColor="Transparent"
+                          SeparatorVisibility="Default"
+                          SeparatorColor="Black"
+                          Margin="10"
+                          HeightRequest="300"
+                          SelectionMode="None"
+                          ItemTapped="equipablesList_ItemTapped">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="30"/>
+                                        <RowDefinition Height="30*"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="60"/>
+                                        <ColumnDefinition Width="50*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Label x:DataType="viewmodels:ItemEquipableViewModel"
+                                                Grid.Row="0"
+                                                Grid.Column="1"
+                                                HorizontalOptions="Center"
+                                                Text="{Binding Name}"
+                                                FontSize="Subtitle"
+                                                TextColor="{Binding Rarity}"
+                                                BackgroundColor="Transparent"/>
+                                    <Label x:DataType="viewmodels:ItemEquipableViewModel"
+                                                Grid.Row="1"
+                                                Grid.Column="1"
+                                                Text="{Binding Type}"
+                                                TextColor="#480000"
+                                                BackgroundColor="Transparent"
+                                                VerticalOptions="Center"
+                                                HorizontalOptions="Center"/>
+                                    <Image Grid.Column="0"
+                                                Grid.Row="0"
+                                                Grid.RowSpan="2"
+                                                x:DataType="viewmodels:ItemEquipableViewModel"
+                                                BackgroundColor="Transparent"
+                                                Source="{Binding ImageUrl}"
+                                                Scale="1"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </StackLayout>
         </ContentPage.Content>
     </ContentPage>

@@ -121,7 +121,7 @@ namespace RealmTry.Factories
             List<string> values;
             List<string> keys;
 
-            int armorPartChosen = random.Next(4);
+            int armorPartChosen = random.Next(5);
             switch (armorPartChosen)
             {
                 case 0:
@@ -142,7 +142,12 @@ namespace RealmTry.Factories
                 case 3:
                     keys = new List<string>(FirstWordsForHandGear.Keys);
                     values = new List<string>(FirstWordsForHandGear.Values);
-                    itemType = "WEAPON";
+                    itemType = "LEFTHAND";
+                    break;
+                case 4:
+                    keys = new List<string>(FirstWordsForHandGear.Keys);
+                    values = new List<string>(FirstWordsForHandGear.Values);
+                    itemType = "RIGHTHAND";
                     break;
                 default:
                     keys = new List<string>(FirstWordsForHandGear.Keys);

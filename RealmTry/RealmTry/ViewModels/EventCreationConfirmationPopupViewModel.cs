@@ -153,6 +153,15 @@ namespace RealmTry.ViewModels
                         });
                     }
                     //Create reward
+                    //Create event status
+                    Models.EventStatus newEventStatus = new Models.EventStatus
+                    {
+                        Id = RealmDB.GetUniqueKey(8),
+                        EventId = newlyCreatedEventId,
+                        _partitionKey = "_partitionKey",
+                        Information = "Not Started"
+                    };
+                    //Create event status
 
                     try
                     {
@@ -171,6 +180,18 @@ namespace RealmTry.ViewModels
                         realm.Write(() =>
                         {
                             realm.Add(newReward);
+                        });
+                    }
+
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                    try
+                    {
+                        realm.Write(() =>
+                        {
+                            realm.Add(newEventStatus);
                         });
                     }
 

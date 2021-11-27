@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RealmTry.ViewModels
 {
-    class ItemStatBonusViewModel : BaseViewModel
+    public class ItemStatBonusViewModel : BaseViewModel
     {
         private string stat;
         public string Stat { get => stat; set => SetProperty(ref stat, value); }

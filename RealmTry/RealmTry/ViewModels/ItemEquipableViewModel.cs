@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RealmTry.ViewModels
 {
-    class ItemEquipableViewModel : BaseViewModel
+    public class ItemEquipableViewModel : BaseViewModel
     {
         private string name;
         public string Name { get => name; set => SetProperty(ref name, value); }
@@ -16,6 +16,17 @@ namespace RealmTry.ViewModels
         public string Type { get => type; set => SetProperty(ref type, value); }
         private List<ItemStatBonusViewModel> statBonuses;
         public List<ItemStatBonusViewModel> StatBonuses { get => statBonuses; set => SetProperty(ref statBonuses, value); }
+        public void CreateItemEquipableViewModel(Models.Equipable equipable)
+        {
+            name = equipable.Name;
+            rarity = equipable.Rarity;
+            type = equipable.Type;
+            imageUrl = equipable.ImageUrl;
+            foreach(Models.StatBonus statBonus in equipable.StatBonuses)
+            {
+                statBonuses.Add(new ItemStatBonusViewModel { Stat = statBonus.Stat, Increase = statBonus.Increase });
+            }
+        }
         
     }
 }
