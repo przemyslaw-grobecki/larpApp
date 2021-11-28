@@ -18,7 +18,7 @@
             <CarouselView ItemsSource="{Binding ProffesionList}"
                       Margin="10"
                       IndicatorView="IndicatorView"
-                          HeightRequest="300">
+                          HeightRequest="400">
                 <CarouselView.ItemTemplate>
                     <DataTemplate>
                         <Frame BackgroundColor="AntiqueWhite" 
@@ -51,7 +51,7 @@
                                            Aspect="AspectFit"/>
                                     </Frame>
                                     <Label Text="{Binding Name}"
-                                           TextColor="Black"
+                                           TextColor="White"
                                            FontSize="Large"
                                            FontFamily="FFF_Tusj.ttf"
                                            VerticalOptions="Center"

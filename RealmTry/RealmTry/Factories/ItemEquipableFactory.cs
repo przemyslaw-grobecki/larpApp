@@ -81,7 +81,6 @@ namespace RealmTry.Factories
             "Incomplete",
             "Non-differentiable",
             "Ugly",
-            "#!@$",
             "Handsome",
             "Nice",
             "Happy",

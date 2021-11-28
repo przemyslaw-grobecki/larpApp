@@ -9,7 +9,8 @@
     <ContentPage.Content Title="World Map">
         <AbsoluteLayout>
 
-            <maps:Map AbsoluteLayout.LayoutBounds="0,0,410,755" 
+            <maps:Map AbsoluteLayout.LayoutFlags="All"
+                      AbsoluteLayout.LayoutBounds="0,0,1,1" 
                       x:Name="map" IsShowingUser="True"
                       MapClicked="map_MapClicked"
                       >
