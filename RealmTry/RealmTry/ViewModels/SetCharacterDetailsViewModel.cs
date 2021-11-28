@@ -54,6 +54,15 @@ namespace RealmTry.ViewModels
                     character.CharacterSurname = CharacterSurname;
                     character.CharacterPortraitUrl = portraitUrl;
                 });
+                Inventory inventory = new Inventory
+                {
+                    Id = RealmDB.GetUniqueKey(8),
+                    UserId = RealmDB.CurrentlyLoggedUserId,
+                    _partitionKey ="_partitionKey"
+                };
+                realm.Write(()=> {
+                    realm.Add(inventory);
+                });
             }
             await Shell.Current.GoToAsync(nameof(MainPage));
         }

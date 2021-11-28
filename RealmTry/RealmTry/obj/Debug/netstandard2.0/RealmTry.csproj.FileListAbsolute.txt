@@ -22,7 +22,6 @@ D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry\obj\Debug\netstandard2.0
 D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry\obj\Debug\netstandard2.0\Views\ChatPage.xaml.g.cs
 D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry\obj\Debug\netstandard2.0\Views\ChatPageDetails.xaml.g.cs
 D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry\obj\Debug\netstandard2.0\Views\FriendsPage.xaml.g.cs
-D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry\obj\Debug\netstandard2.0\RealmTry.csproj.AssemblyReference.cache
 D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry\obj\Debug\netstandard2.0\Views\AddFriendsPopupPage.xaml.g.cs
 D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry\obj\Debug\netstandard2.0\Views\AddChatPopupPage.xaml.g.cs
 D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry\obj\Debug\netstandard2.0\Views\EventCreationConfirmationPopupPage.xaml.g.cs
@@ -39,3 +38,5 @@ D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry\obj\Debug\netstandard2.0
 D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry\obj\Debug\netstandard2.0\Views\ClueScanWithDiceRollPopupPage.xaml.g.cs
 D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry\obj\Debug\netstandard2.0\Views\ClueScanWithRequirementPopupPage.xaml.g.cs
 D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry\obj\Debug\netstandard2.0\Views\ClueScanPopupPage.xaml.g.cs
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry\obj\Debug\netstandard2.0\Views\EventAboutToEndPopupPage.xaml.g.cs
+D:\Thesis\LarpApp\playground\RealmTry\RealmTry\RealmTry\obj\Debug\netstandard2.0\Views\EventAboutToStartPopupPage.xaml.g.cs

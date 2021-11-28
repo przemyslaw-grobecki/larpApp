@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xct:Popup  xmlns:xct="http://xamarin.com/schemas/2020/toolkit" xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RealmTry.Views.EventAboutToStartPopupPage"
+            Size="300,600">
+
+    <Frame>
+        <Frame.Background>
+            <RadialGradientBrush Center="0.5,0.5" >
+                <GradientStop Color="White" Offset="0.1"/>
+                <GradientStop Color="LightBlue" Offset="1.0"/>
+            </RadialGradientBrush>
+        </Frame.Background>
+        <StackLayout Padding="20,20,20,20" Spacing="20">
+            <Label Text="WAITING FOR PLAYERS TO BE READY"
+                   TextColor="Black"
+                   FontSize="Large"
+                   VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand" />
+            <Label Text="Upon clicking the button You will receive a notification for each ready indyvidual in your event. It is for You to decide whether to start an event or wait for all of Them."
+                   TextColor="Gray"
+                   FontSize="Medium"
+                   VerticalOptions="CenterAndExpand" 
+                   HorizontalOptions="CenterAndExpand"/>
+            <Button x:Name="ReadyCheck" 
+                    Text="Ready Check"
+                    Clicked="ReadyCheck_Clicked"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand"/>
+            <Button x:Name="StartEvent" 
+                    Text="Start Event" 
+                    IsVisible="False"
+                    Clicked="StartEvent_Clicked"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand"/>
+        </StackLayout>
+    </Frame>
+</xct:Popup>

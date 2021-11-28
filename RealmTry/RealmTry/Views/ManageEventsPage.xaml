@@ -10,7 +10,14 @@
     </TabbedPage.BindingContext>
 
     <ContentPage Title="Hosted Events" IconImageSource="icon_feed.png">
-        <ListView   ItemsSource="{Binding HostedEvents}"  
+        <Frame>
+            <Frame.Background>
+                <RadialGradientBrush Center="0.5,0.5" >
+                    <GradientStop Color="White" Offset="0.1"/>
+                    <GradientStop Color="LightBlue" Offset="1.0"/>
+                </RadialGradientBrush>
+            </Frame.Background>
+            <ListView   ItemsSource="{Binding HostedEvents}"  
                     RefreshCommand="{Binding RefreshHostedEventsCommand}"
                     IsRefreshing="{Binding IsRefreshingHostedEvents}"
                     x:Name="HostedEvents"
@@ -19,43 +26,51 @@
                     RowHeight="100"
                     IsPullToRefreshEnabled="True"
                     >
-            <ListView.ItemTemplate>
-                <DataTemplate >
-                    <ViewCell>
-                        <Grid x:Name="Item">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="70*"/>
-                                <ColumnDefinition Width="100"/>
-                                <ColumnDefinition Width="100"/>
-                            </Grid.ColumnDefinitions>
-                            <Label  Grid.Column="0"
+                <ListView.ItemTemplate>
+                    <DataTemplate >
+                        <ViewCell>
+                            <Grid x:Name="Item">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="70*"/>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="100"/>
+                                </Grid.ColumnDefinitions>
+                                <Label  Grid.Column="0"
                                     Text="{Binding Title}"
                                     x:DataType="viewmodels:ItemEventViewModel"
                                     TextColor="Black"
                                     FontSize="Medium"
                                     HorizontalOptions="CenterAndExpand"/>
-                            <Button Grid.Column="1"
+                                <Button Grid.Column="1"
                                     BackgroundColor="Blue" 
                                     Text="Manage"
                                     TextColor="White"
                                     BindingContext="{Binding Source={x:Reference HostedEvents}, Path=BindingContext}"
                                     Command="{Binding ManageHostedEventButtonCommand}"
                                     CommandParameter="{Binding Source={x:Reference Item}, Path=BindingContext}"/>
-                            <Button Grid.Column="2"
+                                <Button Grid.Column="2"
                                     BackgroundColor="Red" 
                                     Text="Abondom"
                                     TextColor="White"
                                     BindingContext="{Binding Source={x:Reference HostedEvents}, Path=BindingContext}"
                                     Command="{Binding AbondomHostedEventButtonCommand}"
                                     CommandParameter="{Binding Source={x:Reference Item}, Path=BindingContext}"/>
-                        </Grid>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Frame>
     </ContentPage>
     <ContentPage Title="Events enrolled on" IconImageSource="icon_feed.png">
-        <ListView   ItemsSource="{Binding EventsEnrolledOn}"  
+        <Frame>
+            <Frame.Background>
+                <RadialGradientBrush Center="0.5,0.5" >
+                    <GradientStop Color="White" Offset="0.1"/>
+                    <GradientStop Color="LightBlue" Offset="1.0"/>
+                </RadialGradientBrush>
+            </Frame.Background>
+            <ListView   ItemsSource="{Binding EventsEnrolledOn}"  
                     RefreshCommand="{Binding RefreshEventsEnrolledOnCommand}"
                     IsRefreshing="{Binding IsRefreshingEventsEnrolledOn}"
                     x:Name="EventsEnrolledOn"
@@ -64,39 +79,41 @@
                     RowHeight="100"
                     IsPullToRefreshEnabled="True"
                     >
-            <ListView.ItemTemplate>
-                <DataTemplate >
-                    <ViewCell>
-                        <Grid x:Name="Item">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="70*"/>
-                                <ColumnDefinition Width="100"/>
-                                <ColumnDefinition Width="100"/>
-                            </Grid.ColumnDefinitions>
-                            <Label  Grid.Column="0"
+                <ListView.ItemTemplate>
+                    <DataTemplate >
+                        <ViewCell>
+                            <Grid x:Name="Item">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="70*"/>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="100"/>
+                                </Grid.ColumnDefinitions>
+                                <Label  Grid.Column="0"
                                     Text="{Binding Title}"
                                     x:DataType="viewmodels:ItemEventViewModel"
                                     TextColor="Black"
                                     FontSize="Medium"
                                     HorizontalOptions="CenterAndExpand"/>
-                            <Button Grid.Column="1"
+                                <Button Grid.Column="1"
                                     BackgroundColor="Blue" 
                                     Text="Manage"
                                     TextColor="White"
                                     BindingContext="{Binding Source={x:Reference EventsEnrolledOn}, Path=BindingContext}"
                                     Command="{Binding ManageEventEnrolledOnButtonCommand}"
                                     CommandParameter="{Binding Source={x:Reference Item}, Path=BindingContext}"/>
-                            <Button Grid.Column="2"
+                                <Button Grid.Column="2"
                                     BackgroundColor="Red" 
                                     Text="Leave"
                                     TextColor="White"
                                     BindingContext="{Binding Source={x:Reference EventsEnrolledOn}, Path=BindingContext}"
                                     Command="{Binding LeaveEventEnrolledOnButtonCommand}"
                                     CommandParameter="{Binding Source={x:Reference Item}, Path=BindingContext}"/>
-                        </Grid>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Frame>
+        
     </ContentPage>
 </TabbedPage>

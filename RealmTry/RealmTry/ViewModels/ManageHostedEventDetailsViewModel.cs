@@ -9,11 +9,28 @@ using System.Text;
 using Xamarin.Forms;
 using Xamarin.CommunityToolkit;
 using Xamarin.CommunityToolkit.Extensions;
+using RealmTry.Views;
 
 namespace RealmTry.ViewModels
 {
     class ManageHostedEventDetailsViewModel : BaseViewModel
     {
+        public Command ChangeEventStateCommand { get; set; }
+        public async void ChangeEventState()
+        {
+            switch (eventStatus.Information)
+            {
+                case "Not Started":
+                    Shell.Current.ShowPopup(new EventAboutToStartPopupPage(eventStatus));
+                    break;
+                case "Started":
+                    Shell.Current.ShowPopup(new EventAboutToEndPopupPage(eventStatus, reward));
+                    break;
+                default:
+                    await Shell.Current.DisplayAlert("Something went wrong", "Sorry your event cannot change its state right now...", "Ok");
+                    break;
+            }
+        }
         public ObservableCollection<ItemHostedEventParticipantViewModel> Participants { get; set; }
         private bool isRefreshingParticipants = false;
         public bool IsRefreshingParticipants
@@ -114,16 +131,77 @@ namespace RealmTry.ViewModels
             RefreshClues();
         }
 
-        //public ObservableCollection<ItemRewardViewModel> Rewards { get; set; }
+        private ItemEquipableViewModel reward = new ItemEquipableViewModel()
+        {
+            Name = "",
+            Rarity = "#FFC800",
+            Type = "",
+            ImageUrl = "",
+            StatBonuses = new List<ItemStatBonusViewModel>() { new ItemStatBonusViewModel { Stat = "", Increase = "" } }
+        };
+        public ItemEquipableViewModel Reward
+        {
+            get => reward;
+            set => SetProperty(ref reward, value);
+        }
+        private async void RefreshReward()
+        {
+            using (var realm = await Realm.GetInstanceAsync(RealmDB.Configuration))
+            {
+                var evReward = realm.All<Models.Reward>().Where(t=>t.EventId == EventId).FirstOrDefault();
+                Reward = new ItemEquipableViewModel
+                {
+                    Name = evReward.Equipable.Name,
+                    ImageUrl = evReward.Equipable.ImageUrl,
+                    Rarity = evReward.Equipable.Rarity,
+                    Type = evReward.Equipable.Type,
+                    StatBonuses = new List<ItemStatBonusViewModel>()
+                };
+                foreach (Models.StatBonus statBonus in evReward.Equipable.StatBonuses)
+                {
+                    Reward.StatBonuses.Add(new ItemStatBonusViewModel { 
+                        Stat = statBonus.Stat,
+                        Increase = statBonus.Increase
+                    });
+                }
+            }
+        }
+
         private string eventId;
         public string EventId
         {
             get => eventId;
             set => SetProperty(ref eventId, value);
         }
+        public string EnhancedEventId
+        {
+            get => "EVENT " + eventId;
+        }
+        private ItemEventStatusViewModel eventStatus = new ItemEventStatusViewModel
+        {
+            EventId = "loading",
+            Id = "loading",
+            Information = "loading"
+        };
+        public ItemEventStatusViewModel EventStatus
+        {
+            get => eventStatus;
+            set => SetProperty(ref eventStatus, value);
+        }
+        public async void RefreshEventStatus()
+        {
+            using (var realm = await Realm.GetInstanceAsync(RealmDB.Configuration))
+            {
+                var myStatus = realm.All<Models.EventStatus>().Where(t => t.EventId == EventId).FirstOrDefault();
+                EventStatus.EventId = myStatus.EventId;
+                EventStatus.Id = myStatus.Id;
+                EventStatus.Information = myStatus.Information;
+            }
+        }
         public ManageHostedEventDetailsViewModel(string evId)
         {
             EventId = evId;
+            ChangeEventStateCommand = new Command(ChangeEventState);
 
             Participants = new ObservableCollection<ItemHostedEventParticipantViewModel>();
             RefreshParticipantsCommand = new Command(RefreshParticipants);
@@ -137,6 +215,8 @@ namespace RealmTry.ViewModels
             //Get the wheels spinning...
             RefreshParticipants();
             RefreshClues();
+            RefreshReward();
+            RefreshEventStatus();
         }
     }
 }

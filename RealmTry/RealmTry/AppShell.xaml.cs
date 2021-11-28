@@ -33,7 +33,7 @@ namespace RealmTry
 
         private void Help_Clicked(object sender, EventArgs e)
         {
-            Shell.Current.DisplayAlert("Help", "Help yourself punk!", "Ok");
+            Shell.Current.DisplayAlert("Help", "This application is meant for Role Players to organize and participate in their own events.", "Ok");
         }
         private async void Logout_Clicked(object sender, EventArgs e)
         {

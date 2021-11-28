@@ -5,15 +5,28 @@
              xmlns:viewmodels="clr-namespace:RealmTry.ViewModels" 
              x:DataType="viewmodels:AddFriendsPopupViewModel"
              x:Class="RealmTry.Views.AddFriendsPopupPage"
-             Size="300,200">
+             Size="300,300">
 
-    <StackLayout>
-        <Label Text="To befriend... send an invitation providing your comrade user id:"
-               TextColor="Black"/>
-        <Entry Text="{Binding AddedFriendId, Mode=TwoWay}" Placeholder="Id of the player you want to become friends with." 
+    <Frame>
+        <Frame.Background>
+            <RadialGradientBrush Center="0.5,0.5" >
+                <GradientStop Color="White" Offset="0.1"/>
+                <GradientStop Color="LightBlue" Offset="1.0"/>
+            </RadialGradientBrush>
+        </Frame.Background>
+        <StackLayout Padding="20,20,20,20" Spacing="20">
+            <Label Text="To befriend... send an invitation providing your comrade user id:"
+               TextColor="Black"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"/>
+            <Entry Text="{Binding AddedFriendId, Mode=TwoWay}" Placeholder="Id of the player you want to become friends with." 
                PlaceholderColor="Gray"
+                   HorizontalOptions="Center"
+                   HorizontalTextAlignment="Center"
                TextColor="Black"/>
-        <Button Text="Add to friend list" TextColor="Black" BackgroundColor="Wheat"
-                Command="{Binding SendBefriendingRequest}"/>
-    </StackLayout>
+            <Button Text="Add to friend list" TextColor="Black"
+                Command="{Binding SendBefriendingRequest}"
+                    HorizontalOptions="Center"/>
+        </StackLayout>
+    </Frame>
 </xct:Popup>

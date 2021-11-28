@@ -12,7 +12,7 @@ namespace RealmTry.Services
 {
     class PromptingService
     {
-        private int delay = 5000;
+        private int delay = 2000;
         private bool isServiceWorking = false;
         private List<ViewModels.ItemPromptViewModel> prompts = new List<ViewModels.ItemPromptViewModel>();
         private Task promptingManagement;
@@ -96,6 +96,38 @@ namespace RealmTry.Services
                 Console.WriteLine($"THIS IS THE BUG\n\n{ex.Message}\n{ex.InnerException.Message}\n\nTHIS IS THE BUG");
             }
         }
+        private async Task HandleReadyCheck(ViewModels.ItemPromptViewModel prompt)
+        {
+            Device.BeginInvokeOnMainThread(async () =>
+            {
+                string answer;
+                var result = await Shell.Current.DisplayAlert("Prompt!", $"Event creator ~{prompt.Sender}~, has asked You to perform a ready check. Are You indeed a READY person?", "Yes", "No");
+                if (result)
+                {
+                    answer = "Yes, I am ready.";
+                }
+                else
+                {
+                    answer = "No, I am not ready.";
+                }
+                using (var realm = await Realm.GetInstanceAsync(RealmDB.Configuration))
+                {
+                    Models.Prompt rePrompt = new Models.Prompt
+                    {
+                        Id = RealmDB.GetUniqueKey(8),
+                        Sender = RealmDB.CurrentlyLoggedUserId,
+                        Receiver = prompt.Sender,
+                        Status = "Waiting",
+                        TimeStamp = DateTime.Now.ToString(),
+                        Type = "PassInformation",
+                        Information = $"An event participant ~{RealmDB.CurrentlyLoggedUserId}~ has responded to your ready check request. His answer is: {answer}",
+                        _partitionKey = "_partitionKey"
+                    };
+                    realm.Write(() => { realm.Add(rePrompt); });
+                }
+                ChangePromptStatus(prompt, "Processed");
+            });
+        }
         private async void PromptingFSM()
         {
 
@@ -122,6 +154,9 @@ namespace RealmTry.Services
                         case "PassInformation":
                             await HandlePassInformation(prompt);
                             break;
+                        case "ReadyCheck":
+                            await HandleReadyCheck(prompt);
+                            break;
                         default:
                             ChangePromptStatus(prompt, "Failure");
                             break;
@@ -129,6 +164,8 @@ namespace RealmTry.Services
                 }
             }
         }
+
+
         public async void ServiceStart()
         {
             if (isServiceWorking == false) {
@@ -153,7 +190,7 @@ namespace RealmTry.Services
         }
         public PromptingService()
         {
-            this.delay = 5000;
+            this.delay = 2000;
         }
         public PromptingService(int delay)
         {

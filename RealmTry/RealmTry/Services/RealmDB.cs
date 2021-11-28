@@ -9,7 +9,7 @@ namespace RealmTry.Services
 {
     class RealmDB
     {
-        private static readonly string myRealmAppId = "";
+        private static readonly string myRealmAppId = "larpapp-wiqbj";
         private static Realms.Sync.App app;
         public static Realms.Sync.App App
         {

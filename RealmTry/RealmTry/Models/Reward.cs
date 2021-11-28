@@ -15,5 +15,10 @@ namespace RealmTry.Models
         [Required]
         [MapTo("_partitionKey")]
         public string _partitionKey { get; set; }
+        [Required]
+        [MapTo("eventId")]
+        public string EventId { get; set; }
+        [MapTo("equipable")]
+        public Equipable Equipable { get; set; }
     }
 }
